@@ -43,6 +43,8 @@ body {
 #about,
 #video,
 #prototype,
+#timeline,
+#releases,
 #documentation,
 #team {
   padding-top: 60px;
@@ -52,6 +54,8 @@ body {
 #about h3,
 #video h3,
 #prototype h3,
+#timeline h3,
+#releases h3,
 #documentation h3,
 #team h3 {
   font-size: 4em;
@@ -111,6 +115,12 @@ body {
 #team img {
   width: 100%;
   margin-bottom: 20px;
+}
+#timeline {
+  background: #F6F1E4;
+}
+#releases {
+  background: #85C1F5;
 }
 #documentation {
   background: #222222;
