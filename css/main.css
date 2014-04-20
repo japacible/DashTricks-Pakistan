@@ -119,6 +119,9 @@ body {
 #timeline {
   background: #F6F1E4;
 }
+#timeline span {
+  font-weight: bold;
+}
 #releases {
   background: #85C1F5;
 }
