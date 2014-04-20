@@ -8,15 +8,15 @@ body {
   border: 0;
 }
 .site-navbar a {
-  color: #ffffff;
+  color: #FFFFFF;
   text-transform: uppercase;
 }
 .site-navbar .current {
-  color: #ffffff;
+  color: #FFFFFF;
   background: #CA4E45; /*#3498db*/
 }
 .site-navbar li a.current:hover {
-  color: #ffffff;
+  color: #FFFFFF;
   background: #CA4E45;
 }
 .site-navbar li a:hover {
@@ -24,17 +24,17 @@ body {
   background: #222222;
 }
 .site-navbar li a:focus {
-  color: #ffffff;
+  color: #FFFFFF;
   background: #CA4E45;
 }
 .navbar-brand {
   padding-top: 0;
 }
 .navbar-toggle .icon-bar {
-  background: #ffffff;
+  background: #FFFFFF;
 }
 .navbar-toggle {
-  border: 1px solid #ffffff;
+  border: 1px solid #FFFFFF;
   border-radius: 0;
 }
 .site-main {
@@ -74,10 +74,6 @@ body {
   font-weight: 300;
   color: #444444;
 }
-#video {
-  background: #222222;
-  color: #ffffff;
-}
 #concept-video {
   text-align: center;
 }
@@ -85,8 +81,8 @@ body {
   text-align: center;
 }
 #prototype {
-  background: #CA4E45;
-  color: #ffffff;
+  background: #F5F5F5;
+  color: #444444;
 }
 #prototype img {
   width: 100%;
@@ -97,14 +93,6 @@ body {
   text-transform: uppercase;
   margin-bottom: 10px;
   text-align: center;
-}
-#prototype iframe {
-  visibility: visible;
-  width: 805px;
-  height: 605px;
-  min-width: 805px;
-  min-height: 605px;
-  -webkit-transform: scale(0.8450704225352113)
 }
 #team h4 {
   text-align: center;
@@ -117,22 +105,23 @@ body {
   margin-bottom: 20px;
 }
 #timeline {
-  background: #F6F1E4;
+  background: #CA4E45;
+  color: #FFFFFF;
 }
 #timeline span {
   font-weight: bold;
 }
 #releases {
-  background: #85C1F5;
+  background: #F5F5F5;
 }
 #documentation {
   background: #222222;
   font-size: 1.3em;
   font-weight: 300;
-  color: #ffffff;
+  color: #FFFFFF;
 }
 #documentation a {
-  color: #ffffff;
+  color: #FFFFFF;
 }
 #documentation a:hover {
   color: #CA4E45;
@@ -144,10 +133,10 @@ footer {
   text-align: center;
   font-size: 15px;
   padding-bottom: 80px;
-  color: #ffffff;
+  color: #FFFFFF;
 }
 footer a {
-  color: #ffffff;
+  color: #FFFFFF;
 }
 footer a:hover {
   color: #CA4E45;
@@ -158,23 +147,23 @@ footer a:hover {
   font-weight: bold;
 }
 #prototype span {
-  color: #ffffff;
+  color: #FFFFFF;
 }
 #prototype span a { 
-  color: #ffffff;
+  color: #FFFFFF;
 }
 #prototype span a:hover {
   text-decoration: none;
 }
 .nav-tabs {
-  color: #ffffff;
+  color: #FFFFFF;
   font-weight: none;
   text-decoration: none;
   font-size: 25px;
   padding-top: 30px;
 }
 .nav-tabs li a {
-  color: #ffffff;
+  color: #FFFFFF;
 }
 .nav-tabs li a:hover {
   color: #222222;
@@ -188,7 +177,7 @@ footer a:hover {
   color: #222222;
 }
 .tab-pane {
-  color: #ffffff;
+  color: #FFFFFF;
   font-size: 20px;
 }
 .tab-pane span {
