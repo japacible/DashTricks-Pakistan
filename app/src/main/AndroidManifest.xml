@@ -24,8 +24,29 @@
             android:name="com.dashtricks.pakistan.app.VisualizationActivity"
             android:label="@string/title_activity_visualization" >
         </activity>
+        <activity
+            android:name="com.dashtricks.pakistan.app.FeedbackActivity"
+            android:label="@string/title_activity_feedback" >
+        </activity>
+        <activity
+            android:name="com.dashtricks.pakistan.app.SelectScenarioActivity"
+            android:label="@string/title_activity_select_scenario" >
+        </activity>
+        <activity
+            android:name="com.dashtricks.pakistan.app.SelectImmunizationPlanActivity"
+            android:label="@string/title_activity_select_immunization_plan" >
+        </activity>
+        <activity
+            android:name="com.dashtricks.pakistan.app.CreateImmunizationPlanActivity"
+            android:label="@string/title_activity_create_immunization_plan" >
+        </activity>
+        <activity
+            android:name="com.dashtricks.pakistan.app.CreateScenarioActivity"
+            android:label="@string/title_activity_create_scenario" >
+        </activity>
     </application>
 
-    <!--Only for testing with internet. Not needed for releases.-->
+    <!-- Only for testing with internet. Not needed for releases. -->
     <uses-permission android:name="android.permission.INTERNET" />
+
 </manifest>
