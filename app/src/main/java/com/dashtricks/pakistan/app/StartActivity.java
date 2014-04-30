@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
+import android.content.Intent;
 
 public class StartActivity extends ActionBarActivity {
 
@@ -38,6 +39,29 @@ public class StartActivity extends ActionBarActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * Import file
+     */
+    public void importColdChainData(View view) {
+
+    }
+
+    /**
+     * Go to visualization flow
+     */
+    public void generateVisualization(View view) {
+        Intent i = new Intent(this, ScenarioCreationActivity.class);
+        startActivity(i);
+    }
+
+    /**
+     * Open settings view
+     */
+    public void viewSettings(View view) {
+        Intent i = new Intent(this, SettingsActivity.class);
+        startActivity(i);
     }
 
     /**

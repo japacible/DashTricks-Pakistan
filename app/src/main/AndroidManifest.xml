@@ -44,6 +44,14 @@
             android:name="com.dashtricks.pakistan.app.CreateScenarioActivity"
             android:label="@string/title_activity_create_scenario" >
         </activity>
+        <activity
+            android:name="com.dashtricks.pakistan.app.SettingsActivity"
+            android:label="@string/title_activity_settings" >
+        </activity>
+        <activity
+            android:name="com.dashtricks.pakistan.app.ScenarioCreationActivity"
+            android:label="@string/title_activity_scenario_creation" >
+        </activity>
     </application>
 
     <!-- Only for testing with internet. Not needed for releases. -->
