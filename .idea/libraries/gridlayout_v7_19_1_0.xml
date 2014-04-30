@@ -1,8 +1,13 @@
 <component name="libraryTable">
   <library name="gridlayout-v7-19.1.0">
     <CLASSES>
+<<<<<<< HEAD
       <root url="file://$PROJECT_DIR$/app/build/exploded-bundles/ComAndroidSupportGridlayoutV71910.aar/res" />
       <root url="jar://$PROJECT_DIR$/app/build/exploded-bundles/ComAndroidSupportGridlayoutV71910.aar/classes.jar!/" />
+=======
+      <root url="jar://$PROJECT_DIR$/app/build/exploded-bundles/ComAndroidSupportGridlayoutV71910.aar/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/app/build/exploded-bundles/ComAndroidSupportGridlayoutV71910.aar/res" />
+>>>>>>> dd174b4beb39d285bfe5a43675418d5d05f63204
     </CLASSES>
     <JAVADOC />
     <SOURCES />
