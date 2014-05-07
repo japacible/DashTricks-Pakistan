@@ -1,9 +1,11 @@
-package com.dashtricks.pakistan.app;
+package com.dashtricks.pakistan.app.activities;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.dashtricks.pakistan.app.R;
 
 public class SelectScenarioActivity extends ActionBarActivity {
 

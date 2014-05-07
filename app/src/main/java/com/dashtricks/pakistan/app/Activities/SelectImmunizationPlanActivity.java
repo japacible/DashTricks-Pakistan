@@ -1,16 +1,18 @@
-package com.dashtricks.pakistan.app;
+package com.dashtricks.pakistan.app.activities;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class FeedbackActivity extends ActionBarActivity {
+import com.dashtricks.pakistan.app.R;
+
+public class SelectImmunizationPlanActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_feedback);
+        setContentView(R.layout.activity_select_immunization_plan);
     }
 
 
@@ -18,7 +20,7 @@ public class FeedbackActivity extends ActionBarActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.feedback, menu);
+        getMenuInflater().inflate(R.menu.select_immunization_plan, menu);
         return true;
     }
 

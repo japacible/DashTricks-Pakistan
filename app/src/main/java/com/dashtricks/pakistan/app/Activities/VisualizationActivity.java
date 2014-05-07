@@ -1,10 +1,12 @@
-package com.dashtricks.pakistan.app;
+package com.dashtricks.pakistan.app.activities;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
+
+import com.dashtricks.pakistan.app.R;
 
 public class VisualizationActivity extends ActionBarActivity {
 
