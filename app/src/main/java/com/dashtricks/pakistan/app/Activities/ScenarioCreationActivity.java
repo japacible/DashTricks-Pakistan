@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.NumberPicker;
 
 import com.dashtricks.pakistan.app.R;
 
@@ -15,6 +16,11 @@ public class ScenarioCreationActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scenario_creation);
+
+        NumberPicker np = (NumberPicker) findViewById(R.id.numberPicker);
+        np.setMaxValue(100);    //set maximum val
+        np.setMinValue(1);      //set minimum val
+        np.setValue(1);         //set Initial val
     }
 
     @Override
