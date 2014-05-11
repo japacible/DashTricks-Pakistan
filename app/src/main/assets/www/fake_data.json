@@ -1,0 +1,206 @@
+{
+  "facilities": [
+    {
+      "facility_name": "Punjab Main",
+      "facility_id": "1000-1000",
+      "latitude": 29.22,
+      "longitude": 68.74,
+      "current_capacity": 25,
+      "required_capacity": 40,
+      "power_sources": [
+        "electricity",
+        "gas",
+        "kerosene"
+      ]
+    },
+    {
+      "facility_name": "Kashmir Quarter",
+      "facility_id": "1000-1020",
+      "latitude": 31.11,
+      "longitude": 71.27,
+      "current_capacity": 29,
+      "required_capacity": 10,
+      "power_sources": [
+        "electricity",
+        "kerosene"
+      ]
+    },
+    {
+      "facility_name": "Salman Clinic",
+      "facility_id": "1024-0768",
+      "latitude": 29.18,
+      "longitude": 66.17,
+      "current_capacity": 29,
+      "required_capacity": 31,
+      "power_sources": [
+        "electricity",
+        "gas"
+      ]
+    },
+    {
+      "facility_name": "Zelazny Buddhist Hospital",
+      "facility_id": "1001-0666",
+      "latitude": 30.49,
+      "longitude": 70.58,
+      "current_capacity": 66,
+      "required_capacity": 132,
+      "power_sources": [
+        "electricity"
+      ]
+    },
+    {
+      "facility_name": "Sabbra Clinic",
+      "facility_id": "1011-0006",
+      "latitude": 27.97,
+      "longitude": 64.99,
+      "current_capacity": 45,
+      "required_capacity": 20,
+      "power_sources": [
+        "electricity",
+        "gas",
+        "kerosene"
+      ]
+    },
+    {
+      "facility_name": "Roshar District Vaccine Store",
+      "facility_id": "1007-0032",
+      "latitude": 32.12,
+      "longitude": 70.53,
+      "current_capacity": 10,
+      "required_capacity": 206,
+      "power_sources": [
+        "kerosene"
+      ]
+    },
+    {
+      "facility_name": "Kokila Vaccine Store",
+      "facility_id": "1019-0057",
+      "latitude": 27.5,
+      "longitude": 66.66,
+      "current_capacity": 28,
+      "required_capacity": 121,
+      "power_sources": [
+        "gas",
+        "kerosene"
+      ]
+    },
+    {
+      "facility_name": "Iwang Regional Hospital",
+      "facility_id": "1002-0003",
+      "latitude": 28.25,
+      "longitude": 71.21,
+      "current_capacity": 200,
+      "required_capacity": 15,
+      "power_sources": [
+        "electricity",
+        "kerosene"
+      ]
+    },
+    {
+      "facility_name": "Turbat District Supply",
+      "facility_id": "1002-0004",
+      "latitude": 29,
+      "longitude": 62.86,
+      "current_capacity": 33,
+      "required_capacity": 75,
+      "power_sources": [
+        "electricity"
+      ]
+    },
+    {
+      "facility_name": "Richee Central Hospital",
+      "facility_id": "1002-0005",
+      "latitude": 25.46,
+      "longitude": 67.8,
+      "current_capacity": 250,
+      "required_capacity": 600,
+      "power_sources": [
+        "electricity",
+        "gas"
+      ]
+    },
+    {
+      "facility_name": "Ulrich Mission Hospital",
+      "facility_id": "1002-0006",
+      "latitude": 24.56,
+      "longitude": 68.25,
+      "current_capacity": 130,
+      "required_capacity": 150,
+      "power_sources": [
+        "electricity",
+        "gas",
+        "kerosene"
+      ]
+    },
+    {
+      "facility_name": "Hetfield Supply Post",
+      "facility_id": "1002-0007",
+      "latitude": 24.97,
+      "longitude": 68.16,
+      "current_capacity": 100,
+      "required_capacity": 200,
+      "power_sources": [
+        "gas",
+        "kerosene"
+      ]
+    },
+    {
+      "facility_name": "Lashbleq Vaccine Store",
+      "facility_id": "1002-0008",
+      "latitude": 25.19,
+      "longitude": 68.03,
+      "current_capacity": 200,
+      "required_capacity": 60,
+      "power_sources": [
+        "electricity",
+        "gas",
+        "kerosene"
+      ]
+    },
+    {
+      "facility_name": "Ayeayeron Vaccine Post",
+      "facility_id": "1002-0009",
+      "latitude": 25.12,
+      "longitude": 67.9,
+      "current_capacity": 130,
+      "required_capacity": 600,
+      "power_sources": [
+        "gas"
+      ]
+    },
+    {
+      "facility_name": "Myung Health Center",
+      "facility_id": "1002-0010",
+      "latitude": 24.96,
+      "longitude": 68.47,
+      "current_capacity": 140,
+      "required_capacity": 130,
+      "power_sources": [
+        "kerosene"
+      ]
+    },
+    {
+      "facility_name": "Killmeister Dispensary",
+      "facility_id": "1002-0011",
+      "latitude": 27.87,
+      "longitude": 68.56,
+      "current_capacity": 600,
+      "required_capacity": 50,
+      "power_sources": [
+        "electricity"
+      ]
+    },
+    {
+      "facility_name": "Hoaryu Community Hospital",
+      "facility_id": "1002-0012",
+      "latitude": 28.9,
+      "longitude": 68.75,
+      "current_capacity": 200,
+      "required_capacity": 210,
+      "power_sources": [
+        "gas",
+        "kerosene"
+      ]
+    }
+  ]
+}
