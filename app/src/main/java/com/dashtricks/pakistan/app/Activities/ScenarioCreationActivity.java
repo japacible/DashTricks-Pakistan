@@ -1,9 +1,11 @@
 package com.dashtricks.pakistan.app.Activities;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.dashtricks.pakistan.app.R;
 
@@ -15,13 +17,20 @@ public class ScenarioCreationActivity extends ActionBarActivity {
         setContentView(R.layout.activity_scenario_creation);
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.scenario_creation, menu);
         return true;
+    }
+
+    /**
+     * Open WebView
+     */
+    public void visualize(View view) {
+        Intent i = new Intent(this, VisualizationActivity.class);
+        startActivity(i);
     }
 
     @Override

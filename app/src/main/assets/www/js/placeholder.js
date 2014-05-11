@@ -1,0 +1,1 @@
+window.onload=function(){document.getElementById("jstest").innerHTML = "js works.";};

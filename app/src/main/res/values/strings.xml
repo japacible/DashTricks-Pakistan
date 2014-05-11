@@ -16,6 +16,7 @@
     <string name="send_feedback">Send Feedback</string>
     <string name="visualization">Visualization</string>
     <string name="send">Send</string>
+    <string name="go">Go</string>
     <string name="title_activity_select_scenario">SelectScenarioActivity</string>
     <string name="title_activity_select_immunization_plan">SelectImmunizationPlanActivity</string>
     <string name="title_activity_create_immunization_plan">CreateImmunizationPlanActivity</string>

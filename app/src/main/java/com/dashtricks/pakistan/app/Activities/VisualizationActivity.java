@@ -4,6 +4,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.webkit.WebView;
 
 import com.dashtricks.pakistan.app.R;
@@ -18,7 +19,13 @@ public class VisualizationActivity extends ActionBarActivity {
         // TODO: Make this full screen
         WebView myWebView = (WebView) findViewById(R.id.webview);
         myWebView.getSettings().setJavaScriptEnabled(true);
-        myWebView.loadUrl("http://www.google.com");
+
+        // Internets
+        //myWebView.loadUrl("http://www.google.com");
+
+        // Local
+        myWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        myWebView.loadUrl("file:///android_asset/www/placeholder.html");
     }
 
     @Override

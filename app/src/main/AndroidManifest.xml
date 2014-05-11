@@ -52,4 +52,6 @@
     <!-- Only for testing with internet. Not needed for releases. -->
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <!-- Allows us to turn off hardware accelerated canvas -->
+    <uses-sdk android:minSdkVersion="11" />
 </manifest>
