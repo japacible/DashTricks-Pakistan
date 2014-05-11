@@ -1,0 +1,47 @@
+body {
+	margin: 0;
+	background: gray;
+}
+
+svg {
+	background: white;
+	display: block;
+	margin: auto;
+}
+
+.province {
+	fill: #aad;
+}
+
+.province-boundary {
+	fill: none;
+	stroke: #777;
+}
+
+.province-label {
+	fill: #777;
+	font-weight: 300;
+	text-anchor: middle;
+}
+
+text {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 20px;
+	pointer-events: none;
+} 
+
+.facility {
+	stroke: #e22;
+	fill: #e22;
+	fill-opacity: 0;
+}
+
+.fac-label {
+	fill: #777;
+	font-weight: 300;
+	text-anchor: middle;
+}
+
+.display {
+	font-size: 30px;
+}
