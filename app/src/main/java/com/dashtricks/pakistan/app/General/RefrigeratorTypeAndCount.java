@@ -1,4 +1,4 @@
-package com.dashtricks.pakistan.app.general;
+package com.dashtricks.pakistan.app.General;
 
 /**
  * Created by Donohue on 5/7/14.

@@ -1,7 +1,7 @@
-package com.dashtricks.pakistan.app.allocate;
+package com.dashtricks.pakistan.app.Allocate;
 
-import com.dashtricks.pakistan.app.model.VolumeRequirement;
-import com.dashtricks.pakistan.app.model.VolumeRequirementBuilder;
+import com.dashtricks.pakistan.app.Model.VolumeRequirement;
+import com.dashtricks.pakistan.app.Model.VolumeRequirementBuilder;
 
 import java.util.Set;
 

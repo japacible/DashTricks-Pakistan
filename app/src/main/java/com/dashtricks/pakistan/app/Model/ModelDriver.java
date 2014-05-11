@@ -1,9 +1,9 @@
-package com.dashtricks.pakistan.app.model;
+package com.dashtricks.pakistan.app.Model;
 
-import com.dashtricks.pakistan.app.general.Facilities;
-import com.dashtricks.pakistan.app.general.Facility;
-import com.dashtricks.pakistan.app.general.ImmunizationPlan;
-import com.dashtricks.pakistan.app.general.ImmunizationPlans;
+import com.dashtricks.pakistan.app.General.Facilities;
+import com.dashtricks.pakistan.app.General.Facility;
+import com.dashtricks.pakistan.app.General.ImmunizationPlan;
+import com.dashtricks.pakistan.app.General.ImmunizationPlans;
 
 import java.util.HashSet;
 import java.util.Set;

@@ -1,4 +1,4 @@
-package com.dashtricks.pakistan.app.activities;
+package com.dashtricks.pakistan.app.Activities;
 
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;

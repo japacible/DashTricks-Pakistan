@@ -1,4 +1,4 @@
-package com.dashtricks.pakistan.app.general;
+package com.dashtricks.pakistan.app.General;
 
 import java.util.HashSet;
 import java.util.Set;

@@ -2,16 +2,16 @@ package com.dashtricks.pakistan.app.test;
 
 import android.test.AndroidTestCase;
 
-import com.dashtricks.pakistan.app.allocate.AllocationDriver;
-import com.dashtricks.pakistan.app.general.Facilities;
-import com.dashtricks.pakistan.app.general.Facility;
-import com.dashtricks.pakistan.app.general.ImmunizationPlan;
-import com.dashtricks.pakistan.app.general.ImmunizationPlans;
-import com.dashtricks.pakistan.app.general.Refrigerator;
-import com.dashtricks.pakistan.app.general.RefrigeratorTypeAndCount;
-import com.dashtricks.pakistan.app.general.Refrigerators;
-import com.dashtricks.pakistan.app.model.ModelDriver;
-import com.dashtricks.pakistan.app.model.VolumeRequirement;
+import com.dashtricks.pakistan.app.Allocate.AllocationDriver;
+import com.dashtricks.pakistan.app.General.Facilities;
+import com.dashtricks.pakistan.app.General.Facility;
+import com.dashtricks.pakistan.app.General.ImmunizationPlan;
+import com.dashtricks.pakistan.app.General.ImmunizationPlans;
+import com.dashtricks.pakistan.app.General.Refrigerator;
+import com.dashtricks.pakistan.app.General.RefrigeratorTypeAndCount;
+import com.dashtricks.pakistan.app.General.Refrigerators;
+import com.dashtricks.pakistan.app.Model.ModelDriver;
+import com.dashtricks.pakistan.app.Model.VolumeRequirement;
 
 import java.util.HashSet;
 import java.util.Set;

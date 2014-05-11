@@ -1,4 +1,4 @@
-package com.dashtricks.pakistan.app.activities;
+package com.dashtricks.pakistan.app.Activities;
 
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;

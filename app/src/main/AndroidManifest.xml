@@ -8,48 +8,43 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.dashtricks.pakistan.app.StartActivity"
+            android:name=".Activities.StartActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name="com.dashtricks.pakistan.app.SettingsActivity"
+            android:name=".Activities.SettingsActivity"
             android:label="@string/title_activity_settings" >
         </activity>
         <activity
-            android:name="com.dashtricks.pakistan.app.VisualizationActivity"
+            android:name=".Activities.VisualizationActivity"
             android:label="@string/title_activity_visualization" >
         </activity>
         <activity
-            android:name="com.dashtricks.pakistan.app.FeedbackActivity"
+            android:name=".Activities.FeedbackActivity"
             android:label="@string/title_activity_feedback" >
         </activity>
         <activity
-            android:name="com.dashtricks.pakistan.app.SelectScenarioActivity"
+            android:name=".Activities.SelectScenarioActivity"
             android:label="@string/title_activity_select_scenario" >
         </activity>
         <activity
-            android:name="com.dashtricks.pakistan.app.SelectImmunizationPlanActivity"
+            android:name=".Activities.SelectImmunizationPlanActivity"
             android:label="@string/title_activity_select_immunization_plan" >
         </activity>
         <activity
-            android:name="com.dashtricks.pakistan.app.CreateImmunizationPlanActivity"
+            android:name=".Activities.CreateImmunizationPlanActivity"
             android:label="@string/title_activity_create_immunization_plan" >
         </activity>
         <activity
-            android:name="com.dashtricks.pakistan.app.CreateScenarioActivity"
+            android:name=".Activities.CreateScenarioActivity"
             android:label="@string/title_activity_create_scenario" >
         </activity>
         <activity
-            android:name="com.dashtricks.pakistan.app.SettingsActivity"
-            android:label="@string/title_activity_settings" >
-        </activity>
-        <activity
-            android:name="com.dashtricks.pakistan.app.ScenarioCreationActivity"
+            android:name=".Activities.ScenarioCreationActivity"
             android:label="@string/title_activity_scenario_creation" >
         </activity>
     </application>

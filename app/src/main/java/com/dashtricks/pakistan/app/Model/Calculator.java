@@ -1,7 +1,7 @@
-package com.dashtricks.pakistan.app.model;
+package com.dashtricks.pakistan.app.Model;
 
-import com.dashtricks.pakistan.app.general.Facility;
-import com.dashtricks.pakistan.app.general.ImmunizationPlan;
+import com.dashtricks.pakistan.app.General.Facility;
+import com.dashtricks.pakistan.app.General.ImmunizationPlan;
 
 /**
  * Created by Donohue on 5/7/14.
