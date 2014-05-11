@@ -25,7 +25,7 @@ public class VisualizationActivity extends ActionBarActivity {
 
         // Local
         myWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
-        myWebView.loadUrl("file:///android_asset/www/placeholder.html");
+        myWebView.loadUrl("file:///android_asset/www/pakmap.html");
     }
 
     @Override
