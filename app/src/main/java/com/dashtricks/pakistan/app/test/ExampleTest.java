@@ -7,6 +7,7 @@ import com.dashtricks.pakistan.app.General.Facilities;
 import com.dashtricks.pakistan.app.General.Facility;
 import com.dashtricks.pakistan.app.General.ImmunizationPlan;
 import com.dashtricks.pakistan.app.General.ImmunizationPlans;
+import com.dashtricks.pakistan.app.General.PowerSource;
 import com.dashtricks.pakistan.app.General.Refrigerator;
 import com.dashtricks.pakistan.app.General.RefrigeratorTypeAndCount;
 import com.dashtricks.pakistan.app.General.Refrigerators;
@@ -57,8 +58,14 @@ public class ExampleTest extends AndroidTestCase {
 
         Facilities f = new Facilities();
 
-        Facility f1 = new Facility();
-        Facility f2 = new Facility();
+        HashSet<PowerSource> ps1 = new HashSet<PowerSource>();
+        ps1.add(PowerSource.ELECTRICITY);
+        ps1.add(PowerSource.GAS);
+        Facility f1 = new Facility("f1", "1000-0001", 33.33, 66.66, ps1);
+        HashSet<PowerSource> ps2 = new HashSet<PowerSource>();
+        ps2.add(PowerSource.SOLAR);
+        ps2.add(PowerSource.ELECTRICITY);
+        Facility f2 = new Facility("f2", "1000-0002", 99.99, 66.66, ps2);
 
         f1.setPopulation(10);
         f2.setPopulation(100);

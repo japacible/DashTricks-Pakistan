@@ -65,8 +65,8 @@ public class Facility {
     }
 
     // No setter method because this is calculated based on refrigerators
-    public int getCurrentCapacity() {
-	return currentCapacity;
+    public double getCurrentCapacity() {
+	    return currentCapacity;
     }
 
     // Done because Calculator imports Facility, and circular dependencies are ugly
