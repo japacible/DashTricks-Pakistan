@@ -1,5 +1,6 @@
 package com.dashtricks.pakistan.app.Activities;
 
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -9,17 +10,37 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.content.Intent;
+import android.widget.Button;
 
 import com.dashtricks.pakistan.app.R;
 
 public class StartActivity extends ActionBarActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
-    }
 
+        Button importButton = (Button) findViewById(R.id.importBtn);
+        Button vizButton = (Button) findViewById(R.id.vizBtn);
+
+        // Show either import or visualization buttons based on whether or not app has run before
+        // TODO: Change condition from hasRunBefore to hasImportedData
+        SharedPreferences runCheck = getSharedPreferences("hasRunBefore", 0);
+        Boolean hasRun = runCheck.getBoolean("hasRun", false);
+        if (!hasRun) {
+            SharedPreferences settings = getSharedPreferences("hasRunBefore", 0);
+            SharedPreferences.Editor edit = settings.edit();
+            edit.putBoolean("hasRun", true);
+            edit.commit();
+
+            vizButton.setVisibility(View.GONE);
+            importButton.setVisibility(View.VISIBLE);
+        }
+        else {
+            vizButton.setVisibility(View.VISIBLE);
+            importButton.setVisibility(View.GONE);
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
