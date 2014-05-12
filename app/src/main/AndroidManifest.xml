@@ -21,7 +21,8 @@
         </activity>
         <activity
             android:name=".Activities.VisualizationActivity"
-            android:label="@string/title_activity_visualization" >
+            android:label="@string/title_activity_visualization"
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".Activities.FeedbackActivity"
@@ -52,6 +53,7 @@
     <!-- Only for testing with internet. Not needed for releases. -->
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <!-- Allows us to turn off hardware accelerated canvas -->
-    <uses-sdk android:minSdkVersion="11" />
+    <!-- min 11: Allows us to turn off hardware accelerated canvas -->
+    <!-- min 16: Allows us to use setAllowUniversalAccessFromFileURLs -->
+    <uses-sdk android:minSdkVersion="16" />
 </manifest>

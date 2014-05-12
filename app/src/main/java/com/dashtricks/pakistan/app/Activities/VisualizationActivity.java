@@ -16,21 +16,15 @@ public class VisualizationActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_visualization);
 
-        // TODO: Make this full screen
         WebView myWebView = (WebView) findViewById(R.id.webview);
         myWebView.getSettings().setJavaScriptEnabled(true);
-
-        // Internets
-        //myWebView.loadUrl("http://www.google.com");
-
-        // Local
+        myWebView.getSettings().setAllowUniversalAccessFromFileURLs(true);
         myWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         myWebView.loadUrl("file:///android_asset/www/pakmap.html");
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.visualization, menu);
         return true;
@@ -47,5 +41,4 @@ public class VisualizationActivity extends ActionBarActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 }
