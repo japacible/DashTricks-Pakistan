@@ -6,7 +6,7 @@ import com.dashtricks.pakistan.app.General.ImmunizationPlan;
 /**
  * Created by Donohue on 5/7/14.
  */
-public class Calculator {
+public abstract class Calculator {
     public static double computeVolume(Facility f, ImmunizationPlan ip) {
         return baseVaccineVolume(f, ip) + diluantVolume(f, ip);
     }

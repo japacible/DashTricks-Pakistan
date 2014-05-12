@@ -31,6 +31,4 @@ public class Refrigerator {
     public PowerSource getPowerSource() {
 	return ps;
     }
-    
-    
 }
