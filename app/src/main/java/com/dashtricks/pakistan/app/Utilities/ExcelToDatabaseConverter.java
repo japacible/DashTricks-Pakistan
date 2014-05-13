@@ -77,7 +77,7 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
         for (Sheet s : sheets) {
             String table = s.getName();
 
-            for (int i = 0; i < s.getRows(); i++) {
+            for (int i = 1; i < s.getRows(); i++) {
                 ContentValues cv = new ContentValues();
                 Iterator<String> it = tableToFields.get(table).iterator();
 
