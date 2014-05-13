@@ -7,6 +7,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 
 import jxl.Cell;
 import jxl.CellType;
@@ -16,10 +20,12 @@ import jxl.read.biff.BiffException;
 
 public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
 	Workbook w;
+    HashMap<String,List<String>> tableToFields;
 	
 	public ExcelToDatabaseConverter(Context context, String name,
 			CursorFactory factory, int version, String wbname) {
 		super(context, name, factory, version);
+        tableToFields = new HashMap<String, List<String>>();
 		try {
 			w = Workbook.getWorkbook(new File(wbname));
 		} catch (BiffException e) {
@@ -44,10 +50,22 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
 			String name = s.getName();
 			String entriesAndTypes = parseSheetTypes(s);
 			
-			db.execSQL(String.format("CREATE TABLE %s (%s)", name, entriesAndTypes));
+			db.execSQL(String.format("CREATE TABLE %s (%s);", name, entriesAndTypes));
+            List<String> eAndT = Arrays.asList(entriesAndTypes.split(" "));
+            int i = 0;
+//            Keep the table name and fields, strip out the type information
+            for(Iterator<String> it = eAndT.iterator(); it.hasNext();) {
+                it.next();
+                if(i % 2 != 0) {
+                    it.remove();
+                }
+                i++;
+            }
+            tableToFields.put(name, eAndT);
+            System.err.println(String.format("CREATE TABLE %s (%s);", name, entriesAndTypes));
 		}
 	}
-	
+
 	/* 
 	 * Given a sheet,
 	 * return a string of the format "n1 CLASS1, n2 CLASS2, n3 CLASS3"
@@ -95,7 +113,7 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
 		}
 	}
 
-
+//    Currently, we don't change the database at all after reading stuff in
 	@Override
 	public void onUpgrade(SQLiteDatabase arg0, int arg1, int arg2) {
 		// TODO Auto-generated method stub
