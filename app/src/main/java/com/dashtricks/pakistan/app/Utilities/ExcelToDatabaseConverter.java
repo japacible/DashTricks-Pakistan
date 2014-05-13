@@ -1,5 +1,6 @@
 package com.dashtricks.pakistan.app.Utilities;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
@@ -66,6 +67,29 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
 		}
 	}
 
+//    Each sheet becomes a table
+//    The topmost row became the list of fields during db creation
+//    Iterate over each cell of each sheet, insert it into the right place
+    public void slurp() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Sheet[] sheets = w.getSheets();
+
+        for (Sheet s : sheets) {
+            String table = s.getName();
+
+            for (int i = 0; i < s.getRows(); i++) {
+                ContentValues cv = new ContentValues();
+                Iterator<String> it = tableToFields.get(table).iterator();
+
+                for (int j = 0; j < s.getColumns(); j++) {
+                    //                This is why we kept the field names for this table around
+                    cv.put(it.next(), s.getCell(i,j).getContents());
+                }
+
+                db.insert(table, null, cv);
+            }
+        }
+    }
 	/* 
 	 * Given a sheet,
 	 * return a string of the format "n1 CLASS1, n2 CLASS2, n3 CLASS3"
