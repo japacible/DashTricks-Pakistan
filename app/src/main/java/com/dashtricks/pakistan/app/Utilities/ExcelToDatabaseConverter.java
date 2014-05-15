@@ -74,10 +74,12 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
         SQLiteDatabase db = this.getReadableDatabase();
         Sheet[] sheets = w.getSheets();
 
-        for (Sheet s : sheets) {
+        for (int k = 0; k < sheets.length; k++) {
+            Sheet s = sheets[k];
             String table = s.getName();
+            int offset = (k <= 3) ? 2 : 1; // ugly hack because of extra row in spreadsheet
 
-            for (int i = 1; i < s.getRows(); i++) {
+            for (int i = offset; i < s.getRows(); i++) {
                 ContentValues cv = new ContentValues();
                 Iterator<String> it = tableToFields.get(table).iterator();
 
@@ -97,11 +99,12 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
 	 * */
 	private String parseSheetTypes(Sheet s) {
 		StringBuilder sb = new StringBuilder();
-		
+
 		for(int i = 0; i < s.getColumns(); i++){
+            int offset = (i <= 3) ? 2 : 1; // ugly hack because of extra row in spreadsheet
 			sb.append(s.getCell(i, 0).getContents());
 			sb.append(" ");
-			sb.append(parseCellType(s.getCell(i, 1)));
+			sb.append(parseCellType(s.getCell(i, offset)));
 			sb.append(", ");
 		}
 		
