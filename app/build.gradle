@@ -2,7 +2,7 @@ apply plugin: 'android'
 
 android {
     compileSdkVersion 19
-    buildToolsVersion "19.0.3"
+    buildToolsVersion '19.0.3'
 
     defaultConfig {
         minSdkVersion 16
@@ -27,4 +27,5 @@ dependencies {
     compile files('src/main/java/com/dashtricks/pakistan/javalibs/gson-2.2.4-javadoc.jar')
     compile files('src/main/java/com/dashtricks/pakistan/javalibs/gson-2.2.4-sources.jar')
     compile files('src/main/java/com/dashtricks/pakistan/javalibs/jxl.jar')
+    compile project(':aFileChooser')
 }
