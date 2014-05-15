@@ -1,6 +1,7 @@
 package com.dashtricks.pakistan.app.Activities;
 
 import android.content.SharedPreferences;
+import android.os.Environment;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -13,6 +14,8 @@ import android.content.Intent;
 import android.widget.Button;
 
 import com.dashtricks.pakistan.app.R;
+
+import java.io.File;
 
 public class StartActivity extends ActionBarActivity {
     @Override
@@ -66,7 +69,7 @@ public class StartActivity extends ActionBarActivity {
      * Import file
      */
     public void importColdChainData(View view) {
-
+        // TODO: call afilechooser
     }
 
     /**
@@ -83,21 +86,5 @@ public class StartActivity extends ActionBarActivity {
     public void viewSettings(View view) {
         Intent i = new Intent(this, SettingsActivity.class);
         startActivity(i);
-    }
-
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_start, container, false);
-            return rootView;
-        }
     }
 }
