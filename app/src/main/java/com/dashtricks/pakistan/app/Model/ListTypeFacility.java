@@ -16,9 +16,9 @@ public class ListTypeFacility {
     // TODO: Fix this automation once we get real facility data from the backend
     public ListTypeFacility(int position) {
         capacitySortPosition = position;
-        facilityName = capacitySortPosition + ". Punjab Main";
-        currentCapacity = position +2;
-        requiredCapacity = position + 5;
+        facilityName = (capacitySortPosition + 1) + ". Punjab Main";
+        currentCapacity = capacitySortPosition + 2;
+        requiredCapacity = capacitySortPosition + 5;
     }
 
     public String getFacilityName() {

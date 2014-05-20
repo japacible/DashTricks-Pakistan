@@ -18,7 +18,7 @@ public class ListTypeFacilityLab {
         mAppContext = appContext;
 
         mFacilities = new ArrayList<ListTypeFacility>();
-        for(int i = 1; i <= 100; i++) {
+        for(int i = 0; i < 100; i++) {
             ListTypeFacility ltf = new ListTypeFacility(i);
             mFacilities.add(ltf);
 
