@@ -24,14 +24,10 @@
     <string name="title_activity_create_scenario">CreateScenarioActivity</string>
     <string name="title_activity_scenario_creation">ScenarioCreationActivity</string>
     <string name="scenario_creation_prompt">How many new fridges to allocate?</string>
-<<<<<<< HEAD
     <string name="title_activity_factory_list">FactoryListActivity</string>
     <string name="title_activity_facility_list">FacilityList</string>
     <string name="title_activity_facility">FacilityActivity</string>
     <string name="facility_list">Facility List</string>
-=======
     <string name="title_activity_exploration">ExplorationActivity</string>
     <string name="title_activity_facilities_list">FacilitiesListActivity</string>
->>>>>>> 98fdbeeac0a8ce3d3bb60c871a6d338046e4341e
-
 </resources>

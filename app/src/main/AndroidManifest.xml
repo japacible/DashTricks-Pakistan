@@ -50,21 +50,18 @@
             android:label="@string/title_activity_scenario_creation" >
         </activity>
         <activity
-<<<<<<< HEAD
             android:name="com.dashtricks.pakistan.app.Activities.FacilityListActivity"
             android:label="@string/title_activity_facility_list" >
         </activity>
         <activity
             android:name="com.dashtricks.pakistan.app.Activities.FacilityActivity"
             android:label="@string/title_activity_facility" >
-=======
             android:name="com.dashtricks.pakistan.app.Activities.ExplorationActivity"
             android:label="@string/title_activity_exploration" >
         </activity>
         <activity
             android:name="com.dashtricks.pakistan.app.Activities.FacilitiesListActivity"
             android:label="@string/title_activity_facilities_list" >
->>>>>>> 98fdbeeac0a8ce3d3bb60c871a6d338046e4341e
         </activity>
     </application>
 
