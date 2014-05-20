@@ -57,7 +57,7 @@ public class Facility {
 
     public void addRefrigerator(RefrigeratorTypeAndCount refrigerator) {
         refrigerators.add(refrigerator);
-	currentCapacity += refrigerator.getType().getVolume() * refrigerator.getCount();
+    	currentCapacity += refrigerator.getType().getVolume() * refrigerator.getCount();
     }
 
     public int getPopulation() {

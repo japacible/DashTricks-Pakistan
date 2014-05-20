@@ -1,6 +1,7 @@
 package com.dashtricks.pakistan.app.Activities;
 
 import android.content.SharedPreferences;
+import android.os.Environment;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -14,6 +15,8 @@ import android.widget.Button;
 
 import com.dashtricks.pakistan.app.R;
 
+import java.io.File;
+
 public class StartActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +25,7 @@ public class StartActivity extends ActionBarActivity {
 
         Button importButton = (Button) findViewById(R.id.importBtn);
         Button vizButton = (Button) findViewById(R.id.vizBtn);
+        Button exploreButton = (Button) findViewById(R.id.exploreBtn);
 
         // Show either import or visualization buttons based on whether or not app has run before
         // TODO: Change condition from hasRunBefore to hasImportedData
@@ -34,10 +38,12 @@ public class StartActivity extends ActionBarActivity {
             edit.commit();
 
             vizButton.setVisibility(View.GONE);
+            exploreButton.setVisibility(View.GONE);
             importButton.setVisibility(View.VISIBLE);
         }
         else {
             vizButton.setVisibility(View.VISIBLE);
+            exploreButton.setVisibility(View.GONE);
             importButton.setVisibility(View.GONE);
         }
     }
@@ -66,14 +72,24 @@ public class StartActivity extends ActionBarActivity {
      * Import file
      */
     public void importColdChainData(View view) {
-
+        // TODO: call afilechooser
     }
 
     /**
      * Go to visualization flow
      */
     public void generateVisualization(View view) {
+        /*Intent i = new Intent(this, ScenarioCreationActivity.class);
+        startActivity(i);*/
         Intent i = new Intent(this, ScenarioCreationActivity.class);
+        startActivity(i);
+    }
+
+    /**
+     * Go to exploration flow
+     */
+    public void exploreData(View view) {
+        Intent i = new Intent(this, ExplorationActivity.class);
         startActivity(i);
     }
 
@@ -86,18 +102,10 @@ public class StartActivity extends ActionBarActivity {
     }
 
     /**
-     * A placeholder fragment containing a simple view.
+     * Open facilities list view
      */
-    public static class PlaceholderFragment extends Fragment {
-
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_start, container, false);
-            return rootView;
-        }
+    public void viewFacilitiesList(View view) {
+        Intent i = new Intent(this, FacilityListActivity.class);
+        startActivity(i);
     }
 }

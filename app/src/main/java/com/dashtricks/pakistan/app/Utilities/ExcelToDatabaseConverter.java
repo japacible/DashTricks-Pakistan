@@ -20,38 +20,38 @@ import jxl.Workbook;
 import jxl.read.biff.BiffException;
 
 public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
-	Workbook w;
+    Workbook w;
     HashMap<String,List<String>> tableToFields;
-	
-	public ExcelToDatabaseConverter(Context context, String name,
-			CursorFactory factory, int version, String wbname) {
-		super(context, name, factory, version);
+
+    public ExcelToDatabaseConverter(Context context, String name,
+                                    CursorFactory factory, int version, String wbname) {
+        super(context, name, factory, version);
         tableToFields = new HashMap<String, List<String>>();
-		try {
-			w = Workbook.getWorkbook(new File(wbname));
-		} catch (BiffException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}		
-		
-		
-	@Override
+        try {
+            w = Workbook.getWorkbook(new File(wbname));
+        } catch (BiffException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+
+    @Override
 	/* 
 	 * Given the database,
 	 * create one table per sheet in the data
 	 * */
-	public void onCreate(SQLiteDatabase db) {
-		Sheet[] sheets = w.getSheets();
-		
-		for(Sheet s : sheets) {
-			String name = s.getName();
-			String entriesAndTypes = parseSheetTypes(s);
-			
-			db.execSQL(String.format("CREATE TABLE %s (%s);", name, entriesAndTypes));
+    public void onCreate(SQLiteDatabase db) {
+        Sheet[] sheets = w.getSheets();
+
+        for(Sheet s : sheets) {
+            String name = s.getName();
+            String entriesAndTypes = parseSheetTypes(s);
+
+            db.execSQL(String.format("CREATE TABLE %s (%s);", name, entriesAndTypes));
             List<String> eAndT = Arrays.asList(entriesAndTypes.split(" "));
             int i = 0;
 //            Keep the table name and fields, strip out the type information
@@ -64,20 +64,22 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
             }
             tableToFields.put(name, eAndT);
             System.err.println(String.format("CREATE TABLE %s (%s);", name, entriesAndTypes));
-		}
-	}
+        }
+    }
 
-//    Each sheet becomes a table
+    //    Each sheet becomes a table
 //    The topmost row became the list of fields during db creation
 //    Iterate over each cell of each sheet, insert it into the right place
     public void slurp() {
         SQLiteDatabase db = this.getReadableDatabase();
         Sheet[] sheets = w.getSheets();
 
-        for (Sheet s : sheets) {
+        for (int k = 0; k < sheets.length; k++) {
+            Sheet s = sheets[k];
             String table = s.getName();
+            int offset = (k <= 3) ? 2 : 1; // ugly hack because of extra row in spreadsheet
 
-            for (int i = 1; i < s.getRows(); i++) {
+            for (int i = offset; i < s.getRows(); i++) {
                 ContentValues cv = new ContentValues();
                 Iterator<String> it = tableToFields.get(table).iterator();
 
@@ -90,57 +92,58 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
             }
         }
     }
-	/* 
-	 * Given a sheet,
-	 * return a string of the format "n1 CLASS1, n2 CLASS2, n3 CLASS3"
-	 * used for constructing tables based on sheets
-	 * */
-	private String parseSheetTypes(Sheet s) {
-		StringBuilder sb = new StringBuilder();
-		
-		for(int i = 0; i < s.getColumns(); i++){
-			sb.append(s.getCell(i, 0).getContents());
-			sb.append(" ");
-			sb.append(parseCellType(s.getCell(i, 1)));
-			sb.append(", ");
-		}
+    /*
+     * Given a sheet,
+     * return a string of the format "n1 CLASS1, n2 CLASS2, n3 CLASS3"
+     * used for constructing tables based on sheets
+     * */
+    private String parseSheetTypes(Sheet s) {
+        StringBuilder sb = new StringBuilder();
+
+        for(int i = 0; i < s.getColumns(); i++){
+            int offset = (i <= 3) ? 2 : 1; // ugly hack because of extra row in spreadsheet
+            sb.append(s.getCell(i, 0).getContents());
+            sb.append(" ");
+            sb.append(parseCellType(s.getCell(i, offset)));
+            sb.append(", ");
+        }
 		
 		/* remove trailing comma and space */
-		sb.deleteCharAt(sb.length() - 1);
-		sb.deleteCharAt(sb.length() - 1);
-		
-		return sb.toString();
-	}
+        sb.deleteCharAt(sb.length() - 1);
+        sb.deleteCharAt(sb.length() - 1);
 
-/* 
- * Given a cell with some data,
- * return a string that describes the best fit SQLite storage class
- * */
-	private String parseCellType(Cell cell) {
-		CellType ct = cell.getType();
-		
-		if(ct == CellType.NUMBER) {
-			String s = cell.getContents();
-			try{
-				Integer.parseInt(s);
-				return "INTEGER";
-			} catch (NumberFormatException nfe1) {
-				try{
-					Double.parseDouble(s);
-					return "REAL";
-				} catch (NumberFormatException nfe2){
-					return "TEXT";
-				}
-			}
-		} else {
-			return "TEXT";
-		}
-	}
+        return sb.toString();
+    }
 
-//    Currently, we don't change the database at all after reading stuff in
-	@Override
-	public void onUpgrade(SQLiteDatabase arg0, int arg1, int arg2) {
-		// TODO Auto-generated method stub
-		
-	}
+    /*
+     * Given a cell with some data,
+     * return a string that describes the best fit SQLite storage class
+     * */
+    private String parseCellType(Cell cell) {
+        CellType ct = cell.getType();
+
+        if(ct == CellType.NUMBER) {
+            String s = cell.getContents();
+            try{
+                Integer.parseInt(s);
+                return "INTEGER";
+            } catch (NumberFormatException nfe1) {
+                try{
+                    Double.parseDouble(s);
+                    return "REAL";
+                } catch (NumberFormatException nfe2){
+                    return "TEXT";
+                }
+            }
+        } else {
+            return "TEXT";
+        }
+    }
+
+    //    Currently, we don't change the database at all after reading stuff in
+    @Override
+    public void onUpgrade(SQLiteDatabase arg0, int arg1, int arg2) {
+        // TODO Auto-generated method stub
+
+    }
 }
