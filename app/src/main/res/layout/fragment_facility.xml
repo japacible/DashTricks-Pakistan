@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Facility Name"
+        android:textSize="30sp"
+        android:typeface="sans"
+        style="?android:listSeparatorTextViewStyle"
+        android:background="#00d8ff"
+        android:autoText="false"
+        android:layout_weight="0.03" />
+    <TextView
+        android:id="@+id/facility_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="26sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="16dp"
+        android:typeface="sans" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Refrigerator Capacity"
+        android:typeface="sans"
+        android:textSize="30sp"
+        style="?android:listSeparatorTextViewStyle"
+        android:background="#00d8ff"
+        android:layout_weight="0.04" />
+    <TextView
+        android:id="@+id/current_capacity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="26sp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        />
+    <TextView
+        android:id="@+id/required_capacity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="26sp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="20dp"
+        />
+
+
+</LinearLayout>

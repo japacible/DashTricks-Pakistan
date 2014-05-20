@@ -76,6 +76,8 @@ public class StartActivity extends ActionBarActivity {
      * Go to visualization flow
      */
     public void generateVisualization(View view) {
+        /*Intent i = new Intent(this, ScenarioCreationActivity.class);
+        startActivity(i);*/
         Intent i = new Intent(this, ScenarioCreationActivity.class);
         startActivity(i);
     }
@@ -85,6 +87,14 @@ public class StartActivity extends ActionBarActivity {
      */
     public void viewSettings(View view) {
         Intent i = new Intent(this, SettingsActivity.class);
+        startActivity(i);
+    }
+
+    /**
+     * Open facilities list view
+     */
+    public void viewFacilitiesList(View view) {
+        Intent i = new Intent(this, FacilityListActivity.class);
         startActivity(i);
     }
 }

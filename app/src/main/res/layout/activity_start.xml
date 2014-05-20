@@ -38,4 +38,13 @@
         android:layout_gravity="center"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/facility_list"
+        android:id="@+id/listBtn"
+        android:layout_marginTop="450dp"
+        android:layout_centerHorizontal="true"
+        android:onClick="viewFacilitiesList" />
 </RelativeLayout>
