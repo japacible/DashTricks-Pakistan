@@ -22,6 +22,17 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/explore"
+        android:id="@+id/exploreBtn"
+        android:onClick="exploreData"
+        android:layout_above="@+id/importBtn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="81dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/visualization"

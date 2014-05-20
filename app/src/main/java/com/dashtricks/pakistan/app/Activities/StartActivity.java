@@ -25,6 +25,7 @@ public class StartActivity extends ActionBarActivity {
 
         Button importButton = (Button) findViewById(R.id.importBtn);
         Button vizButton = (Button) findViewById(R.id.vizBtn);
+        Button exploreButton = (Button) findViewById(R.id.exploreBtn);
 
         // Show either import or visualization buttons based on whether or not app has run before
         // TODO: Change condition from hasRunBefore to hasImportedData
@@ -37,10 +38,12 @@ public class StartActivity extends ActionBarActivity {
             edit.commit();
 
             vizButton.setVisibility(View.GONE);
+            exploreButton.setVisibility(View.GONE);
             importButton.setVisibility(View.VISIBLE);
         }
         else {
             vizButton.setVisibility(View.VISIBLE);
+            exploreButton.setVisibility(View.VISIBLE);
             importButton.setVisibility(View.GONE);
         }
     }
@@ -79,6 +82,14 @@ public class StartActivity extends ActionBarActivity {
         /*Intent i = new Intent(this, ScenarioCreationActivity.class);
         startActivity(i);*/
         Intent i = new Intent(this, ScenarioCreationActivity.class);
+        startActivity(i);
+    }
+
+    /**
+     * Go to exploration flow
+     */
+    public void exploreData(View view) {
+        Intent i = new Intent(this, ExplorationActivity.class);
         startActivity(i);
     }
 
