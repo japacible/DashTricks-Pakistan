@@ -1,21 +1,51 @@
+/* --- */
+
 body {
 	margin: 0;
-	background: gray;
+	background: #87AEBF;
+	font-family: 'Verdana';
+	font-size: 20pt;
+	overflow: hidden;
 }
 
 svg {
-	background: white;
 	display: block;
-	margin: auto;
+	background: white;
 }
 
-.province {
-	fill: #aad;
+#display {
+	background: #dee;
+	float: right;
+	width: 45%;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+#display table {
+	margin: 0;
+}
+
+.subdistrict {
+	stroke-width: 0px;
+}
+
+.province-boundary, .district-boundary, .subdistrict-boundary {
+	fill: none;
 }
 
 .province-boundary {
-	fill: none;
-	stroke: #777;
+	stroke: #224;
+	stroke-width: 4;
+}
+
+.district-boundary {
+	stroke: #cce;
+	stroke-width: 2;
+}
+
+.subdistrict-boundary {
+	stroke: #000;
+	stroke-width: 0;
 }
 
 .province-label {
@@ -29,7 +59,7 @@ text {
 	font-size: 20px;
 	pointer-events: none;
 } 
-
+/*
 .facility {
 	stroke: #e22;
 	fill: #e22;
@@ -41,7 +71,10 @@ text {
 	font-weight: 300;
 	text-anchor: middle;
 }
-
+*/
 .display {
 	font-size: 30px;
+}
+
+.selected {
 }
