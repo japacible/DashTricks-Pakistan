@@ -23,8 +23,13 @@ public class FacilityFragment extends Fragment {
 
     private ListTypeFacility fac;
     private TextView facilityNameField;
+    private TextView facilityIDField;
     private TextView currentCapacityField;
     private TextView requiredCapacityField;
+    private TextView populationField;
+    private TextView powerSource1Field;
+    private TextView powerSource2Field;
+    private TextView powerSource3Field;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,6 +50,10 @@ public class FacilityFragment extends Fragment {
         facilityNameField = (TextView)v.findViewById(R.id.facility_name);
         facilityNameField.setText(fac.getFacilityName());
 
+        // Set the facility ID text
+        facilityIDField = (TextView)v.findViewById(R.id.facility_id);
+        facilityIDField.setText(fac.getFacilityID());
+
         // Set the current capacity text
         currentCapacityField = (TextView)v.findViewById(R.id.current_capacity);
         currentCapacityField.setText("Current Capacity: " + fac.getCurrentCapacity());
@@ -52,6 +61,22 @@ public class FacilityFragment extends Fragment {
         // Set the required capacity text
         requiredCapacityField = (TextView)v.findViewById(R.id.required_capacity);
         requiredCapacityField.setText("Required Capacity: " + fac.getRequiredCapacity());
+
+        // Set the population text
+        populationField = (TextView)v.findViewById(R.id.population);
+        populationField.setText("" + fac.getPopulation());
+
+        // Set power source #1
+        powerSource1Field = (TextView)v.findViewById(R.id.power_source_1);
+        powerSource1Field.setText(fac.getPowerSource1());
+
+        // Set power source #2
+        powerSource1Field = (TextView)v.findViewById(R.id.power_source_2);
+        powerSource1Field.setText(fac.getPowerSource2());
+
+        // Set power source #3
+        powerSource1Field = (TextView)v.findViewById(R.id.power_source_3);
+        powerSource1Field.setText(fac.getPowerSource3());
 
         return v;
     }
