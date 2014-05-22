@@ -9,8 +9,7 @@ import java.util.Set;
 public class Facility {
     private String name;
     private String facId;
-    private double latitude;
-    private double longitude;
+    private String subdis;
     private double currentCapacity; // no direct set. Updated by adding refrigerators
     private double requiredCapacity; // Should ONLY be set with a value returned by the Calculator
     private Set<PowerSource> powerSources;
@@ -23,8 +22,6 @@ public class Facility {
 		    double latitude, double longitude, Set<PowerSource> ps) {
 	this.name = name;
 	this.facId = facId;
-	this.latitude = latitude;
-	this.longitude = longitude;
 	this.powerSources = ps;
 	currentCapacity = 0;
 	requiredCapacity = 0;
@@ -37,14 +34,6 @@ public class Facility {
     
     public String getFacId() {
 	return facId;
-    }
-    
-    public double getLatitude() {
-	return latitude;
-    }
-    
-    public double getLongitude() {
-	return longitude;
     }
 
     public boolean canUseSource(PowerSource p) {
@@ -77,5 +66,8 @@ public class Facility {
     public double getRequiredCapacity() {
 	return requiredCapacity;
     }
-    
+
+    public String getSubdis() {
+        return subdis;
+    }
 }
