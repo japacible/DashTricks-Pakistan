@@ -18,14 +18,18 @@ public class Facility {
     private Set<RefrigeratorTypeAndCount> refrigerators;
 
     // All these things 
-    public Facility(String name, String facId,
-		    double latitude, double longitude, Set<PowerSource> ps) {
+    public Facility(String name, String facId, Set<PowerSource> ps) {
 	this.name = name;
 	this.facId = facId;
 	this.powerSources = ps;
 	currentCapacity = 0;
 	requiredCapacity = 0;
-        refrigerators = new HashSet<RefrigeratorTypeAndCount>();
+    refrigerators = new HashSet<RefrigeratorTypeAndCount>();
+    populateRefrigerators(refrigerators);
+    }
+
+    private void populateRefrigerators(Set<RefrigeratorTypeAndCount> refrigerators) {
+
     }
 
     public String getName() {
@@ -46,7 +50,6 @@ public class Facility {
 
     public void addRefrigerator(RefrigeratorTypeAndCount refrigerator) {
         refrigerators.add(refrigerator);
-    	currentCapacity += refrigerator.getType().getVolume() * refrigerator.getCount();
     }
 
     public int getPopulation() {
@@ -70,4 +73,5 @@ public class Facility {
     public String getSubdis() {
         return subdis;
     }
+
 }

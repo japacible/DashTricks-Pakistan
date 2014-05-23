@@ -11,14 +11,35 @@
         android:textSize="30sp"
         android:typeface="sans"
         style="?android:listSeparatorTextViewStyle"
-        android:background="#00d8ff"
+        android:background="#D3EAF8"
         android:autoText="false"
-        android:layout_weight="0.03" />
+        android:layout_weight="0.03"
+        android:textStyle="normal" />
     <TextView
         android:id="@+id/facility_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="26sp"
+        android:textSize="24sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="16dp"
+        android:typeface="sans" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Facility ID"
+        android:typeface="sans"
+        android:textSize="30sp"
+        style="?android:listSeparatorTextViewStyle"
+        android:background="#D3EAF8"
+        android:layout_weight="0.04"
+        android:textStyle="normal" />
+    <TextView
+        android:id="@+id/facility_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
         android:layout_marginLeft="40dp"
@@ -31,13 +52,14 @@
         android:typeface="sans"
         android:textSize="30sp"
         style="?android:listSeparatorTextViewStyle"
-        android:background="#00d8ff"
-        android:layout_weight="0.04" />
+        android:background="#D3EAF8"
+        android:layout_weight="0.04"
+        android:textStyle="normal" />
     <TextView
         android:id="@+id/current_capacity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="26sp"
+        android:textSize="24sp"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="20dp"
@@ -47,11 +69,68 @@
         android:id="@+id/required_capacity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="26sp"
+        android:textSize="24sp"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="20dp"
         />
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Population"
+        android:typeface="sans"
+        android:textSize="30sp"
+        style="?android:listSeparatorTextViewStyle"
+        android:background="#D3EAF8"
+        android:layout_weight="0.04"
+        android:textStyle="normal" />
+    <TextView
+        android:id="@+id/population"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Power Sources"
+        android:typeface="sans"
+        android:textSize="30sp"
+        style="?android:listSeparatorTextViewStyle"
+        android:background="#D3EAF8"
+        android:layout_weight="0.04"
+        android:textStyle="normal" />
+    <TextView
+        android:id="@+id/power_source_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        />
+    <TextView
+        android:id="@+id/power_source_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="10dp"
+        />
+    <TextView
+        android:id="@+id/power_source_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="10dp"
+        />
 
 </LinearLayout>
