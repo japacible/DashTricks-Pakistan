@@ -88,13 +88,11 @@ d3.json("pakistan.json", function(error, pak) {
 
 		svg.selectAll(".selected")
 			.classed("selected", false)
-			.transition()
-				.style("fill", randSD());
+			.style("fill", randSD());
 
 		d3.select(this)
 			.classed("selected", true)
-			.transition()
-				.style("fill", "#4cc");
+			.style("fill", "#4cc");
 
 		var dataset = [];
 		for (var i = 0; i < Math.random()*12; i++) {
