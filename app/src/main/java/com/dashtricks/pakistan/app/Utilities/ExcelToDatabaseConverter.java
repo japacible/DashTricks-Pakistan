@@ -3,7 +3,6 @@ package com.dashtricks.pakistan.app.Utilities;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.io.File;
@@ -21,11 +20,10 @@ import jxl.read.biff.BiffException;
 
 public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
     Workbook w;
-    HashMap<String,List<String>> tableToFields;
+    HashMap<String,List<String>> tableToFields; // maps from a table name to the fields it has
 
-    public ExcelToDatabaseConverter(Context context, String name,
-                                    CursorFactory factory, int version, String wbname) {
-        super(context, name, factory, version);
+    public ExcelToDatabaseConverter(Context context, String name, String wbname) {
+        super(context, name, null, 1); // don't care about the last two fields
         tableToFields = new HashMap<String, List<String>>();
         try {
             w = Workbook.getWorkbook(new File(wbname));
@@ -67,7 +65,7 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
         }
     }
 
-    //    Each sheet becomes a table
+//    Each sheet becomes a table
 //    The topmost row became the list of fields during db creation
 //    Iterate over each cell of each sheet, insert it into the right place
     public void slurp() {
