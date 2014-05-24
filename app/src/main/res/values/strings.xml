@@ -1,33 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <!-- General -->
     <string name="app_name">DashTricksPakistan</string>
     <string name="hello_world">Hello world!</string>
+
+    <!-- Start Activity -->
     <string name="action_settings">Settings</string>
-    <string name="title_activity_visualization">VisualizationActivity</string>
-    <string name="title_activity_feedback">FeedbackActivity</string>
     <string name="import_ccd">Import Data</string>
+    <string name="visualization">Visualization</string>
+
+    <!-- Settings -->
+    <string name="send_feedback">Send Feedback</string>
+
+    <!-- Exploration -->
+    <string name="explore">Explore Current Data</string>
+    <string name="facility_list">Facility List</string>
+
+    <!-- Visualization -->
     <string name="create_scenario">Create Scenario</string>
     <string name="create_immunization_plan">Create Immunization Plan</string>
     <string name="new_scenario">New Scenario</string>
     <string name="load_scenario">Load Scenario</string>
     <string name="select_scenario">Select Scenario</string>
     <string name="select_immunization_plan">Select Immunization Plan</string>
-    <string name="send_feedback">Send Feedback</string>
-    <string name="visualization">Visualization</string>
-    <string name="explore">Explore Current Data</string>
+    <string name="scenario_creation_prompt">How many new fridges to allocate?</string>
+
+    <!-- Actions -->
     <string name="send">Send</string>
     <string name="go">Go</string>
+
+    <!-- Activity Names -->
     <string name="title_activity_select_scenario">SelectScenarioActivity</string>
     <string name="title_activity_select_immunization_plan">SelectImmunizationPlanActivity</string>
     <string name="title_activity_create_immunization_plan">CreateImmunizationPlanActivity</string>
     <string name="title_activity_create_scenario">CreateScenarioActivity</string>
     <string name="title_activity_scenario_creation">ScenarioCreationActivity</string>
-    <string name="scenario_creation_prompt">How many new fridges to allocate?</string>
     <string name="title_activity_factory_list">FactoryListActivity</string>
     <string name="title_activity_facility_list">FacilityList</string>
     <string name="title_activity_facility">FacilityActivity</string>
-    <string name="facility_list">Facility List</string>
+    <string name="title_activity_visualization">VisualizationActivity</string>
+    <string name="title_activity_feedback">FeedbackActivity</string>
     <string name="title_activity_exploration">ExplorationActivity</string>
     <string name="title_activity_facilities_list">FacilitiesListActivity</string>
 </resources>
