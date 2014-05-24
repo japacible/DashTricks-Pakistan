@@ -27,7 +27,6 @@ public class VisualizationActivity extends ActionBarActivity {
         myWebView.getSettings().setAllowUniversalAccessFromFileURLs(true);
         myWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         myWebView.loadUrl("file:///android_asset/www/pakmap.html");
-
     }
 
     @Override
