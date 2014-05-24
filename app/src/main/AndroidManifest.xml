@@ -56,12 +56,30 @@
         <activity
             android:name="com.dashtricks.pakistan.app.Activities.FacilityActivity"
             android:label="@string/title_activity_facility" >
+        </activity>
+        <activity
             android:name="com.dashtricks.pakistan.app.Activities.ExplorationActivity"
             android:label="@string/title_activity_exploration" >
         </activity>
         <activity
             android:name="com.dashtricks.pakistan.app.Activities.FacilitiesListActivity"
             android:label="@string/title_activity_facilities_list" >
+        </activity>
+        <activity
+            android:name="com.dashtricks.pakistan.app.Activities.PunjabBarGraphActivity"
+            android:label="@string/title_activity_punjab_bar_graph" >
+        </activity>
+        <activity
+            android:name="com.dashtricks.pakistan.app.Activities.UrgentNeedBarGraphActivity"
+            android:label="@string/title_activity_urgent_need_bar_graph" >
+        </activity>
+        <activity
+            android:name="com.dashtricks.pakistan.app.Activities.OverallStatisticsActivity"
+            android:label="@string/title_activity_overall_statistics" >
+        </activity>
+        <activity
+            android:name="com.dashtricks.pakistan.app.Activities.FridgeAgeBarGraphActivity"
+            android:label="@string/title_activity_fridge_age_bar_graph" >
         </activity>
     </application>
 

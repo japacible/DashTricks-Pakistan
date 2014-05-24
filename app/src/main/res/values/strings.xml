@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <!-- General -->
     <string name="app_name">DashTricksPakistan</string>
     <string name="hello_world">Hello world!</string>
@@ -13,7 +14,7 @@
     <string name="send_feedback">Send Feedback</string>
 
     <!-- Exploration -->
-    <string name="explore">Explore Current Data</string>
+    <string name="exploration">Exploration</string>
     <string name="facility_list">Facility List</string>
 
     <!-- Visualization -->
@@ -42,4 +43,9 @@
     <string name="title_activity_feedback">FeedbackActivity</string>
     <string name="title_activity_exploration">ExplorationActivity</string>
     <string name="title_activity_facilities_list">FacilitiesListActivity</string>
+    <string name="title_activity_punjab_bar_graph">PunjabBarGraphActivity</string>
+    <string name="title_activity_urgent_need_bar_graph">UrgentNeedBarGraphActivity</string>
+    <string name="title_activity_overall_statistics">OverallStatisticsActivity</string>
+    <string name="title_activity_fridge_age_bar_graph">FridgeAgeBarGraphActivity</string>
+
 </resources>
