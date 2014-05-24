@@ -31,21 +31,21 @@
     <string name="go">Go</string>
 
     <!-- Activity Names -->
-    <string name="title_activity_select_scenario">SelectScenarioActivity</string>
-    <string name="title_activity_select_immunization_plan">SelectImmunizationPlanActivity</string>
-    <string name="title_activity_create_immunization_plan">CreateImmunizationPlanActivity</string>
-    <string name="title_activity_create_scenario">CreateScenarioActivity</string>
-    <string name="title_activity_scenario_creation">ScenarioCreationActivity</string>
-    <string name="title_activity_factory_list">FactoryListActivity</string>
-    <string name="title_activity_facility_list">FacilityList</string>
-    <string name="title_activity_facility">FacilityActivity</string>
-    <string name="title_activity_visualization">VisualizationActivity</string>
-    <string name="title_activity_feedback">FeedbackActivity</string>
-    <string name="title_activity_exploration">ExplorationActivity</string>
-    <string name="title_activity_facilities_list">FacilitiesListActivity</string>
-    <string name="title_activity_punjab_bar_graph">PunjabBarGraphActivity</string>
-    <string name="title_activity_urgent_need_bar_graph">UrgentNeedBarGraphActivity</string>
-    <string name="title_activity_overall_statistics">OverallStatisticsActivity</string>
-    <string name="title_activity_fridge_age_bar_graph">FridgeAgeBarGraphActivity</string>
+    <string name="title_activity_select_scenario">Select Scenario</string>
+    <string name="title_activity_select_immunization_plan">Select Immunization Plan</string>
+    <string name="title_activity_create_immunization_plan">Create Immunization Plan</string>
+    <string name="title_activity_create_scenario">Create Scenario</string>
+    <string name="title_activity_scenario_creation">Scenario Creation</string>
+    <string name="title_activity_factory_list">Factory List</string>
+    <string name="title_activity_facility_list">Facility List</string>
+    <string name="title_activity_facility">Facility</string>
+    <string name="title_activity_visualization">Visualization</string>
+    <string name="title_activity_feedback">Feedback</string>
+    <string name="title_activity_exploration">Exploration</string>
+    <string name="title_activity_facilities_list">Facilities List</string>
+    <string name="title_activity_punjab_bar_graph">Punjab Bar Graph</string>
+    <string name="title_activity_urgent_need_bar_graph">Urgent Need Bar Graph</string>
+    <string name="title_activity_overall_statistics">Overall Statistics</string>
+    <string name="title_activity_fridge_age_bar_graph">Fridge Age Bar Graph</string>
 
 </resources>

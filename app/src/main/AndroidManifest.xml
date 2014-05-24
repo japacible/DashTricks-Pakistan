@@ -67,11 +67,13 @@
         </activity>
         <activity
             android:name="com.dashtricks.pakistan.app.Activities.PunjabBarGraphActivity"
-            android:label="@string/title_activity_punjab_bar_graph" >
+            android:label="@string/title_activity_punjab_bar_graph"
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name="com.dashtricks.pakistan.app.Activities.UrgentNeedBarGraphActivity"
-            android:label="@string/title_activity_urgent_need_bar_graph" >
+            android:label="@string/title_activity_urgent_need_bar_graph"
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name="com.dashtricks.pakistan.app.Activities.OverallStatisticsActivity"
@@ -79,7 +81,8 @@
         </activity>
         <activity
             android:name="com.dashtricks.pakistan.app.Activities.FridgeAgeBarGraphActivity"
-            android:label="@string/title_activity_fridge_age_bar_graph" >
+            android:label="@string/title_activity_fridge_age_bar_graph"
+            android:screenOrientation="landscape" >
         </activity>
     </application>
 

@@ -1,9 +1,13 @@
 package com.dashtricks.pakistan.app.Activities;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.webkit.WebView;
+
 import com.dashtricks.pakistan.app.R;
 
 public class UrgentNeedBarGraphActivity extends Activity {
@@ -12,6 +16,17 @@ public class UrgentNeedBarGraphActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_urgent_need_bar_graph);
+
+        // Hide the action bar in this particular activity
+        // to allow full screen for the web view
+        ActionBar ab = getActionBar();
+        ab.hide();
+
+        WebView myWebView = (WebView) findViewById(R.id.webview);
+        myWebView.getSettings().setJavaScriptEnabled(true);
+        myWebView.getSettings().setAllowUniversalAccessFromFileURLs(true);
+        myWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        myWebView.loadUrl("file:///android_asset/www/pakmap.html");
     }
 
 
