@@ -22,7 +22,6 @@ public class ExplorationActivity extends Activity {
         setContentView(R.layout.activity_exploration);
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -55,6 +54,46 @@ public class ExplorationActivity extends Activity {
      */
     public void viewDangerFacilities(View view) {
         Intent i = new Intent(this, FacilitiesListActivity.class);
+        startActivity(i);
+    }
+
+    /**
+     * Open facilities list view
+     */
+    public void viewFacilitiesList(View view) {
+        Intent i = new Intent(this, FacilityListActivity.class);
+        startActivity(i);
+    }
+
+    /**
+     * Open overall statistics activity
+     */
+    public void viewOverallStatistics(View view) {
+        Intent i = new Intent(this, OverallStatisticsActivity.class);
+        startActivity(i);
+    }
+
+    /**
+     * Open fridge age bar graph activity
+     */
+    public void viewFridgeAgeBarGraph(View view) {
+        Intent i = new Intent(this, FridgeAgeBarGraphActivity.class);
+        startActivity(i);
+    }
+
+    /**
+     * Open view urgent need bar graph activity
+     */
+    public void viewUrgentNeedBarGraph(View view) {
+        Intent i = new Intent(this, UrgentNeedBarGraphActivity.class);
+        startActivity(i);
+    }
+
+    /**
+     * Open Punjab bar graph activity
+     */
+    public void viewPunjabBarGraph(View view) {
+        Intent i = new Intent(this, PunjabBarGraphActivity.class);
         startActivity(i);
     }
 

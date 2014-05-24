@@ -7,7 +7,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.dashtricks.pakistan.app.StartActivity"
-    android:background="@drawable/icepak">
+    android:background="@drawable/icepak" >
 
     <Button
         android:id="@+id/importBtn"
@@ -17,22 +17,8 @@
         android:text="@string/import_ccd"
         android:onClick="importColdChainData"
         android:layout_gravity="center"
-        android:layout_alignTop="@+id/exploreBtn"
-        android:layout_alignRight="@+id/exploreBtn"
-        android:layout_alignEnd="@+id/exploreBtn"
-        android:layout_marginRight="35dp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/explore"
-        android:id="@+id/exploreBtn"
-        android:onClick="exploreData"
-        android:layout_alignBaseline="@+id/vizBtn"
-        android:layout_alignBottom="@+id/vizBtn"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:background="@drawable/abc_list_selector_background_transition_holo_light"
+        android:padding="8dip" />
 
     <Button
         android:layout_width="wrap_content"
@@ -50,6 +36,19 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/exploration"
+        android:id="@+id/exploreBtn"
+        android:onClick="exploreData"
+        android:layout_alignTop="@+id/vizBtn"
+        android:layout_toRightOf="@+id/settingsBtn"
+        android:layout_marginLeft="40dp"
+        android:background="@drawable/abc_list_selector_background_transition_holo_light"
+        android:padding="8dip"
+        android:textSize="20dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/action_settings"
         android:id="@+id/settingsBtn"
         android:onClick="viewSettings"
@@ -58,18 +57,4 @@
         android:layout_alignParentBottom="true"
         android:background="@drawable/abc_list_selector_background_transition_holo_light"
         android:padding="8dip"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/facility_list"
-        android:id="@+id/listBtn"
-        android:onClick="viewFacilitiesList"
-        android:layout_alignTop="@+id/vizBtn"
-        android:layout_toRightOf="@+id/settingsBtn"
-        android:layout_marginLeft="40dp"
-        android:clickable="true"
-        android:background="@drawable/abc_list_selector_background_transition_holo_light"
-        android:padding="10dip"
-        android:textSize="20dp"/>
 </RelativeLayout>
