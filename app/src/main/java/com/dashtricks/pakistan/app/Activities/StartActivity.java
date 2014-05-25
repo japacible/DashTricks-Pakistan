@@ -45,12 +45,9 @@ public class StartActivity extends ActionBarActivity {
             importButton.setVisibility(View.VISIBLE);
         }
         else {
-//            vizButton.setVisibility(View.VISIBLE);
-//            exploreButton.setVisibility(View.VISIBLE);
-//            importButton.setVisibility(View.GONE);
             vizButton.setVisibility(View.VISIBLE);
             exploreButton.setVisibility(View.VISIBLE);
-            importButton.setVisibility(View.VISIBLE);
+            importButton.setVisibility(View.GONE);
         }
     }
 
