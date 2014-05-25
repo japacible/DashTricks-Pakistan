@@ -9,6 +9,7 @@
     <string name="action_settings">Settings</string>
     <string name="import_ccd">Import Data</string>
     <string name="visualization">Visualization</string>
+    <string name="autoImportData">Auto Import Data</string>
 
     <!-- Settings -->
     <string name="send_feedback">Send Feedback</string>
@@ -47,5 +48,6 @@
     <string name="title_activity_urgent_need_bar_graph">Urgent Need Bar Graph</string>
     <string name="title_activity_overall_statistics">Overall Statistics</string>
     <string name="title_activity_fridge_age_bar_graph">Fridge Age Bar Graph</string>
+    <string name="title_activity_import_cold_chain">ImportColdChainActivity</string>
 
 </resources>

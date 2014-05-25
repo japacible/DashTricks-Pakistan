@@ -1,11 +1,20 @@
 package com.dashtricks.pakistan.app.Activities;
 
+import android.app.ActionBar;
+import android.content.SharedPreferences;
+import android.os.Environment;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import com.dashtricks.pakistan.app.R;
+import com.dashtricks.pakistan.app.Utilities.FileDialog;
+
+import java.io.File;
 
 public class SettingsActivity extends ActionBarActivity {
 
@@ -13,6 +22,9 @@ public class SettingsActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
+        ActionBar actionBar = getActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
 
@@ -34,6 +46,34 @@ public class SettingsActivity extends ActionBarActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * Import file to process
+     */
+    public void importColdChainData(View view) {
+        File mPath = new File(Environment.getExternalStorageDirectory() + "//DIR//");
+        FileDialog fileDialog = new FileDialog(this, mPath);
+
+        // We only want to deal with excel spreadsheets
+        fileDialog.setFileEndsWith(".xls");
+
+        fileDialog.addFileListener(new FileDialog.FileSelectedListener() {
+            public void fileSelected(File file) {
+                Log.d(getClass().getName(), "user selected file " + file.toString());
+                // TODO: Dov's magic data slurping here
+            }
+        });
+
+        fileDialog.showDialog();
+    }
+
+    /**
+     * @InsaneFisherman, this is for you to check do automatic excel processing while we figure out
+     * how to traverse android directories
+     */
+    public void autoImportSpreadsheet(View view) {
+
     }
 
 }

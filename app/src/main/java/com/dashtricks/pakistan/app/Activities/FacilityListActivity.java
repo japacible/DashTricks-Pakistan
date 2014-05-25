@@ -1,5 +1,6 @@
 package com.dashtricks.pakistan.app.Activities;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -10,22 +11,25 @@ import com.dashtricks.pakistan.app.R;
 
 public class FacilityListActivity extends Activity {
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_fragment);
-            setTitle("Facilities - Sorted by Capacity Needed");
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_fragment);
+        setTitle("Facilities - Sorted by Capacity Needed");
 
-            FragmentManager fm = getFragmentManager();
-            Fragment fragment = fm.findFragmentById(R.id.fragmentContainer);
+        ActionBar actionBar = getActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
-            if(fragment == null) {
-                fragment = new FacilityListFragment();
-                fm.beginTransaction()
-                        .add(R.id.fragmentContainer, fragment)
-                        .commit();
-            }
+        FragmentManager fm = getFragmentManager();
+        Fragment fragment = fm.findFragmentById(R.id.fragmentContainer);
+
+        if(fragment == null) {
+            fragment = new FacilityListFragment();
+            fm.beginTransaction()
+                    .add(R.id.fragmentContainer, fragment)
+                    .commit();
         }
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

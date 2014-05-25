@@ -9,7 +9,8 @@
         android:theme="@style/Theme.AppCompat.Light" >
         <activity
             android:name="com.dashtricks.pakistan.app.Activities.StartActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,16 +19,28 @@
         </activity>
         <activity
             android:name="com.dashtricks.pakistan.app.Activities.SettingsActivity"
-            android:label="@string/title_activity_settings" >
+            android:label="@string/title_activity_settings"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.dashtricks.pakistan.app.Activities.StartActivity" />
         </activity>
         <activity
             android:name="com.dashtricks.pakistan.app.Activities.VisualizationActivity"
             android:label="@string/title_activity_visualization"
             android:screenOrientation="landscape" >
+
+            <!-- TODO: change depending on where we came from viz -->
         </activity>
+        <!-- TODO: Re-add when the functionality is implemented -->
+        <!--
         <activity
             android:name="com.dashtricks.pakistan.app.Activities.FeedbackActivity"
-            android:label="@string/title_activity_feedback" >
+            android:label="@string/title_activity_feedback"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.dashtricks.pakistan.app.Activities.SettingsActivity" />
         </activity>
         <activity
             android:name="com.dashtricks.pakistan.app.Activities.SelectScenarioActivity"
@@ -45,45 +58,89 @@
             android:name="com.dashtricks.pakistan.app.Activities.CreateScenarioActivity"
             android:label="@string/title_activity_create_scenario" >
         </activity>
+        -->
         <activity
             android:name="com.dashtricks.pakistan.app.Activities.ScenarioCreationActivity"
-            android:label="@string/title_activity_scenario_creation" >
+            android:label="@string/title_activity_scenario_creation"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.dashtricks.pakistan.app.Activities.StartActivity" />
         </activity>
         <activity
             android:name="com.dashtricks.pakistan.app.Activities.FacilityListActivity"
-            android:label="@string/title_activity_facility_list" >
+            android:label="@string/title_activity_facility_list"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.dashtricks.pakistan.app.Activities.ExplorationActivity" />
         </activity>
         <activity
             android:name="com.dashtricks.pakistan.app.Activities.FacilityActivity"
-            android:label="@string/title_activity_facility" >
+            android:label="@string/title_activity_facility"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.dashtricks.pakistan.app.Activities.ExplorationActivity" />
         </activity>
         <activity
             android:name="com.dashtricks.pakistan.app.Activities.ExplorationActivity"
-            android:label="@string/title_activity_exploration" >
+            android:label="@string/title_activity_exploration"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.dashtricks.pakistan.app.Activities.StartActivity" />
         </activity>
         <activity
             android:name="com.dashtricks.pakistan.app.Activities.FacilitiesListActivity"
-            android:label="@string/title_activity_facilities_list" >
+            android:label="@string/title_activity_facilities_list"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.dashtricks.pakistan.app.Activities.ExplorationActivity" />
         </activity>
         <activity
             android:name="com.dashtricks.pakistan.app.Activities.PunjabBarGraphActivity"
             android:label="@string/title_activity_punjab_bar_graph"
             android:screenOrientation="landscape" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.dashtricks.pakistan.app.Activities.ExplorationActivity" />
         </activity>
         <activity
             android:name="com.dashtricks.pakistan.app.Activities.UrgentNeedBarGraphActivity"
             android:label="@string/title_activity_urgent_need_bar_graph"
             android:screenOrientation="landscape" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.dashtricks.pakistan.app.Activities.ExplorationActivity" />
         </activity>
         <activity
             android:name="com.dashtricks.pakistan.app.Activities.OverallStatisticsActivity"
-            android:label="@string/title_activity_overall_statistics" >
+            android:label="@string/title_activity_overall_statistics"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.dashtricks.pakistan.app.Activities.ExplorationActivity" />
         </activity>
         <activity
             android:name="com.dashtricks.pakistan.app.Activities.FridgeAgeBarGraphActivity"
             android:label="@string/title_activity_fridge_age_bar_graph"
             android:screenOrientation="landscape" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.dashtricks.pakistan.app.Activities.ExplorationActivity" />
         </activity>
+        <!--
+        <activity
+            android:name="com.dashtricks.pakistan.app.Activities.ImportColdChainActivity"
+            android:label="@string/title_activity_import_cold_chain"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.dashtricks.pakistan.app.Activities.StartActivity" />
+        </activity>
+        -->
     </application>
 
     <!-- Only for testing with internet. Not needed for releases. -->

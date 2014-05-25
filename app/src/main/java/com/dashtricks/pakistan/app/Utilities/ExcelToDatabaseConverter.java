@@ -22,11 +22,11 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
     Workbook w;
     HashMap<String,List<String>> tableToFields; // maps from a table name to the fields it has
 
-    public ExcelToDatabaseConverter(Context context, String name, String wbname) {
+    public ExcelToDatabaseConverter(Context context, String name, File wbfile) {
         super(context, name, null, 1); // don't care about the last two fields
         tableToFields = new HashMap<String, List<String>>();
         try {
-            w = Workbook.getWorkbook(new File(wbname));
+            w = Workbook.getWorkbook(wbfile);
         } catch (BiffException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -35,7 +35,6 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
             e.printStackTrace();
         }
     }
-
 
     @Override
 	/* 
@@ -52,6 +51,7 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
             db.execSQL(String.format("CREATE TABLE %s (%s);", name, entriesAndTypes));
             List<String> eAndT = Arrays.asList(entriesAndTypes.split(" "));
             int i = 0;
+
 //            Keep the table name and fields, strip out the type information
             for(Iterator<String> it = eAndT.iterator(); it.hasNext();) {
                 it.next();

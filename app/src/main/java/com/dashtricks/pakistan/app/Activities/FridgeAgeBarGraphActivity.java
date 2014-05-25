@@ -17,10 +17,8 @@ public class FridgeAgeBarGraphActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fridge_age_bar_graph);
 
-        // Hide the action bar in this particular activity
-        // to allow full screen for the web view
-        ActionBar ab = getActionBar();
-        ab.hide();
+        ActionBar actionBar = getActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         WebView myWebView = (WebView) findViewById(R.id.webview);
         myWebView.getSettings().setJavaScriptEnabled(true);

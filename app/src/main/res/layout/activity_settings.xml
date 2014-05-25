@@ -9,17 +9,27 @@
     android:orientation="vertical"
     tools:context="com.dashtricks.pakistan.app.StartActivity" >
 
-    <TextView
+    <Button
+        android:id="@+id/importBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/action_settings"
-        android:id="@+id/textView"
-        android:layout_gravity="center_horizontal" />
+        android:text="@string/import_ccd"
+        android:onClick="importColdChainData"
+        android:layout_gravity="center"
+        android:background="@drawable/abc_list_selector_background_transition_holo_light"
+        android:padding="8dip" />
 
-    <TextView
-        android:text="Under Construction."
+    <Button
+        android:id="@+id/autoImportData"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/autoImportData"
+        android:onClick="autoImportSpreadsheet"
+        android:layout_gravity="center"
+        android:background="@drawable/abc_list_selector_background_transition_holo_light"
+        android:padding="8dip"
+        android:layout_marginTop="50dp" />
 
 </LinearLayout>
