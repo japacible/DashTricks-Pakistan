@@ -22,11 +22,12 @@ public class StartActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
-        setTitle("icePAK");
+        setTitle("IcePAK");
 
         Button importButton = (Button) findViewById(R.id.importBtn);
         Button vizButton = (Button) findViewById(R.id.vizBtn);
         Button exploreButton = (Button) findViewById(R.id.exploreBtn);
+        // Button facilitiesButton = (Button) findViewById(R.id.facilities_list);
 
         // Show either import or visualization buttons based on whether or not app has run before
         // TODO: Change condition from hasRunBefore to hasImportedData
@@ -40,18 +41,20 @@ public class StartActivity extends ActionBarActivity {
 
             vizButton.setVisibility(View.GONE);
             exploreButton.setVisibility(View.GONE);
+            // facilitiesButton.setVisibility(View.GONE);
             importButton.setVisibility(View.VISIBLE);
         }
         else {
             vizButton.setVisibility(View.VISIBLE);
-            exploreButton.setVisibility(View.GONE);
+            exploreButton.setVisibility(View.VISIBLE);
+            // facilitiesButton.setVisibility(View.VISIBLE);
             importButton.setVisibility(View.GONE);
         }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        
+
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.start, menu);
         return true;

@@ -1,38 +1,24 @@
 package com.dashtricks.pakistan.app.Activities;
 
-import android.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.webkit.WebView;
-
 import com.dashtricks.pakistan.app.R;
 
-public class VisualizationActivity extends ActionBarActivity {
+public class OverallStatisticsActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_visualization);
-
-        // Hide the action bar in this particular activity
-        // to allow full screen for the web view
-        ActionBar ab = getActionBar();
-        ab.hide();
-
-        WebView myWebView = (WebView) findViewById(R.id.webview);
-        myWebView.getSettings().setJavaScriptEnabled(true);
-        myWebView.getSettings().setAllowUniversalAccessFromFileURLs(true);
-        myWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
-        myWebView.loadUrl("file:///android_asset/www/pakmap.html");
+        setContentView(R.layout.activity_overall_statistics);
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.visualization, menu);
+        getMenuInflater().inflate(R.menu.overall_statistics, menu);
         return true;
     }
 
