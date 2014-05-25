@@ -17,11 +17,6 @@ public class UrgentNeedBarGraphActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_urgent_need_bar_graph);
 
-        // Hide the action bar in this particular activity
-        // to allow full screen for the web view
-        ActionBar ab = getActionBar();
-        ab.hide();
-
         WebView myWebView = (WebView) findViewById(R.id.webview);
         myWebView.getSettings().setJavaScriptEnabled(true);
         myWebView.getSettings().setAllowUniversalAccessFromFileURLs(true);

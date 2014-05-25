@@ -1,7 +1,6 @@
 package com.dashtricks.pakistan.app.Activities;
 
 import android.app.Activity;
-import android.app.ActionBar;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
