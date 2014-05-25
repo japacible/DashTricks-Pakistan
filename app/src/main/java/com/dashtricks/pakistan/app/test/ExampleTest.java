@@ -65,8 +65,8 @@ public class ExampleTest extends AndroidTestCase {
         pss2.add(PowerSource.KEROSENE);
         pss2.add(PowerSource.ELECTRICITY);
 
-        Facility f1 = new Facility("Fac1", 20, pss1, null);
-        Facility f2 = new Facility("Fac2", 30, pss2, null);
+        Facility f1 = new Facility("Fac1", 20, pss1, 9, null);
+        Facility f2 = new Facility("Fac2", 30, pss2, 9, null);
 
         f1.setPopulation(10);
         f2.setPopulation(100);

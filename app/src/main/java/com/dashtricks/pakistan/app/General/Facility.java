@@ -10,6 +10,8 @@ import java.util.Set;
  * Created by Donohue on 5/7/14.
  */
 public class Facility {
+    public static final int ADMIN_DEPTH = 1;
+
     private String name;
     private int facId;
     private String subdis;
@@ -20,14 +22,31 @@ public class Facility {
     private int population;
     private Set<PowerSource> powerSources;
     private Set<Refrigerator> refrigerators;
+    private int adminRegion;
 
     // All these things 
-    public Facility(String name, int facId, Set<PowerSource> ps, SQLiteDatabase db) {
+    public Facility(String name, int facId, Set<PowerSource> ps, int adminRegion, SQLiteDatabase db) {
 	    this.name = name;
 	    this.facId = facId;
 	    this.powerSources = ps;
-        refrigerators = new HashSet<Refrigerator>();
+        this.adminRegion = adminRegion;
+
+        int lookup = adminRegion;
+        Cursor c = null; // fitting that I name this variable for the subsequent code style
+        int i = 0;
+        do{
+            String selector = "SELECT * FROM AdminHierarchy WHERE NodeID=" + lookup;
+            c = db.rawQuery(selector, null); // look up the next facility in the chain
+            if(c.moveToFirst()) {
+                lookup = Integer.parseInt(c.getString(4)); // parent's NodeID
+            }
+            i++;
+        } while(i < ADMIN_DEPTH); // hacky do-while in order to force compilation
+
+        subdis = c.getString(1); // correct level name
+
         refrigerators = populateRefrigerators(db);
+
         for(Refrigerator r : refrigerators) {
             if(r.isWorking()){
                 currentCapacity += r.getVolume();
