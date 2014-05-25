@@ -1,10 +1,9 @@
 package com.dashtricks.pakistan.app.Allocate;
 
-import com.dashtricks.pakistan.app.General.RefrigeratorTypeAndCount;
+import com.dashtricks.pakistan.app.General.Refrigerator;
 import com.dashtricks.pakistan.app.Model.VolumeRequirement;
 import com.dashtricks.pakistan.app.Model.VolumeRequirementBuilder;
 
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -12,7 +11,7 @@ import java.util.Set;
  * Created by Donohue on 5/7/14.
  */
 public class AllocationDriver {
-    public static Set<VolumeRequirement> allocate(Set<VolumeRequirement> beforeAllocation, Set<RefrigeratorTypeAndCount> rtacs) {
+    public static Set<VolumeRequirement> allocate(Set<VolumeRequirement> beforeAllocation, Set<Refrigerator> rtacs) {
         //TODO Hmmm the whole VR and VRbuilder thing didn't work out as well as I thought it would
         // Should be aggressivly refactored. The important consideration (and reason I did it this way)
         // is that we can't destroy / overwrite the "beforeAllocation" results. Best way might just
@@ -28,15 +27,11 @@ public class AllocationDriver {
         return p.done();
     }
 
-    private static double getAppropriateRefrigerator(VolumeRequirementBuilder current, Set<RefrigeratorTypeAndCount> rtacs) {
+    private static double getAppropriateRefrigerator(VolumeRequirementBuilder current, Set<Refrigerator> rtacs) {
         // current will matter in the future for this.
-        Iterator<RefrigeratorTypeAndCount> ittr = rtacs.iterator();
-        RefrigeratorTypeAndCount rtac = ittr.next();
-        if (rtac.getCount() == 1) {
-            ittr.remove();
-        }
+        Iterator<Refrigerator> ittr = rtacs.iterator();
+        Refrigerator rtac = ittr.next();
 
-        rtac.setCount(rtac.getCount() - 1);
-        return rtac.getType().getVolume();
+        return rtac.getVolume();
     }
 }

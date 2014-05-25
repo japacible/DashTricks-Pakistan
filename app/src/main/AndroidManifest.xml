@@ -149,6 +149,10 @@
     <!-- Only for testing with internet. Not needed for releases. -->
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <!-- File permissions -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <!-- min 11: Allows us to turn off hardware accelerated canvas -->
     <!-- min 16: Allows us to use setAllowUniversalAccessFromFileURLs -->
     <uses-sdk android:minSdkVersion="16" />
