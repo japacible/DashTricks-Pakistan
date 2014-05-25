@@ -1,21 +1,16 @@
 package com.dashtricks.pakistan.app.Activities;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Environment;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.content.Intent;
 import android.widget.Button;
 
 import com.dashtricks.pakistan.app.R;
-
-import java.io.File;
+import com.dashtricks.pakistan.app.Utilities.ExcelToDatabaseConverter;
 
 public class StartActivity extends ActionBarActivity {
     @Override
@@ -85,6 +80,8 @@ public class StartActivity extends ActionBarActivity {
     public void generateVisualization(View view) {
         /*Intent i = new Intent(this, ScenarioCreationActivity.class);
         startActivity(i);*/
+        ExcelToDatabaseConverter e2dbc = new ExcelToDatabaseConverter(this, "IcePak-Database", "./assets/excel/Pakistan_Sample.xls");
+        e2dbc.slurp();
         Intent i = new Intent(this, ScenarioCreationActivity.class);
         startActivity(i);
     }

@@ -11,10 +11,19 @@ public class Refrigerator {
     private int age;
     private boolean working;
 
-    public Refrigerator(int uniqueId, double volume, int age, boolean working) {
+    public void setUniqueId(int uniqueId) {
         this.uniqueId = uniqueId;
+    }
+
+    public void setVolume(double volume) {
         this.volume = volume;
+    }
+
+    public void setAge(int age) {
         this.age = age;
+    }
+
+    public void setWorking(boolean working) {
         this.working = working;
     }
 

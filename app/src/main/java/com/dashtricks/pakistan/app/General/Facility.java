@@ -32,8 +32,10 @@ public class Facility {
         }
     }
 
-//    Select
+//    Select * from
     private void populateRefrigerators(Set<Refrigerator> refrigerators) {
+
+
 
     }
 
@@ -55,6 +57,9 @@ public class Facility {
 
     public void addRefrigerator(Refrigerator refrigerator) {
         refrigerators.add(refrigerator);
+        if(refrigerator.isWorking()){
+            currentCapacity += refrigerator.getVolume();
+        }
     }
 
     public int getPopulation() {
