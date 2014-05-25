@@ -54,8 +54,7 @@ public class SettingsActivity extends ActionBarActivity {
      * Import file to process
      */
     public void importColdChainData(View view) {
-        // File mPath = new File(Environment.getExternalStorageDirectory() + "//DIR//");
-        File mPath = new File(String.valueOf(getExternalStoragePublicDirectory(DIRECTORY_DOWNLOADS)));
+        File mPath = new File(String.valueOf(Environment.getExternalStorageDirectory()));
         FileDialog fileDialog = new FileDialog(this, mPath);
 
         // We only want to deal with excel spreadsheets
