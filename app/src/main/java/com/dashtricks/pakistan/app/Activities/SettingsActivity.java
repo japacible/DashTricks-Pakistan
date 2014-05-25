@@ -68,4 +68,12 @@ public class SettingsActivity extends ActionBarActivity {
         fileDialog.showDialog();
     }
 
+    /**
+     * @InsaneFisherman, this is for you to check do automatic excel processing while we figure out
+     * how to traverse android directories
+     */
+    public void autoImportSpreadsheet(View view) {
+
+    }
+
 }
