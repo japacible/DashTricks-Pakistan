@@ -8,27 +8,32 @@ import java.util.Set;
  */
 public class Facility {
     private String name;
-    private String facId;
+    private int facId;
     private String subdis;
     private double currentCapacity; // no direct set. Updated by adding refrigerators
     private double requiredCapacity; // Should ONLY be set with a value returned by the Calculator
-    private Set<PowerSource> powerSources;
-    
+    private double amountShortBy;
+    private double percentDeficient;
     private int population;
-    private Set<RefrigeratorTypeAndCount> refrigerators;
+    private Set<PowerSource> powerSources;
+    private Set<Refrigerator> refrigerators;
 
     // All these things 
-    public Facility(String name, String facId, Set<PowerSource> ps) {
-	this.name = name;
-	this.facId = facId;
-	this.powerSources = ps;
-	currentCapacity = 0;
-	requiredCapacity = 0;
-    refrigerators = new HashSet<RefrigeratorTypeAndCount>();
-    populateRefrigerators(refrigerators);
+    public Facility(String name, int facId, Set<PowerSource> ps) {
+	    this.name = name;
+	    this.facId = facId;
+	    this.powerSources = ps;
+        refrigerators = new HashSet<Refrigerator>();
+        populateRefrigerators(refrigerators);
+        for(Refrigerator r : refrigerators) {
+            if(r.isWorking()){
+                currentCapacity += r.getVolume();
+            }
+        }
     }
 
-    private void populateRefrigerators(Set<RefrigeratorTypeAndCount> refrigerators) {
+//    Select
+    private void populateRefrigerators(Set<Refrigerator> refrigerators) {
 
     }
 
@@ -36,7 +41,7 @@ public class Facility {
 	return name;
     }
     
-    public String getFacId() {
+    public int getFacId() {
 	return facId;
     }
 
@@ -48,7 +53,7 @@ public class Facility {
         this.population = population;
     }
 
-    public void addRefrigerator(RefrigeratorTypeAndCount refrigerator) {
+    public void addRefrigerator(Refrigerator refrigerator) {
         refrigerators.add(refrigerator);
     }
 
@@ -63,7 +68,9 @@ public class Facility {
 
     // Done because Calculator imports Facility, and circular dependencies are ugly
     public void setRequiredCapacity(double rc){
-	requiredCapacity = rc;
+	    requiredCapacity = rc;
+        amountShortBy = rc - currentCapacity;
+        percentDeficient = (1 - currentCapacity/requiredCapacity) * 100;
     }
 
     public double getRequiredCapacity() {
