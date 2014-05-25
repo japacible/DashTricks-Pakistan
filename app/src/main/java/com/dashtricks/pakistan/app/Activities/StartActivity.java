@@ -98,8 +98,8 @@ public class StartActivity extends ActionBarActivity {
     public void generateVisualization(View view) {
         /*Intent i = new Intent(this, ScenarioCreationActivity.class);
         startActivity(i);*/
-        ExcelToDatabaseConverter e2dbc = new ExcelToDatabaseConverter(this, "IcePak-Database", "./assets/excel/Pakistan_Sample.xls");
-        e2dbc.slurp();
+        // ExcelToDatabaseConverter e2dbc = new ExcelToDatabaseConverter(this, "IcePak-Database", "./assets/excel/Pakistan_Sample.xls");
+        // e2dbc.slurp();
         Intent i = new Intent(this, ScenarioCreationActivity.class);
         startActivity(i);
     }
