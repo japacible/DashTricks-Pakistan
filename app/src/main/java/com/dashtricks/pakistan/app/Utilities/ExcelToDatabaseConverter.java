@@ -26,6 +26,7 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
         super(context, name, null, 1); // don't care about the last two fields
         tableToFields = new HashMap<String, List<String>>();
         try {
+            System.err.println("In e->db constructor");
             w = Workbook.getWorkbook(wbfile);
         } catch (BiffException e) {
             // TODO Auto-generated catch block
@@ -42,6 +43,7 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
 	 * create one table per sheet in the data
 	 * */
     public void onCreate(SQLiteDatabase db) {
+        System.err.println("In e->db onCreate");
         Sheet[] sheets = w.getSheets();
 
         for(Sheet s : sheets) {
