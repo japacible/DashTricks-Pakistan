@@ -84,7 +84,7 @@
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.dashtricks.pakistan.app.Activities.ExplorationActivity" />
+                android:value="com.dashtricks.pakistan.app.Activities.FacilityListActivity" />
         </activity>
         <activity
             android:name="com.dashtricks.pakistan.app.Activities.ExplorationActivity"
