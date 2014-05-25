@@ -5,6 +5,7 @@ import android.os.Environment;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,6 +15,7 @@ import android.content.Intent;
 import android.widget.Button;
 
 import com.dashtricks.pakistan.app.R;
+import com.dashtricks.pakistan.app.Utilities.FileDialog;
 
 import java.io.File;
 
@@ -27,7 +29,6 @@ public class StartActivity extends ActionBarActivity {
         Button importButton = (Button) findViewById(R.id.importBtn);
         Button vizButton = (Button) findViewById(R.id.vizBtn);
         Button exploreButton = (Button) findViewById(R.id.exploreBtn);
-        // Button facilitiesButton = (Button) findViewById(R.id.facilities_list);
 
         // Show either import or visualization buttons based on whether or not app has run before
         // TODO: Change condition from hasRunBefore to hasImportedData
@@ -41,14 +42,16 @@ public class StartActivity extends ActionBarActivity {
 
             vizButton.setVisibility(View.GONE);
             exploreButton.setVisibility(View.GONE);
-            // facilitiesButton.setVisibility(View.GONE);
             importButton.setVisibility(View.VISIBLE);
         }
         else {
-            vizButton.setVisibility(View.VISIBLE);
-            exploreButton.setVisibility(View.VISIBLE);
-            // facilitiesButton.setVisibility(View.VISIBLE);
-            importButton.setVisibility(View.GONE);
+//            vizButton.setVisibility(View.VISIBLE);
+//            exploreButton.setVisibility(View.VISIBLE);
+//            importButton.setVisibility(View.GONE);
+            vizButton.setVisibility(View.GONE);
+            exploreButton.setVisibility(View.GONE);
+            importButton.setVisibility(View.VISIBLE);
+
         }
     }
 
@@ -73,10 +76,23 @@ public class StartActivity extends ActionBarActivity {
     }
 
     /**
-     * Import file
+     * Import file to process
      */
     public void importColdChainData(View view) {
-        // TODO: call afilechooser
+        File mPath = new File(Environment.getExternalStorageDirectory() + "//DIR//");
+        FileDialog fileDialog = new FileDialog(this, mPath);
+
+        // We only want to deal with excel spreadsheets
+        fileDialog.setFileEndsWith(".xls");
+
+        fileDialog.addFileListener(new FileDialog.FileSelectedListener() {
+            public void fileSelected(File file) {
+            Log.d(getClass().getName(), "user selected file " + file.toString());
+            // TODO: Dov's magic data slurping here
+            }
+        });
+
+        fileDialog.showDialog();
     }
 
     /**

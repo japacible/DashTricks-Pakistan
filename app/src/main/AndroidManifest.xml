@@ -13,6 +13,7 @@
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -28,6 +29,7 @@
             android:name="com.dashtricks.pakistan.app.Activities.VisualizationActivity"
             android:label="@string/title_activity_visualization"
             android:screenOrientation="landscape" >
+
             <!-- TODO: change depending on where we came from viz -->
         </activity>
         <!-- TODO: Re-add when the functionality is implemented -->
@@ -129,6 +131,16 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.dashtricks.pakistan.app.Activities.ExplorationActivity" />
         </activity>
+        <!--
+        <activity
+            android:name="com.dashtricks.pakistan.app.Activities.ImportColdChainActivity"
+            android:label="@string/title_activity_import_cold_chain"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.dashtricks.pakistan.app.Activities.StartActivity" />
+        </activity>
+        -->
     </application>
 
     <!-- Only for testing with internet. Not needed for releases. -->

@@ -38,7 +38,6 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
         }
     }
 
-
     @Override
 	/* 
 	 * Given the database,
@@ -54,6 +53,7 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
             db.execSQL(String.format("CREATE TABLE %s (%s);", name, entriesAndTypes));
             List<String> eAndT = Arrays.asList(entriesAndTypes.split(" "));
             int i = 0;
+
 //            Keep the table name and fields, strip out the type information
             for(Iterator<String> it = eAndT.iterator(); it.hasNext();) {
                 it.next();
