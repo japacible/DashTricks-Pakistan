@@ -20,7 +20,7 @@ public abstract class FacilityToJson {
 //    Want to map from a sub-district name to a collection of facilities
 //    Iterate over all facilities and add them to the appropriate place in the map
 //    Wrap everything in square brackets, separate with commas
-//    Hot damn, this is some C like java
+//    This is the entire set of facilities
     public static String facilitiesToJson(Facilities fs) {
         StringBuilder sb = new StringBuilder();
 
