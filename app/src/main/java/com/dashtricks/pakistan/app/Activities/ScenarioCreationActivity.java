@@ -1,5 +1,6 @@
 package com.dashtricks.pakistan.app.Activities;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -17,10 +18,13 @@ public class ScenarioCreationActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scenario_creation);
 
-        NumberPicker np = (NumberPicker) findViewById(R.id.numberPicker);
-        np.setMaxValue(100);    //set maximum val
-        np.setMinValue(1);      //set minimum val
-        np.setValue(1);         //set Initial val
+        ActionBar actionBar = getActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
+//        NumberPicker np = (NumberPicker) findViewById(R.id.numberPicker);
+//        np.setMaxValue(100);    //set maximum val
+//        np.setMinValue(1);      //set minimum val
+//        np.setValue(1);         //set Initial val
     }
 
     @Override

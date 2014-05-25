@@ -17,6 +17,9 @@ public class FridgeAgeBarGraphActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fridge_age_bar_graph);
 
+        ActionBar actionBar = getActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         WebView myWebView = (WebView) findViewById(R.id.webview);
         myWebView.getSettings().setJavaScriptEnabled(true);
         myWebView.getSettings().setAllowUniversalAccessFromFileURLs(true);
