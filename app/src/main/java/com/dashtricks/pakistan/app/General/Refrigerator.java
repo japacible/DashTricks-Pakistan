@@ -6,10 +6,19 @@ package com.dashtricks.pakistan.app.General;
 public class Refrigerator {
     public static final int CURRENT_YEAR = 2014;
 
-    int uniqueId;
+    private int uniqueId;
     private double volume;
     private int age;
     private boolean working;
+    private PowerSource ps;
+
+    public PowerSource getPs() {
+        return ps;
+    }
+
+    public void setPs(PowerSource ps) {
+        this.ps = ps;
+    }
 
     public void setUniqueId(int uniqueId) {
         this.uniqueId = uniqueId;

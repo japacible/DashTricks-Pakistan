@@ -1,5 +1,8 @@
 package com.dashtricks.pakistan.app.General;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -19,12 +22,12 @@ public class Facility {
     private Set<Refrigerator> refrigerators;
 
     // All these things 
-    public Facility(String name, int facId, Set<PowerSource> ps) {
+    public Facility(String name, int facId, Set<PowerSource> ps, SQLiteDatabase db) {
 	    this.name = name;
 	    this.facId = facId;
 	    this.powerSources = ps;
         refrigerators = new HashSet<Refrigerator>();
-        populateRefrigerators(refrigerators);
+        refrigerators = populateRefrigerators(db);
         for(Refrigerator r : refrigerators) {
             if(r.isWorking()){
                 currentCapacity += r.getVolume();
@@ -32,11 +35,27 @@ public class Facility {
         }
     }
 
-//    Select * from
-    private void populateRefrigerators(Set<Refrigerator> refrigerators) {
-
-
-
+// Read from the database
+    private Set<Refrigerator> populateRefrigerators(SQLiteDatabase db) {
+        Set<Refrigerator> refrigerators = new HashSet<Refrigerator>();
+        String query = "SELECT * FROM Refrigerators WHERE FacilityID=" + facId;
+        Cursor cursor = db.rawQuery(query, null);
+        if (cursor.moveToFirst()) {
+            do {
+                Refrigerator r = new Refrigerator();
+                r.setUniqueId(Integer.parseInt(cursor.getString(0)));
+                r.setAge(Integer.parseInt(cursor.getString(4)) - Refrigerator.CURRENT_YEAR);
+                // Sum of +4 volume and -20 volume. Each refrigerator should have at most one nonzero of the two
+                r.setVolume(Integer.parseInt(cursor.getString(14)) + Integer.parseInt(cursor.getString(15)));
+                // Avoiding lookup table. 1 is working, 2 and 3 are not working
+                r.setWorking(Integer.parseInt(cursor.getString(6)) == 1);
+                r.setPs(PowerSource.ELECTRICITY); // needs two more layers of lookup, and this only
+                                                  // matters for refrigerators we ourselves allocate
+                // Adding NameVO to list
+                refrigerators.add(r);
+            } while (cursor.moveToNext());
+        }
+    return refrigerators;
     }
 
     public String getName() {
