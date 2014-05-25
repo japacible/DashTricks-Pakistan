@@ -7,8 +7,8 @@ import com.dashtricks.pakistan.app.General.Facilities;
 import com.dashtricks.pakistan.app.General.Facility;
 import com.dashtricks.pakistan.app.General.ImmunizationPlan;
 import com.dashtricks.pakistan.app.General.ImmunizationPlans;
+import com.dashtricks.pakistan.app.General.PowerSource;
 import com.dashtricks.pakistan.app.General.Refrigerator;
-import com.dashtricks.pakistan.app.General.RefrigeratorTypeAndCount;
 import com.dashtricks.pakistan.app.General.Refrigerators;
 import com.dashtricks.pakistan.app.Model.ModelDriver;
 import com.dashtricks.pakistan.app.Model.VolumeRequirement;
@@ -50,21 +50,29 @@ public class ExampleTest extends AndroidTestCase {
 
         Refrigerator r1 = new Refrigerator();
 
-        r1.setName("REF1");
+        r1.setUniqueId(666);
         r1.setVolume(5.0);
 
         r.add(r1);
 
         Facilities f = new Facilities();
 
-        Facility f1 = new Facility();
-        Facility f2 = new Facility();
+        Set<PowerSource> pss1 = new HashSet<PowerSource>();
+        pss1.add(PowerSource.ELECTRICITY);
+        pss1.add(PowerSource.GAS);
+
+        Set<PowerSource> pss2 = new HashSet<PowerSource>();
+        pss2.add(PowerSource.KEROSENE);
+        pss2.add(PowerSource.ELECTRICITY);
+
+        Facility f1 = new Facility("Fac1", 20, pss1);
+        Facility f2 = new Facility("Fac2", 30, pss2);
 
         f1.setPopulation(10);
         f2.setPopulation(100);
 
-        f1.addRefrigerator(new RefrigeratorTypeAndCount(r1, 1));
-        f2.addRefrigerator(new RefrigeratorTypeAndCount(r1, 2));
+        f1.addRefrigerator(r1);
+        f2.addRefrigerator(r1);
 
         f.add(f1);
         f.add(f2);
@@ -83,10 +91,7 @@ public class ExampleTest extends AndroidTestCase {
         an object, because we might want to have an object we can make complex queries to when
         allocating refrigerators. But I'm not exactly sure how that would look
          */
-        Set<RefrigeratorTypeAndCount> rtac = new HashSet<RefrigeratorTypeAndCount>();
-
-        rtac.add(new RefrigeratorTypeAndCount(r1, 2));
-
+        Set<Refrigerator> rtac = new HashSet<Refrigerator>();
         Set<VolumeRequirement> afterAllocation = AllocationDriver.allocate(beforeAllocation, rtac);
 
         // also unsure if the Set<VolumeRequirements> should be it's own class. My gut instinct is
