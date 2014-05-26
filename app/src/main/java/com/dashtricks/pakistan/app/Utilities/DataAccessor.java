@@ -7,6 +7,7 @@ import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -132,5 +133,27 @@ public class DataAccessor {
         return g.toJson(r);
     }
 
+    public int numDeficientFacilities() {
+        int n = 0;
 
+        for(Facility f : fs){
+            if(f.getPercentDeficient() > 0.0) {
+                n++;
+            }
+        }
+
+        return n;
+    }
+
+    public List<Facility> getDeficientFacilities(){
+        List<Facility> fl = new LinkedList<Facility>();
+
+        for(Facility f : fs){
+            if(f.getPercentDeficient() > 0.0) {
+                fl.add(f);
+            }
+        }
+
+        return fl;
+    }
 }
