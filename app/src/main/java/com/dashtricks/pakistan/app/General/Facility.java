@@ -4,12 +4,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 /**
  * Created by Donohue on 5/7/14.
  */
-public class Facility {
+public class Facility implements Iterable<Refrigerator>{
     public static final int ADMIN_DEPTH = 1;
 
     private String name;
@@ -131,4 +132,8 @@ public class Facility {
         return subdis;
     }
 
+    @Override
+    public Iterator<Refrigerator> iterator() {
+        return refrigerators.iterator();
+    }
 }

@@ -10,12 +10,15 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 // One big utility class that contains the ability to convert stuff to json as need be
 // Kind of also the data accessor
 // Constructed with and updated by a Facilities (forgive the singular/plural mismatch)
 // That represents all facilities
 public class DataAccessor {
+    private static final int AGE_GROUP_CONST = 5;
+
     private Gson g;
     private Facilities fs;
     private Map<String, List<Facility>> subdisToFacs;
@@ -155,5 +158,37 @@ public class DataAccessor {
         }
 
         return fl;
+    }
+
+    // Group refrigerators into age groups
+    // A refrigerator in group n is between the ages of
+    // n * AGE_GROUP_CONST and (n + 1) * AGE_GROUP_CONST - 1
+    public Map<Integer, List<Refrigerator>> createFridgeAgeGroups(){
+        List<Refrigerator> refs = new ArrayList<Refrigerator>(500); // There 462 fridges in the sheet
+
+        for(Facility f : fs) {
+            for (Refrigerator r : f) {
+                refs.add(r);
+            }
+        }
+
+        return partitionRefrigerators(refs);
+    }
+
+    private Map<Integer, List<Refrigerator>> partitionRefrigerators(List<Refrigerator> refs) {
+        Map<Integer, List<Refrigerator>> ret = new TreeMap<Integer, List<Refrigerator>>();
+
+        for(Refrigerator r : refs) {
+            int ageGroup = r.getAge() / AGE_GROUP_CONST;
+            if(ret.containsKey(ageGroup)){
+                ret.get(ageGroup).add(r);
+            } else {
+                LinkedList<Refrigerator> ageList= new LinkedList<Refrigerator>();
+                ageList.add(r);
+                ret.put(ageGroup, ageList);
+            }
+        }
+
+        return ret;
     }
 }
