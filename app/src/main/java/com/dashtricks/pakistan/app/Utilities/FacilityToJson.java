@@ -29,8 +29,10 @@ public abstract class FacilityToJson {
         sb.append('{');
 
         for(String subdis : subdisToFacs.keySet()) {
+
             List<Facility> l = subdisToFacs.get(subdis);
-            StringBuilder append = sb.append(String.format("\"%s\":{\"facilities\":[", subdis));// subdistrict object entry
+            // subdistrict object entry
+            StringBuilder append = sb.append(String.format("\"%s\":{\"facilities\":[", subdis));
             for(Facility f : l) {
                 sb.append(g.toJson(f));
                 sb.append(',');

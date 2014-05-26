@@ -17,7 +17,6 @@ import java.util.List;
  *
  * Created by japacible on 5/24/14.
  */
-
 public class FileDialog {
     private static final String PARENT_DIR = "..";
     private final Activity activity;
@@ -42,8 +41,10 @@ public class FileDialog {
     }
 
     /**
-     * @param activity
-     * @param path initialPath
+     * Create the File Dialog given the activity and file path
+     *
+     * @param activity Activity
+     * @param path File the initial path
      */
     public FileDialog(Activity activity, File path) {
         this.activity = activity;
@@ -52,7 +53,9 @@ public class FileDialog {
     }
 
     /**
-     * @return file dialog
+     * Create and return dialog to select file
+     *
+     * @return Dialog
      */
     public Dialog createFileDialog() {
         Dialog dialog = null;
@@ -70,14 +73,16 @@ public class FileDialog {
 
         builder.setItems(fileList, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-                String fileChosen = fileList[which];
-                File chosenFile = getChosenFile(fileChosen);
-                if (chosenFile.isDirectory()) {
-                    loadFileList(chosenFile);
-                    dialog.cancel();
-                    dialog.dismiss();
-                    showDialog();
-                } else fireFileSelectedEvent(chosenFile);
+            String fileChosen = fileList[which];
+            File chosenFile = getChosenFile(fileChosen);
+            if (chosenFile.isDirectory()) {
+                loadFileList(chosenFile);
+                dialog.cancel();
+                dialog.dismiss();
+                showDialog();
+            } else {
+                fireFileSelectedEvent(chosenFile);
+            }
             }
         });
 
@@ -85,27 +90,54 @@ public class FileDialog {
         return dialog;
     }
 
-
+    /**
+     * Add the listener to list of listeners
+     *
+     * @param listener FileSelectedListener
+     */
     public void addFileListener(FileSelectedListener listener) {
         fileListenerList.add(listener);
     }
 
+    /**
+     * Remove the listener to list of listeners
+     *
+     * @param listener FileSelectedListener
+     */
     public void removeFileListener(FileSelectedListener listener) {
         fileListenerList.remove(listener);
     }
 
+    /**
+     * Set whether or not user can select a directory
+     *
+     * @param selectDirectoryOption boolean
+     */
     public void setSelectDirectoryOption(boolean selectDirectoryOption) {
         this.selectDirectoryOption = selectDirectoryOption;
     }
 
+    /**
+     * Add the listener to list of listeners
+     *
+     * @param listener DirectorySelectedListener
+     */
     public void addDirectoryListener(DirectorySelectedListener listener) {
         dirListenerList.add(listener);
     }
 
+    /**
+     * Remove the listener to list of listeners
+     *
+     * @param listener DirectorySelectedListener
+     */
     public void removeDirectoryListener(DirectorySelectedListener listener) {
         dirListenerList.remove(listener);
     }
 
+    /**
+     * Show the dialog
+     */
     public void showDialog() {
         createFileDialog().show();
     }
@@ -137,22 +169,20 @@ public class FileDialog {
                     if (!sel.canRead()) return false;
                     if (selectDirectoryOption) return sel.isDirectory();
                     else {
-                        boolean endsWith = fileEndsWith != null ?
-                                filename.toLowerCase().endsWith(fileEndsWith) : true;
+                        boolean endsWith = fileEndsWith == null ||
+                                filename.toLowerCase().endsWith(fileEndsWith);
                         return endsWith || sel.isDirectory();
                     }
                 }
             };
+
             String[] fileList1 = path.list(filter);
             if (fileList1 != null) {
-                Log.d(getClass().getName(), "string[] file was NOT null");
                 for (String file : fileList1) {
                     r.add(file);
-                    Log.d(getClass().getName(), file);
                 }
-            } else {
-                Log.d(getClass().getName(), "string[] file was null");
             }
+
         }
         fileList = (String[]) r.toArray(new String[]{});
     }

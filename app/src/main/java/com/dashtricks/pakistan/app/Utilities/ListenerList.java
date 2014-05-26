@@ -15,10 +15,20 @@ public class ListenerList<L> {
         void fireEvent(L listener);
     }
 
+    /**
+     * Add listener to list
+     *
+     * @param listener L
+     */
     public void add(L listener) {
         listenerList.add(listener);
     }
 
+    /**
+     * Fire events from this list
+     *
+     * @param fireHandler FireHandler<L>
+     */
     public void fireEvent(FireHandler<L> fireHandler) {
         List<L> copy = new ArrayList<L>(listenerList);
         for (L l : copy) {
@@ -26,10 +36,19 @@ public class ListenerList<L> {
         }
     }
 
+    /**
+     * Remove listener from list
+     *
+     * @param listener L
+     */
     public void remove(L listener) {
         listenerList.remove(listener);
     }
 
+    /**
+     * Return list of listeners
+     * @return List<L>
+     */
     public List<L> getListenerList() {
         return listenerList;
     }
