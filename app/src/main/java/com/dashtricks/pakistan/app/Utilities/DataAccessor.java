@@ -9,8 +9,30 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public abstract class FacilityToJson {
-    public static final Gson g = new Gson();
+// One big utility class that contains the ability to convert stuff to json as need be
+
+public abstract class DataAccessor {
+    private static final Gson g = new Gson();
+    private static Facilities priv_fs;
+    private static Map<String, List<Facility>> subdisToFacs;
+
+    // Must be called before anything else gets called
+    public static void initialize(Facilities fs){
+        priv_fs = fs;
+        subdisToFacs = separateFacilities(priv_fs);
+    }
+
+    public static String getDistrict(Facility f){
+        return f.getSubdis(); // hashing, pipelining, and another layer of indirection
+    }
+
+    public static double getAmountDeficinent(Facility f){
+        return f.getAmountShortBy();
+    }
+
+    public static double getPercentDeficient(Facility f){
+        return f.getPercentDeficient();
+    }
 
     public static String FacilityToJson(Facility f) {
         return g.toJson(f);
@@ -20,10 +42,9 @@ public abstract class FacilityToJson {
 //    Iterate over all facilities and add them to the appropriate place in the map
 //    Wrap everything in square brackets, separate with commas
 //    Hot damn, this is some C like java
-    public static String facilitiesToJson(Facilities fs) {
+    public static String facilitiesToJson() {
         StringBuilder sb = new StringBuilder();
 
-        Map<String, List<Facility>> subdisToFacs = separateFacilities(fs);
 //        Beginning of container
         sb.append('{');
 

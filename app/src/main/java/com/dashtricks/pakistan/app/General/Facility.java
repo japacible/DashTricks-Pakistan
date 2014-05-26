@@ -37,6 +37,14 @@ public class Facility {
 
     }
 
+    public double getAmountShortBy() {
+        return amountShortBy;
+    }
+
+    public double getPercentDeficient() {
+        return percentDeficient;
+    }
+
     public String getName() {
 	return name;
     }
