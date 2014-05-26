@@ -1,12 +1,9 @@
 package com.dashtricks.pakistan.app.Activities;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
-import android.nfc.Tag;
 import android.os.Bundle;
 import android.app.ListFragment;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -17,10 +14,6 @@ import android.widget.TextView;
 import com.dashtricks.pakistan.app.Model.ListTypeFacility;
 import com.dashtricks.pakistan.app.Model.ListTypeFacilityLab;
 import com.dashtricks.pakistan.app.R;
-
-import com.dashtricks.pakistan.app.Activities.dummy.DummyContent;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -34,10 +27,6 @@ public class FacilityListFragment extends ListFragment {
         super.onCreate(savedInstanceState);
 
         mFacilities = ListTypeFacilityLab.get(getActivity()).getFacilitiesList();
-
-        /*ArrayAdapter<ListTypeFacility> adapter = new ArrayAdapter<ListTypeFacility>(getActivity(),
-                R.layout.fragment_facility_row,
-                mFacilities);*/
 
         FacilityListAdapter adapter = new FacilityListAdapter(mFacilities);
         setListAdapter(adapter);
@@ -82,8 +71,10 @@ public class FacilityListFragment extends ListFragment {
             facilityText.setText(ltf.getFacilityName());
 
             // Set the facility percentage coverage
-            TextView facilityPercentage = (TextView)convertView.findViewById(R.id.facility_row_percentage);
-            facilityPercentage.setText(String.format("%" + 2 + "." + 2 + "f",ltf.getPercentageCapacity()) + "%");
+            TextView facilityPercentage = (TextView)convertView.findViewById(
+                    R.id.facility_row_percentage);
+            facilityPercentage.setText(String.format("%" + 2 + "." + 2 + "f",
+                    ltf.getPercentageCapacity()) + "%");
 
             return convertView;
 

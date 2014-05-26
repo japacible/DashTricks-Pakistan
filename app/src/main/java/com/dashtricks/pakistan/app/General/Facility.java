@@ -24,7 +24,7 @@ public class Facility {
     private Set<Refrigerator> refrigerators;
     private int adminRegion;
 
-    // All these things 
+    // All these things
     public Facility(String name, int facId, Set<PowerSource> ps, int adminRegion, SQLiteDatabase db) {
 	    this.name = name;
 	    this.facId = facId;
@@ -66,15 +66,22 @@ public class Facility {
                 r.setAge(Integer.parseInt(cursor.getString(4)) - Refrigerator.CURRENT_YEAR);
                 // Sum of +4 volume and -20 volume. Each refrigerator should have at most one nonzero of the two
                 r.setVolume(Integer.parseInt(cursor.getString(14)) + Integer.parseInt(cursor.getString(15)));
-                // Avoiding lookup table. 1 is working, 2 and 3 are not working
+                // Avoid using lookup table. 1 is a working refrigerator, 2 and 3 are not working
                 r.setWorking(Integer.parseInt(cursor.getString(6)) == 1);
                 r.setPs(PowerSource.ELECTRICITY); // needs two more layers of lookup, and this only
                                                   // matters for refrigerators we ourselves allocate
-                // Adding NameVO to list
                 refrigerators.add(r);
             } while (cursor.moveToNext());
         }
     return refrigerators;
+    }
+
+    public double getAmountShortBy() {
+        return amountShortBy;
+    }
+
+    public double getPercentDeficient() {
+        return percentDeficient;
     }
 
     public String getName() {
@@ -111,7 +118,7 @@ public class Facility {
 
     // Done because Calculator imports Facility, and circular dependencies are ugly
     public void setRequiredCapacity(double rc){
-	    requiredCapacity = rc;
+        requiredCapacity = rc;
         amountShortBy = rc - currentCapacity;
         percentDeficient = (1 - currentCapacity/requiredCapacity) * 100;
     }

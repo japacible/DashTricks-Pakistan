@@ -14,6 +14,10 @@ public class Facilities implements Iterable<Facility> {
         facilities = new HashSet<Facility>();
     }
 
+    public int getNumFacilities(){
+        return facilities.size();
+    }
+
     public void add(Facility facility) {
         facilities.add(facility);
     }

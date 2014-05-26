@@ -13,7 +13,6 @@ import android.view.View;
 import android.widget.Button;
 
 import com.dashtricks.pakistan.app.R;
-import com.dashtricks.pakistan.app.Utilities.ExcelToDatabaseConverter;
 import com.dashtricks.pakistan.app.Utilities.FileDialog;
 
 import java.io.File;
@@ -52,21 +51,12 @@ public class StartActivity extends ActionBarActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.start, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -84,8 +74,10 @@ public class StartActivity extends ActionBarActivity {
         fileDialog.addFileListener(new FileDialog.FileSelectedListener() {
             public void fileSelected(File file) {
             Log.d(getClass().getName(), "user selected file " + file.toString());
-            ExcelToDatabaseConverter e2dc = new ExcelToDatabaseConverter(c, "IcePak-Database", file);
-            e2dc.slurp();
+            // TODO: @InsaneFisherman: Uncomment when ExcelToDatabaseConverter implemented
+            // ExcelToDatabaseConverter e2dc
+            //     = new ExcelToDatabaseConverter(c, "IcePak-Database", file);
+            // e2dc.slurp();
             }
         });
 
@@ -96,8 +88,6 @@ public class StartActivity extends ActionBarActivity {
      * Go to visualization flow
      */
     public void generateVisualization(View view) {
-        /*Intent i = new Intent(this, ScenarioCreationActivity.class);
-        startActivity(i);*/
         Intent i = new Intent(this, ScenarioCreationActivity.class);
         startActivity(i);
     }

@@ -48,6 +48,6 @@
     <string name="title_activity_urgent_need_bar_graph">Urgent Need Bar Graph</string>
     <string name="title_activity_overall_statistics">Overall Statistics</string>
     <string name="title_activity_fridge_age_bar_graph">Fridge Age Bar Graph</string>
-    <string name="title_activity_import_cold_chain">ImportColdChainActivity</string>
+    <string name="title_activity_import_cold_chain">Import Cold Chain</string>
 
 </resources>

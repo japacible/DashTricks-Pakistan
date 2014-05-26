@@ -1,7 +1,5 @@
 package com.dashtricks.pakistan.app.Activities;
 
-import android.app.Activity;
-import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
@@ -12,11 +10,6 @@ import android.widget.TextView;
 import com.dashtricks.pakistan.app.Model.ListTypeFacility;
 import com.dashtricks.pakistan.app.Model.ListTypeFacilityLab;
 import com.dashtricks.pakistan.app.R;
-
-import org.w3c.dom.Text;
-
-import java.util.UUID;
-
 
 public class FacilityFragment extends Fragment {
     public static final String EXTRA_FACILITY_ID = "facility_id";
