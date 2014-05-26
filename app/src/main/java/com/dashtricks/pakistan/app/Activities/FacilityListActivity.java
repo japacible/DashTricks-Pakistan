@@ -44,5 +44,4 @@ public class FacilityListActivity extends Activity {
                 return super.onOptionsItemSelected(item);
         }
     }
-
 }

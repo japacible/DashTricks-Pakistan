@@ -133,14 +133,6 @@
             android:name="com.dashtricks.pakistan.app.Activities.CreateScenarioActivity"
             android:label="@string/title_activity_create_scenario" >
         </activity>
-        <activity
-            android:name="com.dashtricks.pakistan.app.Activities.ImportColdChainActivity"
-            android:label="@string/title_activity_import_cold_chain"
-            android:screenOrientation="portrait" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.dashtricks.pakistan.app.Activities.StartActivity" />
-        </activity>
         -->
     </application>
 

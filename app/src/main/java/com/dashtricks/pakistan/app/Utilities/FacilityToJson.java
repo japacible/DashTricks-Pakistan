@@ -9,13 +9,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
 public abstract class FacilityToJson {
-	public static final Gson g = new Gson();
-	
-	public static String FacilityToJson(Facility f) {
-		return g.toJson(f);
-	}
+    public static final Gson g = new Gson();
+
+    public static String FacilityToJson(Facility f) {
+        return g.toJson(f);
+    }
 
 //    Want to map from a sub-district name to a collection of facilities
 //    Iterate over all facilities and add them to the appropriate place in the map

@@ -37,10 +37,10 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
     }
 
     @Override
-	/* 
-	 * Given the database,
-	 * create one table per sheet in the data
-	 * */
+    /*
+     * Given the database,
+     * create one table per sheet in the data
+     * */
     public void onCreate(SQLiteDatabase db) {
         Sheet[] sheets = w.getSheets();
 
@@ -105,8 +105,8 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
             sb.append(parseCellType(s.getCell(i, offset)));
             sb.append(", ");
         }
-		
-		/* remove trailing comma and space */
+
+        /* remove trailing comma and space */
         sb.deleteCharAt(sb.length() - 1);
         sb.deleteCharAt(sb.length() - 1);
 

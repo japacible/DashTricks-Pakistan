@@ -20,9 +20,9 @@ public class Facility {
 
     // All these things 
     public Facility(String name, int facId, Set<PowerSource> ps) {
-	    this.name = name;
-	    this.facId = facId;
-	    this.powerSources = ps;
+        this.name = name;
+        this.facId = facId;
+        this.powerSources = ps;
         refrigerators = new HashSet<Refrigerator>();
         populateRefrigerators(refrigerators);
         for(Refrigerator r : refrigerators) {
@@ -34,8 +34,6 @@ public class Facility {
 
 //    Select * from
     private void populateRefrigerators(Set<Refrigerator> refrigerators) {
-
-
 
     }
 
@@ -73,7 +71,7 @@ public class Facility {
 
     // Done because Calculator imports Facility, and circular dependencies are ugly
     public void setRequiredCapacity(double rc){
-	    requiredCapacity = rc;
+        requiredCapacity = rc;
         amountShortBy = rc - currentCapacity;
         percentDeficient = (1 - currentCapacity/requiredCapacity) * 100;
     }

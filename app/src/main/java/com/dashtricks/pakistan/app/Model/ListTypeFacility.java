@@ -6,7 +6,6 @@ import java.util.UUID;
  * Created by Dan on 5/19/2014.
  */
 public class ListTypeFacility {
-
     private int capacitySortPosition;
     private String facilityName;
     private String facilityID;
@@ -17,8 +16,6 @@ public class ListTypeFacility {
     private String powerSource1;
     private String powerSource2;
     private String powerSource3;
-
-
 
     // Currently using position to create different facilities.
     // TODO: Fix this automation once we get real facility data from the backend
@@ -85,7 +82,8 @@ public class ListTypeFacility {
     private String getRandomFacilityName(int i) {
         int num = i % 10;
         String[] facilityNames = {"MILITARY HOSPITAL RAWALPINDI", "BHU HALLOKI", "NISHTE EPI CENTER",
-        "MUZANG HOSPITAL", "CD SANDA", "CB DISPENSARY WALTON", "BHU CHAPA", "BHU GHAWIND", "BHU LEADR", "SAMANABAD HOSPITAL"};
+            "MUZANG HOSPITAL", "CD SANDA", "CB DISPENSARY WALTON", "BHU CHAPA", "BHU GHAWIND",
+            "BHU LEADR", "SAMANABAD HOSPITAL"};
 
         return facilityNames[num];
     }

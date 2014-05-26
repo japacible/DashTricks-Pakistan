@@ -20,17 +20,10 @@ public class ScenarioCreationActivity extends ActionBarActivity {
 
         ActionBar actionBar = getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
-
-//        NumberPicker np = (NumberPicker) findViewById(R.id.numberPicker);
-//        np.setMaxValue(100);    //set maximum val
-//        np.setMinValue(1);      //set minimum val
-//        np.setValue(1);         //set Initial val
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.scenario_creation, menu);
         return true;
     }

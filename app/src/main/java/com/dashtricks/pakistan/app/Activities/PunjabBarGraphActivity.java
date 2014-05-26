@@ -28,7 +28,6 @@ public class PunjabBarGraphActivity extends Activity {
         myWebView.loadUrl("file:///android_asset/www/pakmap.html");
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.punjab_bar_graph, menu);

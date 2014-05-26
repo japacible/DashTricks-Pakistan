@@ -11,6 +11,7 @@ import com.dashtricks.pakistan.app.Utilities.FileDialog;
 
 import java.io.File;
 
+// TODO: DEPRECATED DELETE THIS
 public class ImportColdChainActivity extends Activity {
     private FileDialog fileDialog;
 

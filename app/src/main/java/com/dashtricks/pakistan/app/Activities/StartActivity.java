@@ -75,8 +75,10 @@ public class StartActivity extends ActionBarActivity {
         fileDialog.addFileListener(new FileDialog.FileSelectedListener() {
             public void fileSelected(File file) {
             Log.d(getClass().getName(), "user selected file " + file.toString());
-            ExcelToDatabaseConverter e2dc = new ExcelToDatabaseConverter(c, "IcePak-Database", file);
-            e2dc.slurp();
+            // TODO: @InsaneFisherman: Uncomment when ExcelToDatabaseConverter implemented
+            // ExcelToDatabaseConverter e2dc
+            //     = new ExcelToDatabaseConverter(c, "IcePak-Database", file);
+            // e2dc.slurp();
             }
         });
 
@@ -87,10 +89,6 @@ public class StartActivity extends ActionBarActivity {
      * Go to visualization flow
      */
     public void generateVisualization(View view) {
-        /*Intent i = new Intent(this, ScenarioCreationActivity.class);
-        startActivity(i);*/
-        // ExcelToDatabaseConverter e2dbc = new ExcelToDatabaseConverter(this, "IcePak-Database", "./assets/excel/Pakistan_Sample.xls");
-        // e2dbc.slurp();
         Intent i = new Intent(this, ScenarioCreationActivity.class);
         startActivity(i);
     }

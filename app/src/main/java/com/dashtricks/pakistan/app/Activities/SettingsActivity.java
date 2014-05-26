@@ -62,8 +62,8 @@ public class SettingsActivity extends ActionBarActivity {
     }
 
     /**
-     * @InsaneFisherman, this is for you to check do automatic excel processing while we figure out
-     * how to traverse android directories
+     * Placeholder for @InsaneFisherman
+     * Automatic excel processing for in-app xls file
      */
     public void autoImportSpreadsheet(View view) {
 
