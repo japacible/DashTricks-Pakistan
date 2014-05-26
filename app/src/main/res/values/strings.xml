@@ -49,5 +49,6 @@
     <string name="title_activity_overall_statistics">Overall Statistics</string>
     <string name="title_activity_fridge_age_bar_graph">Fridge Age Bar Graph</string>
     <string name="title_activity_import_cold_chain">Import Cold Chain</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
