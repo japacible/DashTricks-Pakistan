@@ -17,7 +17,6 @@ public class OverallStatistics {
         attentionFacilitiesCount = 0;
         totalPopulation = 0;
         coveredPopulation = 0;
-
         percentageCapacity = 0;
         totalRequiredCapacity = 0;
         totalCoveredCapacity = 0;

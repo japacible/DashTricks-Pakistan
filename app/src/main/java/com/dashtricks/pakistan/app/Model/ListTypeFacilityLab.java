@@ -21,7 +21,6 @@ public class ListTypeFacilityLab {
         for(int i = 0; i < 100; i++) {
             ListTypeFacility ltf = new ListTypeFacility(i);
             mFacilities.add(ltf);
-
         }
     }
 

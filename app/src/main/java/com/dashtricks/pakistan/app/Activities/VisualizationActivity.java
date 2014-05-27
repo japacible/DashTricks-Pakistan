@@ -1,9 +1,12 @@
 package com.dashtricks.pakistan.app.Activities;
 
 import android.app.ActionBar;
+import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.support.v4.app.NavUtils;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,7 +14,8 @@ import android.webkit.WebView;
 
 import com.dashtricks.pakistan.app.R;
 
-public class VisualizationActivity extends ActionBarActivity {
+public class VisualizationActivity extends Activity
+        implements VisualizationMapFacilityFragment.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +30,16 @@ public class VisualizationActivity extends ActionBarActivity {
         myWebView.getSettings().setAllowUniversalAccessFromFileURLs(true);
         myWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         myWebView.loadUrl("file:///android_asset/www/pakmap.html");
+
+        FragmentManager fm = getFragmentManager();
+        Fragment fragment = fm.findFragmentById(R.id.visualizationFragmentContainer);
+
+        if(fragment == null) {
+            fragment = new VisualizationMapFacilityFragment();
+            fm.beginTransaction()
+                    .add(R.id.visualizationFragmentContainer, fragment)
+                    .commit();
+        }
     }
 
     @Override
@@ -45,5 +59,10 @@ public class VisualizationActivity extends ActionBarActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    public void onFragmentInteraction(String id) {
+        Log.d("derp1", "derp2");
     }
 }
