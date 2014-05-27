@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <!--
@@ -8,5 +9,9 @@
     http://developer.android.com/training/multiscreen/screensizes.html#TaskUseAliasFilters
     -->
     <item name="fragment_visualizationmapfacility" type="layout">@layout/fragment_visualizationmapfacility_list</item>
+    <item name="fragment_punjabbargraphfragment" type="layout">@layout/fragment_punjabbargraphfragment_list</item>
+    <item name="fragment_punjabbargraph" type="layout">@layout/fragment_punjabbargraph_list</item>
+    <item name="fragment_fridgeagebargraph" type="layout">@layout/fragment_fridgeagebargraph_list</item>
+    <item name="fragment_urgentneedbargraph" type="layout">@layout/fragment_urgentneedbargraph_list</item>
 
 </resources>

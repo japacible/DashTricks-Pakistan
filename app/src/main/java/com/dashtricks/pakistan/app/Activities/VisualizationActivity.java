@@ -63,6 +63,6 @@ public class VisualizationActivity extends Activity
 
     @Override
     public void onFragmentInteraction(String id) {
-        Log.d("derp1", "derp2");
+
     }
 }

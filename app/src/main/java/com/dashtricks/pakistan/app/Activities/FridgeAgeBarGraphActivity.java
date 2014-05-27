@@ -2,6 +2,8 @@ package com.dashtricks.pakistan.app.Activities;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
@@ -26,6 +28,16 @@ public class FridgeAgeBarGraphActivity extends Activity {
         myWebView.getSettings().setAllowUniversalAccessFromFileURLs(true);
         myWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         myWebView.loadUrl("file:///android_asset/www/pakmap.html");
+
+        FragmentManager fm = getFragmentManager();
+        Fragment fragment = fm.findFragmentById(R.id.visualizationFragmentContainer);
+
+        if(fragment == null) {
+            fragment = new VisualizationMapFacilityFragment();
+            fm.beginTransaction()
+                    .add(R.id.visualizationFragmentContainer, fragment)
+                    .commit();
+        }
     }
 
 

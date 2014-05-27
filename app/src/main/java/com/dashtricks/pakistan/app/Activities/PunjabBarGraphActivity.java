@@ -2,6 +2,8 @@ package com.dashtricks.pakistan.app.Activities;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
@@ -11,7 +13,8 @@ import android.webkit.WebView;
 
 import com.dashtricks.pakistan.app.R;
 
-public class PunjabBarGraphActivity extends Activity {
+public class PunjabBarGraphActivity extends Activity
+        implements VisualizationMapFacilityFragment.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +29,16 @@ public class PunjabBarGraphActivity extends Activity {
         myWebView.getSettings().setAllowUniversalAccessFromFileURLs(true);
         myWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         myWebView.loadUrl("file:///android_asset/www/pakmap.html");
+
+        FragmentManager fm = getFragmentManager();
+        Fragment fragment = fm.findFragmentById(R.id.punjabFragmentContainer);
+
+        if(fragment == null) {
+            fragment = new PunjabBarGraphFragment();
+            fm.beginTransaction()
+                    .add(R.id.punjabFragmentContainer, fragment)
+                    .commit();
+        }
     }
 
     @Override
@@ -45,5 +58,10 @@ public class PunjabBarGraphActivity extends Activity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    public void onFragmentInteraction(String id) {
+
     }
 }
