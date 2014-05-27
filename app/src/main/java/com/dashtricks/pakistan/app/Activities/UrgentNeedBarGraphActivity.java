@@ -13,7 +13,8 @@ import android.webkit.WebView;
 
 import com.dashtricks.pakistan.app.R;
 
-public class UrgentNeedBarGraphActivity extends Activity {
+public class UrgentNeedBarGraphActivity extends Activity
+        implements UrgentNeedBarGraphFragment.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +41,6 @@ public class UrgentNeedBarGraphActivity extends Activity {
         }
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.urgent_need_bar_graph, menu);
@@ -58,5 +58,10 @@ public class UrgentNeedBarGraphActivity extends Activity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    public void onFragmentInteraction(String id) {
+
     }
 }

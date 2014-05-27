@@ -6,6 +6,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,7 +15,7 @@ import android.webkit.WebView;
 import com.dashtricks.pakistan.app.R;
 
 public class PunjabBarGraphActivity extends Activity
-        implements VisualizationMapFacilityFragment.OnFragmentInteractionListener {
+        implements PunjabBarGraphFragment.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

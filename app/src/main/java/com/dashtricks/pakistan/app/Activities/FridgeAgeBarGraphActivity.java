@@ -13,7 +13,8 @@ import android.webkit.WebView;
 
 import com.dashtricks.pakistan.app.R;
 
-public class FridgeAgeBarGraphActivity extends Activity {
+public class FridgeAgeBarGraphActivity extends Activity
+        implements FridgeAgeBarGraphFragment.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,16 +31,15 @@ public class FridgeAgeBarGraphActivity extends Activity {
         myWebView.loadUrl("file:///android_asset/www/pakmap.html");
 
         FragmentManager fm = getFragmentManager();
-        Fragment fragment = fm.findFragmentById(R.id.visualizationFragmentContainer);
+        Fragment fragment = fm.findFragmentById(R.id.fridgeAgeFragmentContainer);
 
         if(fragment == null) {
             fragment = new VisualizationMapFacilityFragment();
             fm.beginTransaction()
-                    .add(R.id.visualizationFragmentContainer, fragment)
+                    .add(R.id.fridgeAgeFragmentContainer, fragment)
                     .commit();
         }
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -58,5 +58,10 @@ public class FridgeAgeBarGraphActivity extends Activity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    public void onFragmentInteraction(String id) {
+
     }
 }
