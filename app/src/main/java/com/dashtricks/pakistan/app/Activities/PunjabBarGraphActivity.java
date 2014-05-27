@@ -25,7 +25,7 @@ public class PunjabBarGraphActivity extends Activity {
         myWebView.getSettings().setJavaScriptEnabled(true);
         myWebView.getSettings().setAllowUniversalAccessFromFileURLs(true);
         myWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
-        myWebView.loadUrl("file:///android_asset/www/pakmap.html");
+        myWebView.loadUrl("file:///android_asset/www/punjabGraph.html");
     }
 
     @Override
