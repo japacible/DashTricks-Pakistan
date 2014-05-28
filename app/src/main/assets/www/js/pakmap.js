@@ -72,7 +72,7 @@ d3.json("pakistan.json", function(error, pak) {
 });
 
 function zoomed() {
-	d3.event.sourceEvent.stopPropagation();
+	//d3.event.sourceEvent.stopPropagation();
 	container.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
 }
 /*
