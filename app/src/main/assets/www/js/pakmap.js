@@ -62,12 +62,10 @@ d3.json("pakistan.json", function(error, pak) {
 
 	svg.selectAll(".district").on("click", function() {
 		svg.selectAll(".selected")
-			.classed("selected", false)
-			.style("fill", "");
+			.classed("selected", false);
 
 		d3.select(this)
-			.classed("selected", true)
-			.style("fill", "#4cc");
+			.classed("selected", true);
 	});
 });
 

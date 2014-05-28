@@ -1,5 +1,3 @@
-/* --- */
-
 body {
 	margin: 0;
 	background: #87AEBF;
@@ -12,19 +10,6 @@ svg {
 	display: block;
 	background: white;
 }
-/*
-#display {
-	background: #dee;
-	float: right;
-	width: 45%;
-	overflow-x: hidden;
-	overflow-y: scroll;
-}
-
-#display table {
-	margin: 0;
-}
-*/
 
 .overlay {
 	fill: none;
@@ -71,4 +56,8 @@ svg {
 
 .heat-6 {
 	fill: #0a0;
+}
+
+.selected {
+	fill: #4cc;
 }
