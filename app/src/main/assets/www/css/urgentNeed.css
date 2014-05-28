@@ -3,11 +3,11 @@
 }
 
 .bar1 {
-	fill: red;
+    fill: red;
 }
 
 .yLabel {
-	font: 17px sans-serif;
+    font: 17px sans-serif;
 }
 
 .bar0:hover {
@@ -19,11 +19,11 @@
 }
 
 .yAxisLabel {
-	font: 17px sans-serif;
+    font: 17px sans-serif;
 }
 
 .xAxisLabels {
-	font: 17px sans-serif;
+    font: 17px sans-serif;
 }
 
 .axis {

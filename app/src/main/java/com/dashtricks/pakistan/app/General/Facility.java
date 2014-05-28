@@ -38,15 +38,15 @@ public class Facility {
     }
 
     public String getName() {
-	return name;
+    return name;
     }
     
     public int getFacId() {
-	return facId;
+    return facId;
     }
 
     public boolean canUseSource(PowerSource p) {
-	return powerSources.contains(p);
+    return powerSources.contains(p);
     }
 
     public void setPopulation(int population) {
@@ -66,7 +66,7 @@ public class Facility {
 
     // No setter method because this is calculated based on refrigerators
     public double getCurrentCapacity() {
-	    return currentCapacity;
+        return currentCapacity;
     }
 
     // Done because Calculator imports Facility, and circular dependencies are ugly
@@ -77,7 +77,7 @@ public class Facility {
     }
 
     public double getRequiredCapacity() {
-	return requiredCapacity;
+    return requiredCapacity;
     }
 
     public String getSubdis() {

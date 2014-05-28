@@ -6,10 +6,10 @@ public enum PowerSource {
     private int val;
     
     private PowerSource(int val) {
-	this.val = val;
+    this.val = val;
     }
 
     public int get() {
-	return val;
+    return val;
     }
 };

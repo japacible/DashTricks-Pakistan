@@ -1,79 +1,79 @@
 /* --- */
 
 body {
-	margin: 0;
-	background: #87AEBF;
-	font-family: 'Verdana';
-	font-size: 20pt;
-	overflow: hidden;
+    margin: 0;
+    background: #87AEBF;
+    font-family: 'Verdana';
+    font-size: 20pt;
+    overflow: hidden;
 }
 
 svg {
-	display: block;
-	background: white;
+    display: block;
+    background: white;
 }
 
 #display {
-	background: #dee;
-	float: right;
-	width: 45%;
-	overflow-x: hidden;
-	overflow-y: scroll;
+    background: #dee;
+    float: right;
+    width: 45%;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 #display table {
-	margin: 0;
+    margin: 0;
 }
 
 .subdistrict {
-	stroke-width: 0px;
+    stroke-width: 0px;
 }
 
 .province-boundary, .district-boundary, .subdistrict-boundary {
-	fill: none;
+    fill: none;
 }
 
 .province-boundary {
-	stroke: #224;
-	stroke-width: 4;
+    stroke: #224;
+    stroke-width: 4;
 }
 
 .district-boundary {
-	stroke: #cce;
-	stroke-width: 2;
+    stroke: #cce;
+    stroke-width: 2;
 }
 
 .subdistrict-boundary {
-	stroke: #000;
-	stroke-width: 0;
+    stroke: #000;
+    stroke-width: 0;
 }
 
 .province-label {
-	fill: #777;
-	font-weight: 300;
-	text-anchor: middle;
+    fill: #777;
+    font-weight: 300;
+    text-anchor: middle;
 }
 
 text {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 20px;
-	pointer-events: none;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    pointer-events: none;
 } 
 /*
 .facility {
-	stroke: #e22;
-	fill: #e22;
-	fill-opacity: 0;
+    stroke: #e22;
+    fill: #e22;
+    fill-opacity: 0;
 }
 
 .fac-label {
-	fill: #777;
-	font-weight: 300;
-	text-anchor: middle;
+    fill: #777;
+    font-weight: 300;
+    text-anchor: middle;
 }
 */
 .display {
-	font-size: 30px;
+    font-size: 30px;
 }
 
 .selected {
