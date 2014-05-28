@@ -8,13 +8,13 @@ var width = 640,
 var zoom = d3.behavior.zoom()
 	.scaleExtent([1, 10])
 	.on("zoom", zoomed);
-
+/*
 var drag = d3.behavior.drag()
 	.origin(function(d) { return d; })
 	.on("dragstart", dragstarted)
 	.on("drag", dragged)
 	.on("dragend", dragended);
-
+*/
 var projection = d3.geo.albers()
 	.center([0, 30])
 	.rotate([-70, 0])
@@ -61,27 +61,31 @@ d3.json("pakistan.json", function(error, pak) {
 		.attr("class", "province-boundary");
 
 	svg.selectAll(".district").on("click", function() {
+
 		svg.selectAll(".selected")
 			.classed("selected", false);
 
 		d3.select(this)
 			.classed("selected", true);
+
 	});
 });
 
 function zoomed() {
-  container.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+	d3.event.sourceEvent.stopPropagation();
+	container.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
 }
-
+/*
 function dragstarted(d) {
-  d3.event.sourceEvent.stopPropagation();
-  d3.select(this).classed("dragging", true);
+	d3.event.sourceEvent.stopPropagation();
+	d3.select(this).classed("dragging", true);
 }
 
 function dragged(d) {
-  d3.select(this).attr("cx", d.x = d3.event.x).attr("cy", d.y = d3.event.y);
+	d3.select(this).attr("cx", d.x = d3.event.x).attr("cy", d.y = d3.event.y);
 }
 
 function dragended(d) {
-  d3.select(this).classed("dragging", false);
+	d3.select(this).classed("dragging", false);
 }
+*/
