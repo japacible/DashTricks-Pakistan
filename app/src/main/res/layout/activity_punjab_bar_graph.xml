@@ -14,6 +14,12 @@ tools:context="com.dashtricks.pakistan.app.PunjabBarGraphActivity" >
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/punjabFragmentContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+        android:layout_height="match_parent" >
+
+        <ExpandableListView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/punjab_expandable_list"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent" />
+
+    </FrameLayout>
 </LinearLayout>
