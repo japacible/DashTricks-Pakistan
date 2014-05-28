@@ -35,7 +35,7 @@ public class VisualizationActivity extends Activity
         Fragment fragment = fm.findFragmentById(R.id.visualizationFragmentContainer);
 
         if(fragment == null) {
-            fragment = new VisualizationMapFacilityFragment();
+            fragment = new PunjabExpandableFacilityListFragment();
             fm.beginTransaction()
                     .add(R.id.visualizationFragmentContainer, fragment)
                     .commit();

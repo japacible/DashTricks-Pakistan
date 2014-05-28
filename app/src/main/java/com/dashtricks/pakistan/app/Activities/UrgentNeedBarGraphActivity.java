@@ -34,7 +34,7 @@ public class UrgentNeedBarGraphActivity extends Activity
         Fragment fragment = fm.findFragmentById(R.id.urgentNeedFragmentContainer);
 
         if(fragment == null) {
-            fragment = new UrgentNeedBarGraphFragment();
+            fragment = new PunjabExpandableFacilityListFragment(); // TODO Change
             fm.beginTransaction()
                     .add(R.id.urgentNeedFragmentContainer, fragment)
                     .commit();

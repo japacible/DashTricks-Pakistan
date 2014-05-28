@@ -7,8 +7,8 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
-            <option value="C:\Users\Dan\Documents\icepak\repo\DashTricks-Pakistan" />
-            <option value="C:\Users\Dan\Documents\icepak\repo\DashTricks-Pakistan\app" />
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
           </set>
         </option>
       </GradleProjectSettings>
