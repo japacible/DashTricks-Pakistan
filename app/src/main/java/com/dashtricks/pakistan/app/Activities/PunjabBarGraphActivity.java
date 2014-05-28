@@ -29,7 +29,7 @@ public class PunjabBarGraphActivity extends Activity
         myWebView.getSettings().setJavaScriptEnabled(true);
         myWebView.getSettings().setAllowUniversalAccessFromFileURLs(true);
         myWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
-        myWebView.loadUrl("file:///android_asset/www/pakmap.html");
+        myWebView.loadUrl("file:///android_asset/www/punjabGraph.html");
 
         FragmentManager fm = getFragmentManager();
         Fragment fragment = fm.findFragmentById(R.id.punjabFragmentContainer);
