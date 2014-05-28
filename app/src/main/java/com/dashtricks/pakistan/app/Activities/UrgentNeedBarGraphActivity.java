@@ -64,4 +64,24 @@ public class UrgentNeedBarGraphActivity extends Activity
     public void onFragmentInteraction(String id) {
 
     }
+
+    /*
+    private class MyWebViewClient extends WebViewClient {
+      @Override
+      public boolean shouldOverrideUrlLoading(WebView view, String url) {
+        if (url != null) {
+          // switch out fragment
+          FragmentManager fm = getFragmentManager();
+          FragmentTransaction ft = fm.beginTransaction();
+          Fragment fragment = fm.findFragmentById(R.id.urgentNeedFragmentContainer);
+
+          if (fragment == null) {
+            fragment = new PunjabExpandableFacilityListFragment();
+            ft.replace(R.id.urgentNeedFragmentContainer, fragment);
+            ft.commit();
+          }
+        }
+      }
+    }
+    */
 }
