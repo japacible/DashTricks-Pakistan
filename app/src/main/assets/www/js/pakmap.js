@@ -8,13 +8,13 @@ var width = 640,
 var zoom = d3.behavior.zoom()
 	.scaleExtent([1, 10])
 	.on("zoom", zoomed);
-/*
+
 var drag = d3.behavior.drag()
 	.origin(function(d) { return d; })
 	.on("dragstart", dragstarted)
 	.on("drag", dragged)
 	.on("dragend", dragended);
-*/
+
 var projection = d3.geo.albers()
 	.center([0, 30])
 	.rotate([-70, 0])
