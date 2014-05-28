@@ -25,6 +25,10 @@ public class PunjabExpandableFacilityListFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+ 
+        // Grab the url passed in from the webview
+        String webviewClicked = getArguments().getString("clicked");
+        
         DistrictToFacilities = PunjabFacilityListLab.get(getActivity()).getFacilitiesList();
         prepareListData();
 

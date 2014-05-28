@@ -66,7 +66,8 @@ var bars = canvas.selectAll(".bar")
         .attr("width", xPos.rangeBand())
         .attr("y", function (d) {return yPos(d); })
         .attr("height", function(d) { return chartHeight - yPos(d); })
-        .attr("fill", "blue");
+        .attr("fill", "blue")
+        .html(function(d,i) { return "<a href=\"" + need[i] + "\"></a>"; });
 
 // Add in OK number on top of OK bar
 canvas.append("text")

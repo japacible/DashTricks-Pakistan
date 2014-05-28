@@ -70,10 +70,16 @@ public class UrgentNeedBarGraphActivity extends Activity
       @Override
       public boolean shouldOverrideUrlLoading(WebView view, String url) {
         if (url != null) {
+          // create bundle of parameters to pass in
+          Bundle bundle = new Bundle();
+          bundle.putString("clicked", url);
+
           // switch out fragment
           FragmentManager fm = getFragmentManager();
           FragmentTransaction ft = fm.beginTransaction();
+ 
           Fragment fragment = fm.findFragmentById(R.id.urgentNeedFragmentContainer);
+          fragment.setArguments(bundle);
 
           if (fragment == null) {
             fragment = new PunjabExpandableFacilityListFragment();
