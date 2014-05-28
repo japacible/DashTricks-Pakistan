@@ -41,8 +41,19 @@ public class PunjabExpandableFacilityListFragment extends Fragment {
 
         // Adding header and child data
 
+        int i = 0;
         for (ListTypeFacility ltf: DistrictToFacilities.get("Attock")) {
-            listDataHeader.add(ltf.getFacilityName());
+            String facilityName;
+            boolean test = false;
+            if(test) {
+                facilityName = ltf.getFacilityName();
+            }
+            else {
+                facilityName = ListTypeFacility.getRandomFacilityNameOther(i);
+            }
+
+            // Insert the header facility name
+            listDataHeader.add(facilityName);
 
             // List of strings for the facility details
             List<String> facilityDetails = new ArrayList<String>();
@@ -51,7 +62,9 @@ public class PunjabExpandableFacilityListFragment extends Fragment {
             facilityDetails.add("Required Refrigerator Capacity: " + ltf.getRequiredCapacity());
             facilityDetails.add("Population: " + ltf.getPopulation());
 
-            listDataChild.put(ltf.getFacilityName(), facilityDetails);
+            listDataChild.put(facilityName, facilityDetails);
+
+            i++;
 
         }
     }
