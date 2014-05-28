@@ -59,9 +59,9 @@ d3.json("pakistan.json", function(error, pak) {
 		.datum(topojson.mesh(pak, pak.objects.provinces, function(a, b) { return a !== b; })) // return a !== b; for tangential borders only
 		.attr("d", path)
 		.attr("class", "province-boundary");
-/*
-	svg.selectAll(".district").on("click", function() {
 
+	svg.selectAll(".district").on("click", function() {
+		if (d3.event != null && d3.event.defaultPrevented) return;
 		svg.selectAll(".selected")
 			.classed("selected", false);
 
@@ -69,11 +69,10 @@ d3.json("pakistan.json", function(error, pak) {
 			.classed("selected", true);
 
 	});
-*/
+
 });
 
 function zoomed() {
-	//d3.event.sourceEvent.stopPropagation();
 	container.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
 }
 
