@@ -70,6 +70,7 @@
         android:layout_gravity="left"
         android:background="@drawable/abc_list_selector_background_transition_holo_light"
         android:padding="10dip"
+        android:layout_marginBottom="3dp"
         android:textSize="20dp" />
 
     <Button
@@ -81,6 +82,7 @@
         android:layout_gravity="left"
         android:background="@drawable/abc_list_selector_background_transition_holo_light"
         android:padding="10dip"
+        android:layout_marginBottom="3dp"
         android:textSize="20dp" />
 
     <Button
@@ -92,6 +94,7 @@
         android:layout_gravity="left"
         android:background="@drawable/abc_list_selector_background_transition_holo_light"
         android:padding="10dip"
+        android:layout_marginBottom="3dp"
         android:textSize="20dp" />
 
     <Button
