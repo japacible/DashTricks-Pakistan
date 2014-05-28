@@ -111,7 +111,6 @@ public class UrgentNeedBarGraphFragment extends Fragment implements AbsListView.
         mListener = null;
     }
 
-
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         if (null != mListener) {
