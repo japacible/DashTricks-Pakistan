@@ -70,33 +70,62 @@ d3.json("pakistan.json", function(error, pak) {
             .attr("dy", ".35em")
             .text(function(d) { return d.properties.name; });
 */
-    svg.selectAll(".district").on("click", function() {
-        // d3.selectAll("#display tbody tr").remove()
+	svg.selectAll(".subdistrict")
+			.data(subdistricts.features)
+		.enter().append("path")
+			.attr("class", function(d) { return "subdistrict " + d.properties.name3.replace(/[ .]/g, ""); })
+			.attr("d", path)
+			.style("fill", function(d) { return randSD(); });
 
-        svg.selectAll(".selected")
-            .classed("selected", false)
-            .style("fill", randSD());
+	svg.append("path")
+		.datum(topojson.mesh(pak, pak.objects.subdistricts, function(a, b) { return a !== b; })) // return a !== b; for tangential borders only
+		.attr("d", path)
+		.attr("class", "subdistrict-boundary");
 
-        d3.select(this)
-            .classed("selected", true)
-            .style("fill", "#4cc");
-/*
-        var dataset = [];
-        for (var i = 0; i < Math.random()*12; i++) {
-            dataset[i] = "Fake Fac " + (i+1);
-        }
-        var tr = d3.select("#display tbody").selectAll("tr")
-                .data(dataset);
+	svg.append("path")
+		.datum(topojson.mesh(pak, pak.objects.districts, function(a, b) { return a !== b; })) // return a !== b; for tangential borders only
+		.attr("d", path)
+		.attr("class", "district-boundary");
 
-        var enter = tr.enter().append("tr");
+	svg.append("path")
+		.datum(topojson.mesh(pak, pak.objects.provinces, function(a, b) { return a !== b; })) // return a !== b; for tangential borders only
+		.attr("d", path)
+		.attr("class", "province-boundary");
 
-        enter.append("td")
-            .text(function(d) { return d; });
+	svg.selectAll(".province-label")
+			.data(provinces.features)
+		.enter().append("text")
+			.attr("class", function(d) { return "province-label " + d.properties.name1.replace(/[ .]/g, ""); })
+			.attr("transform", function(d) { return "translate(" + path.centroid(d) + ")"; })
+			.attr("dy", ".35em")
+			.text(function(d) { return d.properties.name; });
 
-        enter.append("td")
-            .text(function(d) { return Math.round(Math.random()*70+20) + "%"; });
-*/
-    });
+	svg.selectAll(".subdistrict").on("click", function() {
+		d3.selectAll("#display tbody tr").remove()
+
+		svg.selectAll(".selected")
+			.classed("selected", false)
+			.style("fill", randSD());
+
+		d3.select(this)
+			.classed("selected", true)
+			.style("fill", "#4cc");
+
+		var dataset = [];
+		for (var i = 0; i < Math.random()*12; i++) {
+			dataset[i] = "Fake Fac " + (i+1);
+		}
+		var tr = d3.select("#display tbody").selectAll("tr")
+				.data(dataset);
+
+		var enter = tr.enter().append("tr");
+
+		enter.append("td")
+			.text(function(d) { return d; });
+
+		enter.append("td")
+			.text(function(d) { return Math.round(Math.random()*70+20) + "%"; });
+	});
 });
 /*
 d3.json("fake_data.json", function(error, fake) {
