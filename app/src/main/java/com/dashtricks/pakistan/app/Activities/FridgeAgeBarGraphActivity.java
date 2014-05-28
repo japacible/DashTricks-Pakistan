@@ -34,7 +34,7 @@ public class FridgeAgeBarGraphActivity extends Activity
         Fragment fragment = fm.findFragmentById(R.id.fridgeAgeFragmentContainer);
 
         if(fragment == null) {
-            fragment = new FridgeAgeBarGraphFragment();
+            fragment = new FridgeExpandableFacilityListFragment();
             fm.beginTransaction()
                     .add(R.id.fridgeAgeFragmentContainer, fragment)
                     .commit();
