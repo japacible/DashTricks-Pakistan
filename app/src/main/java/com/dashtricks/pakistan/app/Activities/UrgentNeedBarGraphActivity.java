@@ -4,12 +4,15 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import com.dashtricks.pakistan.app.R;
 
@@ -29,6 +32,7 @@ public class UrgentNeedBarGraphActivity extends Activity
         myWebView.getSettings().setAllowUniversalAccessFromFileURLs(true);
         myWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         myWebView.loadUrl("file:///android_asset/www/urgentNeed.html");
+        myWebView.setWebViewClient(new MyWebViewClient());
 
         FragmentManager fm = getFragmentManager();
         Fragment fragment = fm.findFragmentById(R.id.urgentNeedFragmentContainer);
@@ -65,11 +69,12 @@ public class UrgentNeedBarGraphActivity extends Activity
 
     }
 
-    /*
+
     private class MyWebViewClient extends WebViewClient {
       @Override
       public boolean shouldOverrideUrlLoading(WebView view, String url) {
         if (url != null) {
+          Log.d("hi", "yes url");
           // create bundle of parameters to pass in
           Bundle bundle = new Bundle();
           bundle.putString("clicked", url);
@@ -86,8 +91,10 @@ public class UrgentNeedBarGraphActivity extends Activity
             ft.replace(R.id.urgentNeedFragmentContainer, fragment);
             ft.commit();
           }
+        } else {
+            Log.d("hi", "nope");
         }
+          return true;
       }
     }
-    */
 }

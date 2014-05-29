@@ -2,6 +2,7 @@ package com.dashtricks.pakistan.app.Activities;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ExpandableListView;
 
 import com.dashtricks.pakistan.app.Model.ExpandableListAdapterPunjab;
@@ -21,13 +22,17 @@ public class PunjabExpandableFacilityListFragment extends Fragment {
     ExpandableListView expListView;
     List<String> listDataHeader;
     HashMap<String, List<String>> listDataChild;
+    String wvClicked;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
  
         // Grab the url passed in from the webview
-        String webviewClicked = getArguments().getString("clicked");
+        if(savedInstanceState != null) {
+            wvClicked = getArguments().getString("clicked");
+            Log.d("1", "2");
+        }
         
         DistrictToFacilities = PunjabFacilityListLab.get(getActivity()).getFacilitiesList();
         prepareListData();
@@ -49,11 +54,13 @@ public class PunjabExpandableFacilityListFragment extends Fragment {
         for (ListTypeFacility ltf: DistrictToFacilities.get("Attock")) {
             String facilityName;
             boolean test = false;
-            if(test) {
+            if(wvClicked != null && wvClicked.equals("Okay")) {
                 facilityName = ltf.getFacilityName();
+                Log.d("3", "4");
             }
             else {
                 facilityName = ListTypeFacility.getRandomFacilityNameOther(i);
+                Log.d("5", "6");
             }
 
             // Insert the header facility name
