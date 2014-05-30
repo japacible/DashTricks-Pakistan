@@ -52,5 +52,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_expandable_list_adapter_urgent">ExpandableListAdapterUrgent</string>
     <string name="title_activity_visualization_before_after">Before and After Visualization</string>
+    <string name="title_activity_exploration_map">ExplorationMapActivity</string>
 
 </resources>

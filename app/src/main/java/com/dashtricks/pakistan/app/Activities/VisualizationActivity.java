@@ -31,7 +31,7 @@ public class VisualizationActivity extends Activity
         myWebView.getSettings().setAllowUniversalAccessFromFileURLs(true);
         myWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         myWebView.addJavascriptInterface(new WebAppInterface(this), "Android");
-        myWebView.loadUrl("file:///android_asset/www/pakmap.html");
+        myWebView.loadUrl("file:///android_asset/www/simulatemap.html");
 
         FragmentManager fm = getFragmentManager();
         Fragment fragment = fm.findFragmentById(R.id.visualizationFragmentContainer);
