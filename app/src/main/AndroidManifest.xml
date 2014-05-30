@@ -120,7 +120,8 @@
         </activity>
         <activity
             android:name="com.dashtricks.pakistan.app.Activities.ExplorationMapActivity"
-            android:label="@string/title_activity_exploration_map" >
+            android:label="@string/title_activity_exploration_map"
+            android:screenOrientation="landscape" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.dashtricks.pakistan.app.Activities.ExplorationActivity" />
