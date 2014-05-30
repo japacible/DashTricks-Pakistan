@@ -51,5 +51,6 @@
     <string name="title_activity_import_cold_chain">Import Cold Chain</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_expandable_list_adapter_urgent">ExpandableListAdapterUrgent</string>
+    <string name="title_activity_visualization_before_after">Before and After Visualization</string>
 
 </resources>
