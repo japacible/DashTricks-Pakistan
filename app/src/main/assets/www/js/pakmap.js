@@ -1,3 +1,5 @@
+Android.showToast("Howdy!");
+
 function randHeat() {
     return "heat-" + ( 6 - Math.round(Math.pow(Math.random(), 3) * 6));
 }

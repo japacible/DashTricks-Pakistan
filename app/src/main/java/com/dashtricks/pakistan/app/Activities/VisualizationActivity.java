@@ -13,6 +13,7 @@ import android.view.View;
 import android.webkit.WebView;
 
 import com.dashtricks.pakistan.app.R;
+import com.dashtricks.pakistan.app.Utilities.WebAppInterface;
 
 public class VisualizationActivity extends Activity
         implements VisualizationMapFacilityFragment.OnFragmentInteractionListener {
@@ -29,6 +30,7 @@ public class VisualizationActivity extends Activity
         myWebView.getSettings().setJavaScriptEnabled(true);
         myWebView.getSettings().setAllowUniversalAccessFromFileURLs(true);
         myWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        myWebView.addJavascriptInterface(new WebAppInterface(this), "Android");
         myWebView.loadUrl("file:///android_asset/www/pakmap.html");
 
         FragmentManager fm = getFragmentManager();

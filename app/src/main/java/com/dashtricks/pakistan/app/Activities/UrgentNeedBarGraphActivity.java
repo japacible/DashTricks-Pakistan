@@ -12,6 +12,7 @@ import android.view.View;
 import android.webkit.WebView;
 
 import com.dashtricks.pakistan.app.R;
+import com.dashtricks.pakistan.app.Utilities.WebAppInterface;
 
 public class UrgentNeedBarGraphActivity extends Activity
         implements UrgentNeedBarGraphFragment.OnFragmentInteractionListener {
@@ -28,6 +29,7 @@ public class UrgentNeedBarGraphActivity extends Activity
         myWebView.getSettings().setJavaScriptEnabled(true);
         myWebView.getSettings().setAllowUniversalAccessFromFileURLs(true);
         myWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        myWebView.addJavascriptInterface(new WebAppInterface(this), "Android");
         myWebView.loadUrl("file:///android_asset/www/urgentNeed.html");
 
         FragmentManager fm = getFragmentManager();

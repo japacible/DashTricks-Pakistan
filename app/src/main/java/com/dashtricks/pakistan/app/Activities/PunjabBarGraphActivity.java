@@ -13,6 +13,7 @@ import android.view.View;
 import android.webkit.WebView;
 
 import com.dashtricks.pakistan.app.R;
+import com.dashtricks.pakistan.app.Utilities.WebAppInterface;
 
 public class PunjabBarGraphActivity extends Activity
         implements PunjabBarGraphFragment.OnFragmentInteractionListener {
@@ -29,6 +30,7 @@ public class PunjabBarGraphActivity extends Activity
         myWebView.getSettings().setJavaScriptEnabled(true);
         myWebView.getSettings().setAllowUniversalAccessFromFileURLs(true);
         myWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        myWebView.addJavascriptInterface(new WebAppInterface(this), "Android");
         myWebView.loadUrl("file:///android_asset/www/punjabGraph.html");
 
         FragmentManager fm = getFragmentManager();

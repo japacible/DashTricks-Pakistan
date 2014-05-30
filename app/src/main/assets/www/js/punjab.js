@@ -1,3 +1,5 @@
+Android.showToast("Howdy!");
+
 var dataArray = [];
 var districtArray = ["Attock", "Bahawalnagar", "Bahawalpur", "Bhakkar", "Chakwal", "Chiniot",
     "Dera Ghazi Khan", "Faisalabad", "Gujranwala", "Gujrat", "Hafizabad", "Jhang", "Jhelum",
