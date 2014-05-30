@@ -1,74 +1,74 @@
 /* --- */
 
 body {
-	margin: 0;
-	background: #87AEBF;
-	font-family: 'Verdana';
-	font-size: 20pt;
-	overflow: hidden;
+    margin: 0;
+    background: #87AEBF;
+    font-family: 'Verdana';
+    font-size: 20pt;
+    overflow: hidden;
 }
 
 svg {
-	display: block;
-	background: white;
+    display: block;
+    background: white;
 }
 /*
 #display {
-	background: #dee;
-	float: right;
-	width: 45%;
-	overflow-x: hidden;
-	overflow-y: scroll;
+    background: #dee;
+    float: right;
+    width: 45%;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 #display table {
-	margin: 0;
+    margin: 0;
 }
 */
 
 .overlay {
-	fill: none;
-	pointer-events: all;
+    fill: none;
+    pointer-events: all;
 }
 
 .province-boundary, .district-boundary {
-	fill: none;
+    fill: none;
 }
 
 .province-boundary {
-	stroke: #331;
-	stroke-width: 3;
+    stroke: #331;
+    stroke-width: 3;
 }
 
 .district-boundary {
-	stroke: #ddb;
-	stroke-width: 1;
+    stroke: #ddb;
+    stroke-width: 1;
 }
 
 .heat-0 {
-	fill: #ddd;
+    fill: #ddd;
 }
 
 .heat-1 {
-	fill: #f00;
+    fill: #f00;
 }
 
 .heat-2 {
-	fill: #c20;
+    fill: #c20;
 }
 
 .heat-3 {
-	fill: #940;
+    fill: #940;
 }
 
 .heat-4 {
-	fill: #660;
+    fill: #660;
 }
 
 .heat-5 {
-	fill: #380;
+    fill: #380;
 }
 
 .heat-6 {
-	fill: #0a0;
+    fill: #0a0;
 }
