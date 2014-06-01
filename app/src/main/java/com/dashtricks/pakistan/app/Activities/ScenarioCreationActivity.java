@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.NumberPicker;
 
 import com.dashtricks.pakistan.app.R;
 
@@ -33,6 +32,8 @@ public class ScenarioCreationActivity extends ActionBarActivity {
      */
     public void visualize(View view) {
         Intent i = new Intent(this, VisualizationActivity.class);
+        // TODO: add more info for intent to pass data to visualization
+        // i.putExtra("EXTRA_SESSION_ID", sessionId);
         startActivity(i);
     }
 
