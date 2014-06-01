@@ -20,12 +20,6 @@ public class ScenarioCreationActivity extends ActionBarActivity {
 
         ActionBar actionBar = getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
-
-//        NumberPicker np = (NumberPicker) findViewById(R.id.numberPicker);
-//        np.setMaxValue(100);    // set maximum val
-//        np.setMinValue(1);      // set minimum val
-//        np.setValue(5);         // currently defaulting to 50 new fridges
-//        np.setEnabled(false);   // not allowing user input
     }
 
     @Override
@@ -35,7 +29,7 @@ public class ScenarioCreationActivity extends ActionBarActivity {
     }
 
     /**
-     * Open WebView
+     * Open webview to Visualization simulation
      */
     public void visualize(View view) {
         Intent i = new Intent(this, VisualizationActivity.class);
@@ -46,5 +40,4 @@ public class ScenarioCreationActivity extends ActionBarActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         return super.onOptionsItemSelected(item);
     }
-
 }

@@ -148,10 +148,6 @@
             android:name="com.dashtricks.pakistan.app.Activities.CreateImmunizationPlanActivity"
             android:label="@string/title_activity_create_immunization_plan" >
         </activity>
-        <activity
-            android:name="com.dashtricks.pakistan.app.Activities.CreateScenarioActivity"
-            android:label="@string/title_activity_create_scenario" >
-        </activity>
         -->
     </application>
 
