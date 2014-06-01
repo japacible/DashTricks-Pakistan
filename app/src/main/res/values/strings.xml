@@ -13,6 +13,13 @@
 
     <!-- Settings -->
     <string name="send_feedback">Send Feedback</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="about_app">IcePAK is focused on vaccine cold chain
+        management in Pakistan. Its goal is to integrate large amounts of
+        data into easily consumable forms, enabling decision makers and
+        managers to allocate resources effectively. High visibility of problem
+        areas and automated allocation recommendations, allows these at risk
+        locations to recognised early and dealt with efficiently.</string>
 
     <!-- Exploration -->
     <string name="exploration">Exploration</string>

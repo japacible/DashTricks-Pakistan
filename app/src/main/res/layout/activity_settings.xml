@@ -21,4 +21,12 @@
         android:background="@drawable/abc_list_selector_background_transition_holo_light"
         android:padding="8dip" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/about_top_padding"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/about_app"
+        android:id="@+id/textView" />
+
 </LinearLayout>

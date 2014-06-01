@@ -12,4 +12,7 @@
 
     <dimen name="screen_half_height">480dp</dimen>
     <dimen name="screen_half_width">552dp</dimen>
+
+    <!-- Settings -->
+    <dimen name="about_top_padding">50dp</dimen>
 </resources>
