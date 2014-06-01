@@ -18,7 +18,15 @@
     <string name="exploration">Exploration</string>
     <string name="facility_list">Facility List</string>
 
-    <!-- Visualization -->
+    <!-- Simulation Factors -->
+    <string name="count">Count</string>
+    <string name="fridge">Fridge</string>
+    <string name="fridges">Fridges</string>
+    <string name="immunization_plan">Immunization Plan</string>
+    <string name="immunization_plans">Immunization Plans</string>
+
+    <!-- Simulation -->
+    <string name="simulation">Simulation</string>
     <string name="create_scenario">Create Scenario</string>
     <string name="create_immunization_plan">Create Immunization Plan</string>
     <string name="new_scenario">New Scenario</string>
@@ -40,7 +48,7 @@
     <string name="title_activity_factory_list">Factory List</string>
     <string name="title_activity_facility_list">Facility List</string>
     <string name="title_activity_facility">Facility</string>
-    <string name="title_activity_visualization">Visualization</string>
+    <string name="title_activity_visualization">Simulation Map</string>
     <string name="title_activity_feedback">Feedback</string>
     <string name="title_activity_exploration">Exploration</string>
     <string name="title_activity_facilities_list">Facilities List</string>
@@ -49,9 +57,9 @@
     <string name="title_activity_overall_statistics">Overall Statistics</string>
     <string name="title_activity_fridge_age_bar_graph">Fridge Age Bar Graph</string>
     <string name="title_activity_import_cold_chain">Import Cold Chain</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_expandable_list_adapter_urgent">ExpandableListAdapterUrgent</string>
     <string name="title_activity_visualization_before_after">Before and After Visualization</string>
-    <string name="title_activity_exploration_map">ExplorationMapActivity</string>
+    <string name="title_activity_exploration_map">Exploration Map</string>
+    <string name="hello_blank_fragment"></string>
 
 </resources>
