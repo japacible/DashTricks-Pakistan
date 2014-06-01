@@ -7,7 +7,8 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    tools:context="com.dashtricks.pakistan.app.StartActivity" >
+    tools:context="com.dashtricks.pakistan.app.StartActivity"
+    android:weightSum="1">
 
     <Button
         android:id="@+id/importBtn"
@@ -19,17 +20,5 @@
         android:layout_gravity="center"
         android:background="@drawable/abc_list_selector_background_transition_holo_light"
         android:padding="8dip" />
-
-    <Button
-        android:id="@+id/autoImportData"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/autoImportData"
-        android:onClick="autoImportSpreadsheet"
-        android:layout_gravity="center"
-        android:background="@drawable/abc_list_selector_background_transition_holo_light"
-        android:padding="8dip"
-        android:layout_marginTop="50dp" />
 
 </LinearLayout>
