@@ -22,6 +22,8 @@
     <string name="count">Count</string>
     <string name="fridge">Fridge</string>
     <string name="fridges">Fridges</string>
+    <string name="new_fridge">New Fridge</string>
+    <string name="new_fridges">New Fridges</string>
     <string name="immunization_plan">Immunization Plan</string>
     <string name="immunization_plans">Immunization Plans</string>
 
@@ -38,6 +40,15 @@
     <!-- Actions -->
     <string name="send">Send</string>
     <string name="go">Go</string>
+
+    <!-- Overall Statistics -->
+    <string name="total_number_fridges">Total Number Fridges</string>
+    <string name="facilities_needing_attention">Facilities Needing Attention</string>
+    <string name="total_population">Total Population</string>
+    <string name="total_population_covered">Total Population Covered</string>
+    <string name="percentage_capacity">Percentage Capacity</string>
+    <string name="total_required_capacity_size">Total Required Capacity Size</string>
+    <string name="total_covered_capacity_size">Total Covered Capacity Size</string>
 
     <!-- Activity Names -->
     <string name="title_activity_select_scenario">Select Scenario</string>
