@@ -13,7 +13,7 @@ public class FridgeAgeData {
 
     public FridgeAgeData(int i) {
         this.facilityName = getRandomFacilityName((int)(Math.random()*10));
-        this.refrigeratorModel = getRandomFridgeModel(i);
+        this.refrigeratorModel = getRandomFridgeModel((int)(Math.random()*10));
         this.province = "Punjab";
         this.yearMade = 1975 + (int)(Math.random()*29);
         this.age = 2014 - yearMade;
@@ -40,19 +40,17 @@ public class FridgeAgeData {
     }
 
     private String getRandomFacilityName(int i) {
-        int num = i % 10;
         String[] facilityNames = {"MILITARY HOSPITAL RAWALPINDI", "BHU HALLOKI", "NISHTE EPI CENTER",
                 "MUZANG HOSPITAL", "CD SANDA", "CB DISPENSARY WALTON", "BHU CHAPA", "BHU GHAWIND",
                 "BHU LEADR", "SAMANABAD HOSPITAL"};
 
-        return facilityNames[num];
+        return facilityNames[i];
     }
 
     private String getRandomFridgeModel(int i) {
-        int num = i % 10;
         String[] fridgeModels = {"MK 074", "MK 302", "HBD-286", "WF-210", "PR 25-2D Ultra", "TCW 3000", "131", "MF 214", "407A", "TCW 1990"};
 
-        return fridgeModels[num];
+        return fridgeModels[i];
     }
 
 

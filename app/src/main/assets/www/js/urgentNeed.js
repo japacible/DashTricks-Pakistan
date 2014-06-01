@@ -68,6 +68,7 @@ var bars = canvas.selectAll(".bar")
         .attr("width", xPos.rangeBand())
         .attr("y", function (d) {return yPos(d); })
         .attr("height", function(d) { return chartHeight - yPos(d); })
+        .on("click", function(d, i) { Fragment.callFragment(need[i]); })
         .attr("fill", "blue");
 
 // Add in OK number on top of OK bar

@@ -31,11 +31,13 @@ public class FridgeListLab {
         return mFacilities;
     }
 
-    private void FridgeListSetup() {
+    public List<FridgeAgeData> FridgeListSetup() {
+        List<FridgeAgeData> mfac = new ArrayList<FridgeAgeData>();
         for(int i = 1; i <= 100; i++) {
             FridgeAgeData fad = new FridgeAgeData(i);
-            mFacilities.add(fad);
+            mfac.add(fad);
         }
+        return mfac;
     }
 
 }

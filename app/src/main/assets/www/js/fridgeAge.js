@@ -71,4 +71,5 @@ var bars = canvas.selectAll(".bar")
         .attr("width", xPos.rangeBand())
         .attr("y", function (d) {return yPos(d); })
         .attr("height", function(d) { return chartHeight - yPos(d); })
-        .attr("fill", "blue");
+        .attr("fill", "blue")
+        .on("click", function(d, i) { Fragment.callFragment(yearIntervals[i]); });

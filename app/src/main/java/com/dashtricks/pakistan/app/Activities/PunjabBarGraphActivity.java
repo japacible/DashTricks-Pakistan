@@ -4,13 +4,17 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
+import android.widget.Toast;
 
 import com.dashtricks.pakistan.app.R;
 import com.dashtricks.pakistan.app.Utilities.WebAppInterface;
@@ -31,7 +35,9 @@ public class PunjabBarGraphActivity extends Activity
         myWebView.getSettings().setAllowUniversalAccessFromFileURLs(true);
         myWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         myWebView.addJavascriptInterface(new WebAppInterface(this), "Android");
+        myWebView.addJavascriptInterface(new JSInterface(this), "Fragment");
         myWebView.loadUrl("file:///android_asset/www/punjabGraph.html");
+
 
         FragmentManager fm = getFragmentManager();
         Fragment fragment = fm.findFragmentById(R.id.punjabFragmentContainer);
@@ -41,6 +47,39 @@ public class PunjabBarGraphActivity extends Activity
             fm.beginTransaction()
                     .add(R.id.punjabFragmentContainer, fragment)
                     .commit();
+        }
+    }
+
+    public class JSInterface {
+        private Context mContext;
+
+        /** Instantiate the interface and set the context */
+        public JSInterface(Context c) {
+            mContext = c;
+        }
+
+        /** Show a toast from the web page */
+        @JavascriptInterface
+        public void showToast(String toast) {
+            Toast.makeText(mContext, toast, Toast.LENGTH_SHORT).show();
+        }
+
+        @JavascriptInterface
+        // Switch out the fragment
+        public void callFragment(String districtName) {
+
+            // Instantiate urgent need fragment
+            FragmentManager fm = getFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            Fragment fragment;
+
+            PunjabExpandableFacilityListFragment pFrag = new PunjabExpandableFacilityListFragment();
+            pFrag.setDistrict(districtName);
+            fragment = pFrag;
+
+            ft.replace(R.id.punjabFragmentContainer, fragment);
+            ft.commit();
+
         }
     }
 

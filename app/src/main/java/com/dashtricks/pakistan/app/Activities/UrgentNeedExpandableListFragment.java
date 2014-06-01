@@ -14,11 +14,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class PunjabExpandableFacilityListFragment extends Fragment {
-    private HashMap<String, List<ListTypeFacility>> DistrictToFacilities;
-    private String districtClicked = "Attock";
+public class UrgentNeedExpandableListFragment extends Fragment {
+    // OK and NEED ATTENTION Facility Lists
+    // TODO replace the list types with Dov's Facility objects
+    private List<ListTypeFacility> OkayToFacilities;
+    private List<ListTypeFacility> UrgentNeedToFacilities;
 
-    // Expandable list view data
+    //private static final String TAG = "FacilityListFragment";
+    private String barState = "Okay";
+
     ExpandableListAdapterPunjab listAdapter;
     ExpandableListView expListView;
     List<String> listDataHeader;
@@ -28,8 +32,10 @@ public class PunjabExpandableFacilityListFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // TODO Replace this with a call to Dov's data
-        DistrictToFacilities = PunjabFacilityListLab.get(getActivity()).getFacilitiesList();
+        //TODO replace these calls with Dov's database calls
+        OkayToFacilities = PunjabFacilityListLab.get(getActivity()).getUrgentFacilitiesList();
+        UrgentNeedToFacilities = PunjabFacilityListLab.get(getActivity()).getUrgentFacilitiesList();
+
         prepareListData();
 
         // get the listview
@@ -43,9 +49,8 @@ public class PunjabExpandableFacilityListFragment extends Fragment {
         listDataHeader = new ArrayList<String>();
         listDataChild = new HashMap<String, List<String>>();
 
-        for (ListTypeFacility ltf: DistrictToFacilities.get(districtClicked)) {
-
-            // Set the facility name
+        int i = 0;
+        for (ListTypeFacility ltf: getListOfFacilities()) {
             listDataHeader.add(ltf.getFacilityName());
 
             // List of strings for the facility details
@@ -55,12 +60,20 @@ public class PunjabExpandableFacilityListFragment extends Fragment {
             facilityDetails.add("Required Refrigerator Capacity: " + ltf.getRequiredCapacity());
             facilityDetails.add("Population: " + ltf.getPopulation());
 
-            // Store child data
             listDataChild.put(ltf.getFacilityName(), facilityDetails);
+            i++;
         }
     }
 
-    public void setDistrict(String districtName) {
-        this.districtClicked = districtName;
+    private List<ListTypeFacility> getListOfFacilities() {
+        if(barState.equals("Okay")) {
+            return OkayToFacilities;
+        }
+
+        return UrgentNeedToFacilities;
+    }
+
+    public void setState(String barName) {
+        barState = barName;
     }
 }
