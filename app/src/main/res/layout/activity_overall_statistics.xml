@@ -6,10 +6,15 @@
 
 
         <TextView
+<<<<<<< HEAD
             android:text="NUMBER OF REFRIGERATORS"
             android:padding="3dip"
             android:textSize="30sp"
             android:background="#D3EAF8"/>
+=======
+            android:text="@string/total_number_fridges"
+            android:padding="3dip" />
+>>>>>>> 24c7bc06aecdcba173c4547e96538816ab5c9220
         <TextView
             android:id="@+id/overallStatsTotalFacilities"
             android:gravity="right"
@@ -18,10 +23,15 @@
             android:textColor="#91CAED"
             android:layout_marginRight="5dip"/>
         <TextView
+<<<<<<< HEAD
             android:text="FACILITIES NEEDING ATTENTION"
             android:padding="3dip"
             android:textSize="30sp"
             android:background="#D3EAF8"/>
+=======
+            android:text="@string/facilities_needing_attention"
+            android:padding="3dip" />
+>>>>>>> 24c7bc06aecdcba173c4547e96538816ab5c9220
         <TextView
             android:id="@+id/overallStatsAttentionNeedFacilities"
             android:gravity="right"
@@ -30,10 +40,15 @@
             android:textColor="#91CAED"
             android:layout_marginRight="5dip"/>
         <TextView
+<<<<<<< HEAD
             android:text="POPULATION"
             android:padding="3dip"
             android:textSize="30sp"
             android:background="#D3EAF8"/>
+=======
+            android:text="@string/total_population"
+            android:padding="3dip" />
+>>>>>>> 24c7bc06aecdcba173c4547e96538816ab5c9220
         <TextView
             android:id="@+id/overallStatsTotalPopulation"
             android:gravity="right"
@@ -42,10 +57,15 @@
             android:textColor="#91CAED"
             android:layout_marginRight="5dip"/>
         <TextView
+<<<<<<< HEAD
             android:text="POPULATION COVERED"
             android:padding="3dip"
             android:textSize="30sp"
             android:background="#D3EAF8"/>
+=======
+            android:text="@string/total_population_covered"
+            android:padding="3dip" />
+>>>>>>> 24c7bc06aecdcba173c4547e96538816ab5c9220
         <TextView
             android:id="@+id/overallStatsCoveredPopulation"
             android:gravity="right"
@@ -54,10 +74,15 @@
             android:textColor="#91CAED"
             android:layout_marginRight="5dip"/>
         <TextView
+<<<<<<< HEAD
             android:text="PERCENTAGE CAPACITY"
             android:padding="3dip"
             android:textSize="30sp"
             android:background="#D3EAF8"/>
+=======
+            android:text="@string/percentage_capacity"
+            android:padding="3dip" />
+>>>>>>> 24c7bc06aecdcba173c4547e96538816ab5c9220
         <TextView
             android:id="@+id/percentageCapacity"
             android:gravity="right"
@@ -66,11 +91,16 @@
             android:textColor="#91CAED"
             android:layout_marginRight="5dip"/>
         <TextView
+<<<<<<< HEAD
             android:text="REQUIRED CAPACITY SIZE"
             android:padding="3dip"
             android:textSize="30sp"
             android:background="#D3EAF8"
             android:layout_marginRight="5dip"/>
+=======
+            android:text="@string/total_required_capacity_size"
+            android:padding="3dip" />
+>>>>>>> 24c7bc06aecdcba173c4547e96538816ab5c9220
         <TextView
             android:id="@+id/totalRequiredCapacitySize"
             android:gravity="right"
@@ -79,10 +109,15 @@
             android:textColor="#91CAED"
             android:layout_marginRight="5dip"/>
         <TextView
+<<<<<<< HEAD
             android:text="COVERED CAPACITY SIZE"
             android:padding="3dip"
             android:textSize="30sp"
             android:background="#D3EAF8"/>
+=======
+            android:text="@string/total_covered_capacity_size"
+            android:padding="3dip" />
+>>>>>>> 24c7bc06aecdcba173c4547e96538816ab5c9220
         <TextView
             android:id="@+id/totalCoveredCapacitySize"
             android:gravity="right"

@@ -1,8 +1,6 @@
 package com.dashtricks.pakistan.app.Allocate;
 
 import com.dashtricks.pakistan.app.General.Refrigerator;
-import com.dashtricks.pakistan.app.Model.VolumeRequirement;
-import com.dashtricks.pakistan.app.Model.VolumeRequirementBuilder;
 
 import java.util.Iterator;
 import java.util.Set;
@@ -11,6 +9,7 @@ import java.util.Set;
  * Created by Donohue on 5/7/14.
  */
 public class AllocationDriver {
+    /*
     public static Set<VolumeRequirement> allocate(Set<VolumeRequirement> beforeAllocation,
                                                   Set<Refrigerator> rtacs)
     {
@@ -41,4 +40,5 @@ public class AllocationDriver {
 
         return rtac.getVolume();
     }
+    */
 }
