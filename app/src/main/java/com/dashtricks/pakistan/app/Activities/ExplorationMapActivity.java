@@ -15,7 +15,7 @@ import android.webkit.WebView;
 import com.dashtricks.pakistan.app.R;
 import com.dashtricks.pakistan.app.Utilities.WebAppInterface;
 
-public class VisualizationActivity extends Activity
+public class ExplorationMapActivity extends Activity
         implements VisualizationMapFacilityFragment.OnFragmentInteractionListener {
 
     @Override
@@ -31,7 +31,7 @@ public class VisualizationActivity extends Activity
         myWebView.getSettings().setAllowUniversalAccessFromFileURLs(true);
         myWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         myWebView.addJavascriptInterface(new WebAppInterface(this), "Android");
-        myWebView.loadUrl("file:///android_asset/www/simulatemap.html");
+        myWebView.loadUrl("file:///android_asset/www/exploremap.html");
 
         FragmentManager fm = getFragmentManager();
         Fragment fragment = fm.findFragmentById(R.id.visualizationFragmentContainer);

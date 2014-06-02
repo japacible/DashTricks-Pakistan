@@ -5,7 +5,7 @@
     android:stretchColumns="1">
     <TableRow>
         <TextView
-            android:text="Total Number Fridges"
+            android:text="@string/total_number_fridges"
             android:padding="3dip" />
         <TextView
             android:id="@+id/overallStatsTotalFacilities"
@@ -14,7 +14,7 @@
     </TableRow>
     <TableRow>
         <TextView
-            android:text="Facilities Needing Attention"
+            android:text="@string/facilities_needing_attention"
             android:padding="3dip" />
         <TextView
             android:id="@+id/overallStatsAttentionNeedFacilities"
@@ -23,7 +23,7 @@
     </TableRow>
     <TableRow>
         <TextView
-            android:text="Total Population"
+            android:text="@string/total_population"
             android:padding="3dip" />
         <TextView
             android:id="@+id/overallStatsTotalPopulation"
@@ -32,7 +32,7 @@
     </TableRow>
     <TableRow>
         <TextView
-            android:text="Total Population Covered"
+            android:text="@string/total_population_covered"
             android:padding="3dip" />
         <TextView
             android:id="@+id/overallStatsCoveredPopulation"
@@ -41,7 +41,7 @@
     </TableRow>
     <TableRow>
         <TextView
-            android:text="Percentage Capacity"
+            android:text="@string/percentage_capacity"
             android:padding="3dip" />
         <TextView
             android:id="@+id/percentageCapacity"
@@ -50,7 +50,7 @@
     </TableRow>
     <TableRow>
         <TextView
-            android:text="Total Required CapacitySize"
+            android:text="@string/total_required_capacity_size"
             android:padding="3dip" />
         <TextView
             android:id="@+id/totalRequiredCapacitySize"
@@ -59,7 +59,7 @@
     </TableRow>
     <TableRow>
         <TextView
-            android:text="Total Covered CapacitySize"
+            android:text="@string/total_covered_capacity_size"
             android:padding="3dip" />
         <TextView
             android:id="@+id/totalCoveredCapacitySize"

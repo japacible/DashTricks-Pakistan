@@ -31,9 +31,7 @@
             android:screenOrientation="landscape" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.dashtricks.pakistan.app.Activities.ScenarioCreationActivity"/>
-
-            <!-- TODO: change depending on where we came from viz -->
+                android:value="com.dashtricks.pakistan.app.Activities.ScenarioCreationActivity" />
         </activity>
         <activity
             android:name="com.dashtricks.pakistan.app.Activities.ScenarioCreationActivity"
@@ -107,6 +105,27 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.dashtricks.pakistan.app.Activities.ExplorationActivity" />
         </activity>
+
+        <activity
+            android:name="com.dashtricks.pakistan.app.Activities.ExpandableListAdapterUrgent"
+            android:label="@string/title_activity_expandable_list_adapter_urgent" >
+        </activity>
+        <activity
+            android:name="com.dashtricks.pakistan.app.Activities.VisualizationBeforeAfterActivity"
+            android:label="@string/title_activity_visualization_before_after"
+            android:screenOrientation="landscape" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.dashtricks.pakistan.app.Activities.VisualizationActivity" />
+        </activity>
+        <activity
+            android:name="com.dashtricks.pakistan.app.Activities.ExplorationMapActivity"
+            android:label="@string/title_activity_exploration_map"
+            android:screenOrientation="landscape" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.dashtricks.pakistan.app.Activities.ExplorationActivity" />
+        </activity>
         <!-- TODO: Re-add when the functionality is implemented -->
         <!--
         <activity
@@ -128,10 +147,6 @@
         <activity
             android:name="com.dashtricks.pakistan.app.Activities.CreateImmunizationPlanActivity"
             android:label="@string/title_activity_create_immunization_plan" >
-        </activity>
-        <activity
-            android:name="com.dashtricks.pakistan.app.Activities.CreateScenarioActivity"
-            android:label="@string/title_activity_create_scenario" >
         </activity>
         -->
     </application>

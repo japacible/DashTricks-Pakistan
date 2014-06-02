@@ -12,7 +12,7 @@ svg {
     display: block;
     background: white;
 }
-
+/*
 #display {
     background: #dee;
     float: right;
@@ -24,57 +24,51 @@ svg {
 #display table {
     margin: 0;
 }
+*/
 
-.subdistrict {
-    stroke-width: 0px;
+.overlay {
+    fill: none;
+    pointer-events: all;
 }
 
-.province-boundary, .district-boundary, .subdistrict-boundary {
+.province-boundary, .district-boundary {
     fill: none;
 }
 
 .province-boundary {
-    stroke: #224;
-    stroke-width: 4;
+    stroke: #331;
+    stroke-width: 3;
 }
 
 .district-boundary {
-    stroke: #cce;
-    stroke-width: 2;
+    stroke: #ddb;
+    stroke-width: 1;
 }
 
-.subdistrict-boundary {
-    stroke: #000;
-    stroke-width: 0;
+.heat-0 {
+    fill: #ddd;
 }
 
-.province-label {
-    fill: #777;
-    font-weight: 300;
-    text-anchor: middle;
+.heat-1 {
+    fill: #f00;
 }
 
-text {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 20px;
-    pointer-events: none;
-} 
-/*
-.facility {
-    stroke: #e22;
-    fill: #e22;
-    fill-opacity: 0;
+.heat-2 {
+    fill: #c20;
 }
 
-.fac-label {
-    fill: #777;
-    font-weight: 300;
-    text-anchor: middle;
-}
-*/
-.display {
-    font-size: 30px;
+.heat-3 {
+    fill: #940;
 }
 
-.selected {
+.heat-4 {
+    fill: #660;
+}
+
+.heat-5 {
+    fill: #380;
+}
+
+.heat-6 {
+    fill: #0a0;
 }

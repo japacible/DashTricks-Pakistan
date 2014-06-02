@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/visualization"
+        android:text="@string/simulation"
         android:id="@+id/vizBtn"
         android:onClick="generateVisualization"
         android:layout_marginBottom="202dp"

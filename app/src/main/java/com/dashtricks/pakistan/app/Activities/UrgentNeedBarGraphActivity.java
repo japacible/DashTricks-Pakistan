@@ -4,14 +4,20 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
+import android.widget.Toast;
 
 import com.dashtricks.pakistan.app.R;
+import com.dashtricks.pakistan.app.Utilities.WebAppInterface;
 
 public class UrgentNeedBarGraphActivity extends Activity
         implements UrgentNeedBarGraphFragment.OnFragmentInteractionListener {
@@ -28,17 +34,21 @@ public class UrgentNeedBarGraphActivity extends Activity
         myWebView.getSettings().setJavaScriptEnabled(true);
         myWebView.getSettings().setAllowUniversalAccessFromFileURLs(true);
         myWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        myWebView.addJavascriptInterface(new WebAppInterface(this), "Android");
+        myWebView.addJavascriptInterface(new JSInterface(this), "Fragment");
         myWebView.loadUrl("file:///android_asset/www/urgentNeed.html");
+
 
         FragmentManager fm = getFragmentManager();
         Fragment fragment = fm.findFragmentById(R.id.urgentNeedFragmentContainer);
 
         if(fragment == null) {
-            fragment = new UrgentNeedBarGraphFragment();
+            fragment = new PunjabExpandableFacilityListFragment(); // TODO Change
             fm.beginTransaction()
                     .add(R.id.urgentNeedFragmentContainer, fragment)
                     .commit();
         }
+
     }
 
     @Override
@@ -57,6 +67,39 @@ public class UrgentNeedBarGraphActivity extends Activity
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    public class JSInterface {
+        private Context mContext;
+
+        /** Instantiate the interface and set the context */
+        public JSInterface(Context c) {
+            mContext = c;
+        }
+
+        /** Show a toast from the web page */
+        @JavascriptInterface
+        public void showToast(String toast) {
+            Toast.makeText(mContext, toast, Toast.LENGTH_SHORT).show();
+        }
+
+        @JavascriptInterface
+        // Switch out the fragment
+        public void callFragment(String barName) {
+
+            // Instantiate urgent need fragment
+            FragmentManager fm = getFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            Fragment fragment = fm.findFragmentById(R.id.urgentNeedFragmentContainer);
+
+            UrgentNeedExpandableListFragment pFrag = new UrgentNeedExpandableListFragment();
+            pFrag.setState(barName);
+            fragment = pFrag;
+
+            ft.replace(R.id.urgentNeedFragmentContainer, fragment);
+            ft.commit();
+
         }
     }
 

@@ -48,7 +48,7 @@ public class ExplorationActivity extends Activity {
      * Go to visualization flow
      */
     public void visualizeCurrentData(View view) {
-        Intent i = new Intent(this, VisualizationActivity.class);
+        Intent i = new Intent(this, ExplorationMapActivity.class);
         startActivity(i);
     }
 

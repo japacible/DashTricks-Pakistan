@@ -15,8 +15,7 @@ import android.webkit.WebView;
 import com.dashtricks.pakistan.app.R;
 import com.dashtricks.pakistan.app.Utilities.WebAppInterface;
 
-public class VisualizationActivity extends Activity
-        implements VisualizationMapFacilityFragment.OnFragmentInteractionListener {
+public class VisualizationBeforeAfterActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,22 +25,19 @@ public class VisualizationActivity extends Activity
         ActionBar actionBar = getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        WebView myWebView = (WebView) findViewById(R.id.webview);
-        myWebView.getSettings().setJavaScriptEnabled(true);
-        myWebView.getSettings().setAllowUniversalAccessFromFileURLs(true);
-        myWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
-        myWebView.addJavascriptInterface(new WebAppInterface(this), "Android");
-        myWebView.loadUrl("file:///android_asset/www/simulatemap.html");
+        // This does not pass anything into the webview
+        WebView leftWebView = (WebView) findViewById(R.id.webviewBefore);
+        leftWebView.getSettings().setJavaScriptEnabled(true);
+        leftWebView.getSettings().setAllowUniversalAccessFromFileURLs(true);
+        leftWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        leftWebView.loadUrl("file:///android_asset/www/exploremap.html");
 
-        FragmentManager fm = getFragmentManager();
-        Fragment fragment = fm.findFragmentById(R.id.visualizationFragmentContainer);
-
-        if(fragment == null) {
-            fragment = new PunjabExpandableFacilityListFragment();
-            fm.beginTransaction()
-                    .add(R.id.visualizationFragmentContainer, fragment)
-                    .commit();
-        }
+        // This does not pass anything into the webview
+        WebView rightWebView = (WebView) findViewById(R.id.webviewAfter);
+        rightWebView.getSettings().setJavaScriptEnabled(true);
+        rightWebView.getSettings().setAllowUniversalAccessFromFileURLs(true);
+        rightWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        rightWebView.loadUrl("file:///android_asset/www/exploremap.html");
     }
 
     @Override
@@ -61,10 +57,5 @@ public class VisualizationActivity extends Activity
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-
-    @Override
-    public void onFragmentInteraction(String id) {
-
     }
 }

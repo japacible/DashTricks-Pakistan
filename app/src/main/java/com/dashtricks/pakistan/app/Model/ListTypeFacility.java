@@ -82,8 +82,17 @@ public class ListTypeFacility {
     private String getRandomFacilityName(int i) {
         int num = i % 10;
         String[] facilityNames = {"MILITARY HOSPITAL RAWALPINDI", "BHU HALLOKI", "NISHTE EPI CENTER",
-            "MUZANG HOSPITAL", "CD SANDA", "CB DISPENSARY WALTON", "BHU CHAPA", "BHU GHAWIND",
-            "BHU LEADR", "SAMANABAD HOSPITAL"};
+                "MUZANG HOSPITAL", "CD SANDA", "CB DISPENSARY WALTON", "BHU CHAPA", "BHU GHAWIND",
+                "BHU LEADR", "SAMANABAD HOSPITAL"};
+
+        return facilityNames[num];
+    }
+
+    public static String getRandomFacilityNameOther(int i) {
+        int num = i % 10;
+        String[] facilityNames = {"Relway Hospital", "Dispensary Akal Garh", "Disp Imam Bara",
+                "MMC Mangtayal", "BHU Sukhoo", "TB Hospital EID Gah", "RHC Mandra", "TB Hospital EID Gah",
+                "Tehsil EPI Store", "RHC Nawa Kot"};
 
         return facilityNames[num];
     }

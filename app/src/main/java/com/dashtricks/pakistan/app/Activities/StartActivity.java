@@ -109,6 +109,7 @@ public class StartActivity extends ActionBarActivity {
         startActivity(i);
     }
 
+    // TODO: Remove this
     /**
      * Open facilities list view
      */

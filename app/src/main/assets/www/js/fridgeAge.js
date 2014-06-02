@@ -1,3 +1,5 @@
+Android.showToast("Howdy!");
+
 var dataArray = [];
 var yearIntervals = ["0-4", "4-8", "8-12", "12-16", "16-20", "20-24",
                     "24-28", "28-32", "32-36", "36-40"];
@@ -69,4 +71,5 @@ var bars = canvas.selectAll(".bar")
         .attr("width", xPos.rangeBand())
         .attr("y", function (d) {return yPos(d); })
         .attr("height", function(d) { return chartHeight - yPos(d); })
-        .attr("fill", "blue");
+        .attr("fill", "blue")
+        .on("click", function(d, i) { Fragment.callFragment(yearIntervals[i]); });

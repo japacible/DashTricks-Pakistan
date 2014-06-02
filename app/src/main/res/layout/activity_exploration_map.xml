@@ -1,9 +1,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:orientation="horizontal"
-tools:context="com.dashtricks.pakistan.app.PunjabBarGraphActivity" >
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context="com.dashtricks.pakistan.app.ExplorationMapActivity" >
 
     <WebView  xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/webview"
@@ -12,7 +12,7 @@ tools:context="com.dashtricks.pakistan.app.PunjabBarGraphActivity" >
         android:longClickable="false" />
 
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/punjabFragmentContainer"
+        android:id="@+id/visualizationFragmentContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
@@ -20,6 +20,5 @@ tools:context="com.dashtricks.pakistan.app.PunjabBarGraphActivity" >
             android:id="@+id/punjab_expandable_list"
             android:layout_height="match_parent"
             android:layout_width="match_parent" />
-
     </FrameLayout>
 </LinearLayout>
