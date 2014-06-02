@@ -16,6 +16,25 @@ svg {
 	pointer-events: all;
 }
 
+.legend {
+	height: 30px;
+	position: fixed;
+	color: white;
+	text-align: center;
+	font-size: 20px;
+}
+
+.reset {
+	width: 50px;
+	height: 50px;
+	position: fixed;
+	top: 5px;
+	left: 5px;
+	background: #442;
+	color: white;
+	opacity: 0.5;
+}
+
 .province-boundary, .district-boundary {
 	fill: none;
 }
@@ -32,26 +51,32 @@ svg {
 
 .heat-0 {
 	fill: #bbb;
+	background: #bbb;
 }
 
 .heat-1 {
 	fill: #c00;
+	background: #c00;
 }
 
 .heat-2 {
 	fill: #c60;
+	background: #c60;
 }
 
 .heat-3 {
 	fill: #cb0;
+	background: #cb0;
 }
 
 .heat-4 {
 	fill: #ac0;
+	background: #ac0;
 }
 
 .heat-5 {
 	fill: #0c0;
+	background: #0c0;
 }
 
 .selected {
