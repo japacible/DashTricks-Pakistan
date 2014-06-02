@@ -1,4 +1,4 @@
-Android.showToast("Howdy!");
+//Android.showToast("Howdy!");
 
 var dataArray = [];
 var yearIntervals = ["0-4", "4-8", "8-12", "12-16", "16-20", "20-24",

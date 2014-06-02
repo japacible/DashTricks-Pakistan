@@ -3,67 +3,91 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:stretchColumns="1">
-    <TableRow>
+
+
         <TextView
-            android:text="Total Number Fridges"
-            android:padding="3dip" />
+            android:text="NUMBER OF REFRIGERATORS"
+            android:padding="3dip"
+            android:textSize="30sp"
+            android:background="#D3EAF8"/>
         <TextView
             android:id="@+id/overallStatsTotalFacilities"
             android:gravity="right"
-            android:padding="3dip" />
-    </TableRow>
-    <TableRow>
+            android:padding="3dip"
+            android:textSize="40sp"
+            android:textColor="#91CAED"
+            android:layout_marginRight="5dip"/>
         <TextView
-            android:text="Facilities Needing Attention"
-            android:padding="3dip" />
+            android:text="FACILITIES NEEDING ATTENTION"
+            android:padding="3dip"
+            android:textSize="30sp"
+            android:background="#D3EAF8"/>
         <TextView
             android:id="@+id/overallStatsAttentionNeedFacilities"
             android:gravity="right"
-            android:padding="3dip" />
-    </TableRow>
-    <TableRow>
+            android:padding="3dip"
+            android:textSize="40sp"
+            android:textColor="#91CAED"
+            android:layout_marginRight="5dip"/>
         <TextView
-            android:text="Total Population"
-            android:padding="3dip" />
+            android:text="POPULATION"
+            android:padding="3dip"
+            android:textSize="30sp"
+            android:background="#D3EAF8"/>
         <TextView
             android:id="@+id/overallStatsTotalPopulation"
             android:gravity="right"
-            android:padding="3dip" />
-    </TableRow>
-    <TableRow>
+            android:padding="3dip"
+            android:textSize="40sp"
+            android:textColor="#91CAED"
+            android:layout_marginRight="5dip"/>
         <TextView
-            android:text="Total Population Covered"
-            android:padding="3dip" />
+            android:text="POPULATION COVERED"
+            android:padding="3dip"
+            android:textSize="30sp"
+            android:background="#D3EAF8"/>
         <TextView
             android:id="@+id/overallStatsCoveredPopulation"
             android:gravity="right"
-            android:padding="3dip" />
-    </TableRow>
-    <TableRow>
+            android:padding="3dip"
+            android:textSize="40sp"
+            android:textColor="#91CAED"
+            android:layout_marginRight="5dip"/>
         <TextView
-            android:text="Percentage Capacity"
-            android:padding="3dip" />
+            android:text="PERCENTAGE CAPACITY"
+            android:padding="3dip"
+            android:textSize="30sp"
+            android:background="#D3EAF8"/>
         <TextView
             android:id="@+id/percentageCapacity"
             android:gravity="right"
-            android:padding="3dip" />
-    </TableRow>
-    <TableRow>
+            android:padding="3dip"
+            android:textSize="40sp"
+            android:textColor="#91CAED"
+            android:layout_marginRight="5dip"/>
         <TextView
-            android:text="Total Required CapacitySize"
-            android:padding="3dip" />
+            android:text="REQUIRED CAPACITY SIZE"
+            android:padding="3dip"
+            android:textSize="30sp"
+            android:background="#D3EAF8"
+            android:layout_marginRight="5dip"/>
         <TextView
             android:id="@+id/totalRequiredCapacitySize"
             android:gravity="right"
-            android:padding="3dip" />
-    </TableRow>
-    <TableRow>
+            android:padding="3dip"
+            android:textSize="40sp"
+            android:textColor="#91CAED"
+            android:layout_marginRight="5dip"/>
         <TextView
-            android:text="Total Covered CapacitySize"
-            android:padding="3dip" />
+            android:text="COVERED CAPACITY SIZE"
+            android:padding="3dip"
+            android:textSize="30sp"
+            android:background="#D3EAF8"/>
         <TextView
             android:id="@+id/totalCoveredCapacitySize"
             android:gravity="right"
-            android:padding="3dip" />
-    </TableRow>
+            android:padding="3dip"
+            android:textSize="40sp"
+            android:textColor="#91CAED"
+            android:layout_marginRight="5dip"/>
 </TableLayout>

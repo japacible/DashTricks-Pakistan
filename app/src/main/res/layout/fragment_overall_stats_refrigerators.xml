@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:stretchColumns="1">
+
+
+    <TextView
+        android:text="Overall Statistics"
+        android:padding="3dip"
+        android:textSize="29dp"
+        android:background="#91CAED"
+        android:textColor="#FFFFFF"
+        android:gravity="center"/>
+    <TextView
+        android:text="Number of Refrigerators"
+        android:padding="3dip"
+        android:textSize="23dp"
+        android:background="#D3EAF8" />
+    <TextView
+        android:id="@+id/numberOfRefrigerators"
+        android:gravity="right"
+        android:padding="3dip"
+        android:textSize="23dp"
+
+        android:layout_marginRight="5dip"/>
+    <TextView
+        android:text="Working Refrigerators"
+        android:padding="3dip"
+        android:textSize="23dp"
+        android:background="#D3EAF8"/>
+    <TextView
+        android:id="@+id/number_working_refrigerators"
+        android:gravity="right"
+        android:padding="3dip"
+        android:textSize="23dp"
+
+        android:layout_marginRight="5dip"/>
+    <TextView
+        android:text="Refrigerators Out of Commission"
+        android:padding="3dip"
+        android:textSize="23dp"
+        android:background="#D3EAF8"/>
+    <TextView
+        android:id="@+id/number_refrigerators_out_commission"
+        android:gravity="right"
+        android:padding="3dip"
+        android:textSize="23sp"
+
+        android:layout_marginRight="5dip"/>
+
+</TableLayout>

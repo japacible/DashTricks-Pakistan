@@ -1,4 +1,4 @@
-Android.showToast("Howdy!");
+//Android.showToast("Howdy!");
 
 var dataArray = [1523, 605];
 var need = ["Okay", "Needs Attention"];

@@ -1,4 +1,4 @@
-Android.showToast("Howdy!");
+//Android.showToast("Howdy!");
 
 var dataArray = [];
 var districtArray = ["Attock", "Bahawalnagar", "Bahawalpur", "Bhakkar", "Chakwal", "Chiniot",

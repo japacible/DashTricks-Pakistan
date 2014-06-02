@@ -43,7 +43,7 @@ public class PunjabBarGraphActivity extends Activity
         Fragment fragment = fm.findFragmentById(R.id.punjabFragmentContainer);
 
         if(fragment == null) {
-            fragment = new PunjabExpandableFacilityListFragment();
+            fragment = new OverallStatsFacilitiesFragment();
             fm.beginTransaction()
                     .add(R.id.punjabFragmentContainer, fragment)
                     .commit();

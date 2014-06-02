@@ -10,12 +10,16 @@
     tools:context="com.dashtricks.pakistan.app.Activities.ExplorationActivity" >
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Visualize"
+        android:textAlignment="center"
+        android:textSize="30dp"
         android:id="@+id/visualizeTextHeader"
-        android:layout_gravity="left" />
+        android:background="#91CAED"
+        android:layout_gravity="left"
+        android:layout_marginBottom="10dp"/>
 
     <Button
         android:id="@+id/button_one"
@@ -24,17 +28,21 @@
         android:text="View Map"
         android:onClick="visualizeCurrentData"
         android:layout_gravity="left"
-        android:background="@drawable/abc_list_selector_background_transition_holo_light"
+        android:background="#D3EAF8"
         android:padding="10dip"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:layout_marginBottom="10dp"/>
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Lists"
         android:id="@+id/listTextHeader"
-        android:layout_gravity="left" />
+        android:layout_gravity="left"
+        android:textSize="30dp"
+        android:background="#91CAED"
+        android:layout_marginBottom="10dp"/>
 
     <Button
         android:layout_width="match_parent"
@@ -43,9 +51,10 @@
         android:id="@+id/facilities_list"
         android:onClick="viewFacilitiesList"
         android:layout_gravity="left"
-        android:background="@drawable/abc_list_selector_background_transition_holo_light"
         android:padding="10dip"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:background="#D3EAF8"
+        android:layout_marginBottom="10dp"/>
 
     <!-- Stretch Goals:
         Lists sorted:
@@ -54,12 +63,15 @@
     -->
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Statistics"
         android:id="@+id/statisticsTextHeader"
-        android:layout_gravity="left" />
+        android:textSize="30dp"
+        android:background="#91CAED"
+        android:layout_gravity="left"
+        android:layout_marginBottom="10dp"/>
 
     <Button
         android:id="@+id/button_three"
@@ -68,10 +80,10 @@
         android:text="Overall Statistics"
         android:onClick="viewOverallStatistics"
         android:layout_gravity="left"
-        android:background="@drawable/abc_list_selector_background_transition_holo_light"
         android:padding="10dip"
-        android:layout_marginBottom="3dp"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:background="#D3EAF8"
+        android:layout_marginBottom="10dp"/>
 
     <Button
         android:id="@+id/button_four"
@@ -80,10 +92,10 @@
         android:text="Fridge Age Bar Graph"
         android:onClick="viewFridgeAgeBarGraph"
         android:layout_gravity="left"
-        android:background="@drawable/abc_list_selector_background_transition_holo_light"
         android:padding="10dip"
-        android:layout_marginBottom="3dp"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:background="#D3EAF8"
+        android:layout_marginBottom="10dp"/>
 
     <Button
         android:id="@+id/button_five"
@@ -92,10 +104,10 @@
         android:text="Urgent Need Bar Graph"
         android:onClick="viewUrgentNeedBarGraph"
         android:layout_gravity="left"
-        android:background="@drawable/abc_list_selector_background_transition_holo_light"
         android:padding="10dip"
-        android:layout_marginBottom="3dp"
-        android:textSize="20dp" />
+        android:layout_marginBottom="10dp"
+        android:textSize="20dp"
+        android:background="#D3EAF8"/>
 
     <Button
         android:id="@+id/button_six"
@@ -104,7 +116,7 @@
         android:text="Punjab Bar Graph"
         android:onClick="viewPunjabBarGraph"
         android:layout_gravity="left"
-        android:background="@drawable/abc_list_selector_background_transition_holo_light"
         android:padding="10dip"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:background="#D3EAF8"/>
 </LinearLayout>
