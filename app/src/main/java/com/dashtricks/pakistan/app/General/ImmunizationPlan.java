@@ -4,11 +4,20 @@ package com.dashtricks.pakistan.app.General;
  * Created by Donohue on 5/7/14.
  */
 public class ImmunizationPlan {
+    private String name;
     private double dosePerPopulation;
     private double volumePerDose;
     private double wasteFactor;
     private double diluantVolumePerDose;
     private double diluantWasteFactor;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
 
     public void setDosePerPopulation(double dosePerPopulation) {
         this.dosePerPopulation = dosePerPopulation;
@@ -38,7 +47,7 @@ public class ImmunizationPlan {
         return diluantVolumePerDose;
     }
 
-    public void setDiluantVolumePerDose(int diluantVolumePerDose) {
+    public void setDiluantVolumePerDose(double diluantVolumePerDose) {
         this.diluantVolumePerDose = diluantVolumePerDose;
     }
 

@@ -17,10 +17,13 @@ public class Facility {
     private int population;
     private Set<PowerSource> powerSources;
     private Set<Refrigerator> refrigerators;
-    private int deliveriesPerYear;
+    private int weeksBetweenDelivery;
+    private int weeksOfReserve;
 
-    // All these things 
-    public Facility(String name, int facId, Set<PowerSource> ps, int deliveriesPerYear) {
+    // All these things
+    // IMPORTANT! in the database keeps reserve '0' maps to true. Whoever end up parsing this should
+    // make sure they are doing it right!
+    public Facility(String name, int facId, Set<PowerSource> ps, int weeksBetweenDelivery, boolean keepsReserve) {
         this.name = name;
         this.facId = facId;
         this.powerSources = ps;
@@ -31,7 +34,8 @@ public class Facility {
                 currentCapacity += r.getVolume();
             }
         }
-        this.deliveriesPerYear = deliveriesPerYear;
+        this.weeksBetweenDelivery = weeksBetweenDelivery;
+        this.weeksOfReserve = keepsReserve ? 4 : 0;
     }
 
 //    Select * from
@@ -86,7 +90,13 @@ public class Facility {
         return subdis;
     }
 
-    public int getDeliveriesPerYear() {
-        return deliveriesPerYear;
+    public int getWeeksBetweenDelivery() {
+        return weeksBetweenDelivery;
     }
+
+    public int getWeeksOfReserve() {
+        return weeksOfReserve;
+    }
+
+
 }
