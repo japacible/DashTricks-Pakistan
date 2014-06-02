@@ -17,9 +17,10 @@ public class Facility {
     private int population;
     private Set<PowerSource> powerSources;
     private Set<Refrigerator> refrigerators;
+    private int deliveriesPerYear;
 
     // All these things 
-    public Facility(String name, int facId, Set<PowerSource> ps) {
+    public Facility(String name, int facId, Set<PowerSource> ps, int deliveriesPerYear) {
         this.name = name;
         this.facId = facId;
         this.powerSources = ps;
@@ -30,6 +31,7 @@ public class Facility {
                 currentCapacity += r.getVolume();
             }
         }
+        this.deliveriesPerYear = deliveriesPerYear;
     }
 
 //    Select * from
@@ -84,4 +86,7 @@ public class Facility {
         return subdis;
     }
 
+    public int getDeliveriesPerYear() {
+        return deliveriesPerYear;
+    }
 }
