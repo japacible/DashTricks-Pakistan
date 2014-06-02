@@ -21,41 +21,37 @@ svg {
 }
 
 .province-boundary {
-	stroke: #331;
-	stroke-width: 3;
+	stroke: #442;
+	stroke-width: 2;
 }
 
 .district-boundary {
-	stroke: #ddb;
+	stroke: #eec;
 	stroke-width: 1;
 }
 
 .heat-0 {
-	fill: #ddd;
+	fill: #bbb;
 }
 
 .heat-1 {
-	fill: #f00;
+	fill: #c00;
 }
 
 .heat-2 {
-	fill: #c20;
+	fill: #c60;
 }
 
 .heat-3 {
-	fill: #940;
+	fill: #cb0;
 }
 
 .heat-4 {
-	fill: #660;
+	fill: #ac0;
 }
 
 .heat-5 {
-	fill: #380;
-}
-
-.heat-6 {
-	fill: #0a0;
+	fill: #0c0;
 }
 
 .selected {
