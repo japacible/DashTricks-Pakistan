@@ -50,7 +50,7 @@
 
         <TableRow>
             <TextView
-                android:text="Immunization Plan 1"
+                android:text="BCG"
                 android:layout_marginLeft="15dp"
                 android:padding="3dip"
                 android:textSize="30sp" />
@@ -58,7 +58,39 @@
 
         <TableRow>
             <TextView
-                android:text="Immunization Plan 2"
+                android:text="DTP-HepB-Hib"
+                android:layout_marginLeft="15dp"
+                android:padding="3dip"
+                android:textSize="30sp" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:text="Measles"
+                android:layout_marginLeft="15dp"
+                android:padding="3dip"
+                android:textSize="30sp" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:text="OPV"
+                android:layout_marginLeft="15dp"
+                android:padding="3dip"
+                android:textSize="30sp" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:text="PVC10"
+                android:layout_marginLeft="15dp"
+                android:padding="3dip"
+                android:textSize="30sp" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:text="TT"
                 android:layout_marginLeft="15dp"
                 android:padding="3dip"
                 android:textSize="30sp" />
