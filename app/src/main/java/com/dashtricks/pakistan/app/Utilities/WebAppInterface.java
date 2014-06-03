@@ -55,4 +55,25 @@ public class WebAppInterface {
     public String getCustomMapsJson(Facilities fs, Iterable<ImmunizationPlan> ips) {
         return ModelDriver.requirementsAsJSON(fs, ips);
     }
+
+    /**
+     * Gets json for punjab bar graph
+     */
+    public String getPunjabBarGraphJson() {
+      return JsonObjects.PUNJAB; 
+    }
+
+    /**
+     * Gets json for urgent need bar graph
+     */
+    public String getUrgentNeedBarGraphJson() {
+      return JsonObjects.URGENT_NEED;
+    }
+
+    /**
+     * Gets json for fridge age bar graph
+     */
+    public String getFridgeAgeBarGraphJson() {
+      return JsonObjects.FRIDGE_AGE;
+    }
 }
