@@ -1,74 +1,84 @@
-/* --- */
-
 body {
-    margin: 0;
-    background: #87AEBF;
-    font-family: 'Verdana';
-    font-size: 20pt;
-    overflow: hidden;
+	margin: 0;
+	background: #87AEBF;
+	font-family: 'Verdana';
+	font-size: 20pt;
+	overflow: hidden;
 }
 
 svg {
-    display: block;
-    background: white;
+	display: block;
+	background: white;
 }
-/*
-#display {
-    background: #dee;
-    float: right;
-    width: 45%;
-    overflow-x: hidden;
-    overflow-y: scroll;
-}
-
-#display table {
-    margin: 0;
-}
-*/
 
 .overlay {
-    fill: none;
-    pointer-events: all;
+	fill: none;
+	pointer-events: all;
+}
+
+.legend {
+	height: 30px;
+	position: fixed;
+	color: white;
+	text-align: center;
+	font-size: 20px;
+}
+
+.reset {
+	width: 50px;
+	height: 50px;
+	position: fixed;
+	top: 5px;
+	left: 5px;
+	background: #442;
+	color: white;
+	opacity: 0.5;
 }
 
 .province-boundary, .district-boundary {
-    fill: none;
+	fill: none;
 }
 
 .province-boundary {
-    stroke: #331;
-    stroke-width: 3;
+	stroke: #442;
+	stroke-width: 2;
 }
 
 .district-boundary {
-    stroke: #ddb;
-    stroke-width: 1;
+	stroke: #eec;
+	stroke-width: 1;
 }
 
 .heat-0 {
-    fill: #ddd;
+	fill: #bbb;
+	background: #bbb;
 }
 
 .heat-1 {
-    fill: #f00;
+	fill: #c00;
+	background: #c00;
 }
 
 .heat-2 {
-    fill: #c20;
+	fill: #c60;
+	background: #c60;
 }
 
 .heat-3 {
-    fill: #940;
+	fill: #cb0;
+	background: #cb0;
 }
 
 .heat-4 {
-    fill: #660;
+	fill: #ac0;
+	background: #ac0;
 }
 
 .heat-5 {
-    fill: #380;
+	fill: #0c0;
+	background: #0c0;
 }
 
-.heat-6 {
-    fill: #0a0;
+.selected {
+	fill: #4cc;
 }
