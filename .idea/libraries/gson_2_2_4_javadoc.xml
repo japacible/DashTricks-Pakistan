@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="gson-2.2.4-javadoc">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/app/src/main/java/com/dashtricks/pakistan/javalibs/gson-2.2.4-javadoc.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
