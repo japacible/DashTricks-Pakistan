@@ -2,4 +2,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.dashtricks.pakistan.app.VisualizationActivity" >
+    <item android:id="@+id/action_next"
+        android:icon="@drawable/ic_action_forward"
+        android:title="@string/action_next"
+        app:showAsAction="ifRoom" />
 </menu>

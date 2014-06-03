@@ -47,6 +47,7 @@
     <!-- Actions -->
     <string name="send">Send</string>
     <string name="go">Go</string>
+    <string name="action_next">Next</string>
 
     <!-- Overall Statistics -->
     <string name="total_number_fridges">Total Number Fridges</string>

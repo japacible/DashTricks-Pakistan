@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.support.v4.app.NavUtils;
 import android.os.Bundle;
 import android.util.Log;
@@ -57,6 +58,10 @@ public class VisualizationActivity extends Activity
                 if (NavUtils.getParentActivityName(this) != null) {
                     NavUtils.navigateUpFromSameTask(this);
                 }
+                return true;
+            case R.id.action_next:
+                Intent i = new Intent(this, VisualizationBeforeAfterActivity.class);
+                startActivity(i);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

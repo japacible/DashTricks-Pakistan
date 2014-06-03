@@ -4,6 +4,10 @@ import android.content.Context;
 import android.webkit.JavascriptInterface;
 import android.widget.Toast;
 
+import com.dashtricks.pakistan.app.General.Facilities;
+import com.dashtricks.pakistan.app.General.ImmunizationPlan;
+import com.dashtricks.pakistan.app.Model.ModelDriver;
+
 /**
  * Created by japacible on 5/29/14.
  */
@@ -30,5 +34,25 @@ public class WebAppInterface {
     @JavascriptInterface
     public void showToast(String toast) {
         Toast.makeText(mContext, toast, Toast.LENGTH_SHORT).show();
+    }
+
+    /**
+     * Return the json String for maps based on default
+     *
+     * @return String json object
+     */
+    public String getDefaultMapsJson() {
+        return ModelDriver.requirementsAsJSON(null, null);
+    }
+
+    /**
+     * Return the json String for maps based on parameters passed in
+     *
+     * @param fs Facilities
+     * @param ips Iterable<ImmunizationPlan>
+     * @return String json object
+     */
+    public String getCustomMapsJson(Facilities fs, Iterable<ImmunizationPlan> ips) {
+        return ModelDriver.requirementsAsJSON(fs, ips);
     }
 }
