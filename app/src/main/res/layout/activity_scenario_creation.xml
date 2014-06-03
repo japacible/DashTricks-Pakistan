@@ -16,26 +16,26 @@
 
         <TableRow>
             <TextView
-                android:text="Fridge Type 1"
+                android:text="TCW 2000 DC"
                 android:layout_marginLeft="15dp"
                 android:padding="3dip"
                 android:textSize="30sp" />
             <TextView
-                android:text="@string/count"
-                android:layout_marginLeft="190dp"
+                android:text="10"
+                android:layout_marginLeft="250dp"
                 android:padding="3dip"
                 android:textSize="30sp" />
         </TableRow>
 
         <TableRow>
             <TextView
-                android:text="Fridge Type 2"
+                android:text="PR 25 2D Ultra"
                 android:layout_marginLeft="15dp"
                 android:padding="3dip"
                 android:textSize="30sp" />
             <TextView
-                android:text="@string/count"
-                android:layout_marginLeft="190dp"
+                android:text="45"
+                android:layout_marginLeft="250dp"
                 android:padding="3dip"
                 android:textSize="30sp"
                 android:gravity="right"
