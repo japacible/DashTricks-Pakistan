@@ -85,13 +85,6 @@ public class VisualizationMapFacilityFragment extends Fragment implements AbsLis
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_visualizationmapfacility, container, false);
 
-        // Set the adapter
-        // mListView = (AbsListView) view.findViewById(android.R.id.list);
-        //((AdapterView<ListAdapter>) mListView).setAdapter(mAdapter);
-
-        // Set OnItemClickListener so we can be notified on item clicks
-        // mListView.setOnItemClickListener(this);
-        Log.d("fragment creation", "derp fragment creation");
         return view;
     }
 

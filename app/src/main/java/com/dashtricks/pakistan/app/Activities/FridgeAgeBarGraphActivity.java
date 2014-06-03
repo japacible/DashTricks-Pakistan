@@ -81,8 +81,6 @@ public class FridgeAgeBarGraphActivity extends Activity
         }
     }
 
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.fridge_age_bar_graph, menu);

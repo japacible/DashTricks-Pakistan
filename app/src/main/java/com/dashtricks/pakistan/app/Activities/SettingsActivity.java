@@ -29,7 +29,6 @@ public class SettingsActivity extends ActionBarActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.settings, menu);
@@ -60,13 +59,4 @@ public class SettingsActivity extends ActionBarActivity {
 
         fileDialog.showDialog();
     }
-
-    /**
-     * Placeholder for @InsaneFisherman
-     * Automatic excel processing for in-app xls file
-     */
-    public void autoImportSpreadsheet(View view) {
-
-    }
-
 }

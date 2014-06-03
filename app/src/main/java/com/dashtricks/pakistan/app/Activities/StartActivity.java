@@ -108,13 +108,4 @@ public class StartActivity extends ActionBarActivity {
         Intent i = new Intent(this, SettingsActivity.class);
         startActivity(i);
     }
-
-    // TODO: Remove this
-    /**
-     * Open facilities list view
-     */
-    public void viewFacilitiesList(View view) {
-        Intent i = new Intent(this, FacilityListActivity.class);
-        startActivity(i);
-    }
 }

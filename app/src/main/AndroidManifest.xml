@@ -126,29 +126,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.dashtricks.pakistan.app.Activities.ExplorationActivity" />
         </activity>
-        <!-- TODO: Re-add when the functionality is implemented -->
-        <!--
-        <activity
-            android:name="com.dashtricks.pakistan.app.Activities.FeedbackActivity"
-            android:label="@string/title_activity_feedback"
-            android:screenOrientation="portrait" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.dashtricks.pakistan.app.Activities.SettingsActivity" />
-        </activity>
-        <activity
-            android:name="com.dashtricks.pakistan.app.Activities.SelectScenarioActivity"
-            android:label="@string/title_activity_select_scenario" >
-        </activity>
-        <activity
-            android:name="com.dashtricks.pakistan.app.Activities.SelectImmunizationPlanActivity"
-            android:label="@string/title_activity_select_immunization_plan" >
-        </activity>
-        <activity
-            android:name="com.dashtricks.pakistan.app.Activities.CreateImmunizationPlanActivity"
-            android:label="@string/title_activity_create_immunization_plan" >
-        </activity>
-        -->
     </application>
 
     <!-- Only for testing with internet. Not needed for releases. -->
