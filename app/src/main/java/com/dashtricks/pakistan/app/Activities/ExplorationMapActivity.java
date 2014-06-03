@@ -37,7 +37,7 @@ public class ExplorationMapActivity extends Activity
         Fragment fragment = fm.findFragmentById(R.id.visualizationFragmentContainer);
 
         if(fragment == null) {
-            fragment = new PunjabExpandableFacilityListFragment();
+            fragment = new OverallStatsFacilitiesFragment();
             fm.beginTransaction()
                     .add(R.id.visualizationFragmentContainer, fragment)
                     .commit();

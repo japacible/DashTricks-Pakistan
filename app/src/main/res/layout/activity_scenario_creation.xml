@@ -1,65 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.dashtricks.pakistan.app.ScenarioCreationActivity">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:stretchColumns="1">
 
-    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <TableLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:stretchColumns="1">
+        android:layout_height="wrap_content"
+        android:id="@+id/tableLayout">
+        <TextView
+            android:text="NEW REFRIGERATORS"
+            android:padding="3dip"
+            android:textSize="35sp"
+            android:background="#D3EAF8"/>
+
         <TableRow>
             <TextView
-                android:text="@string/new_fridges"
-                android:padding="3dip" />
+                android:text="Fridge Type 1"
+                android:layout_marginLeft="15dp"
+                android:padding="3dip"
+                android:textSize="30sp" />
+            <TextView
+                android:text="@string/count"
+                android:layout_marginLeft="190dp"
+                android:padding="3dip"
+                android:textSize="30sp" />
         </TableRow>
+
         <TableRow>
             <TextView
-                android:text="fridge type 1"
-                android:padding="3dip" />
+                android:text="Fridge Type 2"
+                android:layout_marginLeft="15dp"
+                android:padding="3dip"
+                android:textSize="30sp" />
             <TextView
-                android:text="count"
+                android:text="@string/count"
+                android:layout_marginLeft="190dp"
+                android:padding="3dip"
+                android:textSize="30sp"
                 android:gravity="right"
-                android:padding="3dip" />
+                android:layout_marginRight="10dp" />
         </TableRow>
+
+        <TextView
+            android:text="@string/immunization_plans"
+            android:padding="3dip"
+            android:textSize="35sp"
+            android:background="#D3EAF8"/>
+
         <TableRow>
             <TextView
-                android:text="fridge type 2"
-                android:padding="3dip" />
-            <TextView
-                android:text="count"
-                android:gravity="right"
-                android:padding="3dip" />
+                android:text="Immunization Plan 1"
+                android:layout_marginLeft="15dp"
+                android:padding="3dip"
+                android:textSize="30sp" />
         </TableRow>
+
         <TableRow>
             <TextView
-                android:text="@string/immunization_plans"
-                android:padding="3dip" />
-        </TableRow>
-        <TableRow>
-            <TextView
-                android:text="immunization plan 1"
-                android:padding="3dip" />
-        </TableRow>
-        <TableRow>
-            <TextView
-                android:text="immunization plan 2"
-                android:padding="3dip" />
+                android:text="Immunization Plan 2"
+                android:layout_marginLeft="15dp"
+                android:padding="3dip"
+                android:textSize="30sp" />
         </TableRow>
     </TableLayout>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="@string/go"
-        android:id="@+id/button"
+        android:id="@+id/button2"
+        android:background="#91CAED"
         android:onClick="visualize"
-        android:layout_gravity="center"
+        android:layout_marginRight="53dp"
+        android:clickable="true"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:clickable="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="55dp" />
 </RelativeLayout>

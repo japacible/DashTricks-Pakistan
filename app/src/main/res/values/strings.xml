@@ -30,9 +30,9 @@
     <string name="fridge">Fridge</string>
     <string name="fridges">Fridges</string>
     <string name="new_fridge">New Fridge</string>
-    <string name="new_fridges">New Fridges</string>
-    <string name="immunization_plan">Immunization Plan</string>
-    <string name="immunization_plans">Immunization Plans</string>
+    <string name="new_fridges">NEW REFRIGERATORS</string>
+    <string name="immunization_plan">Immunization Plan:</string>
+    <string name="immunization_plans">IMMUNIZATION PLANS</string>
 
     <!-- Simulation -->
     <string name="simulation">Simulation</string>
