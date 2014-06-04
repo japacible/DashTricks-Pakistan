@@ -1,44 +1,69 @@
 package com.dashtricks.pakistan.app.Allocate;
 
+import com.dashtricks.pakistan.app.General.Facilities;
+import com.dashtricks.pakistan.app.General.Facility;
 import com.dashtricks.pakistan.app.General.Refrigerator;
 
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.Set;
 
 /**
  * Created by Donohue on 5/7/14.
  */
 public class AllocationDriver {
-    /*
-    public static Set<VolumeRequirement> allocate(Set<VolumeRequirement> beforeAllocation,
-                                                  Set<Refrigerator> rtacs)
-    {
-        //TODO Hmmm the whole VR and VRbuilder thing didn't work out as well as I thought it would
-        // Should be aggressivly refactored. The important consideration (reason I did it this way)
-        // is that we can't destroy / overwrite the "beforeAllocation" results. Best way might just
-        // be to deep copy the set at the beginning and update freely from there
 
-        Prioritizer p = new NaivePrioritizer(beforeAllocation);
-        while (!rtacs.isEmpty()) {
-            VolumeRequirementBuilder current = p.remove();
+    /**
+     *
+     * @param fs facilities
+     * @param toAllocate type of refrigerator to number to allocate
+     * @return facility to type and number allocated
+     */
+    public static Map<Facility, Map<Refrigerator, Integer>> allocate(Facilities fs, Map<Refrigerator, Integer> toAllocate) {
+        Prioritizer prioritizer = new NaivePrioritizer(fs);
+        toAllocate = new HashMap<Refrigerator, Integer>(toAllocate);
 
-            // TODO should be modifying the facility and not the volume requirement
-            current.subract(getAppropriateRefrigerator(current, rtacs));
+        while ( !(prioritizer.done() || toAllocate.isEmpty())) {
+            Facility currentFacility = prioritizer.next();
+            double shortage = currentFacility.getRequiredCapacity() - prioritizer.currentTotalCapacity();
 
-            p.add(current); // TODO will need to deal with facilities that can't be allocated to
+            Refrigerator grantedRefrigerator = getAppropriateRefrigerator(currentFacility, shortage, toAllocate.keySet());
+
+            if (grantedRefrigerator != null) {
+                toAllocate.put(grantedRefrigerator, toAllocate.get(grantedRefrigerator) - 1);
+                if (toAllocate.get(grantedRefrigerator) == 0) {
+                    toAllocate.remove(grantedRefrigerator);
+                }
+
+                prioritizer.add(grantedRefrigerator);
+            } else {
+                prioritizer.leave();
+            }
         }
 
-        return p.done();
+        return prioritizer.result();
+
     }
 
-    private static double getAppropriateRefrigerator(VolumeRequirementBuilder current,
-                                                     Set<Refrigerator> rtacs)
-    {
-        // current will matter in the future for this.
-        Iterator<Refrigerator> ittr = rtacs.iterator();
-        Refrigerator rtac = ittr.next();
+    private static Refrigerator getAppropriateRefrigerator(Facility currentFacility, double shortage, Set<Refrigerator> available) {
+        Refrigerator bestFit = null;
+        for (Refrigerator r : available) {
+            /* TODO it's probably really important to institute some type of "canUse" function.
+            if (!currentFacility.canUseRefrigerator(r)) {
+                continue;
+            }
+            */
+            if (bestFit == null) {
+                bestFit = r;
+                continue;
+            }
 
-        return rtac.getVolume();
+            if ((r.getVolume() > shortage && r.getVolume() < bestFit.getVolume())
+                    || (r.getVolume() < shortage && r.getVolume() > bestFit.getVolume())) {
+                bestFit = r;
+            }
+        }
+        return bestFit;
     }
-    */
 }
