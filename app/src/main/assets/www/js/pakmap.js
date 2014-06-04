@@ -1,3 +1,8 @@
+Android.showToast("Howdy!");
+
+// Gets the default json for VisualizationActivity
+// Android.getDefaultMapsJson();
+
 function randHeat() {
   return "heat-" + ( 5 - Math.round(Math.pow(Math.random(), 3) * 5));
 }
