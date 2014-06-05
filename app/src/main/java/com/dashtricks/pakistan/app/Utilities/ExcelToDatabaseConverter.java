@@ -55,7 +55,7 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
 
                 for(int k = 0; k < s.getColumns(); k++) {
                     CellType ct = s.getCell(j,k).getType();
-                    Cell c = s.getCell(j,k);
+                    Cell c = s.getCell(k,j);
 
                     if(c.getContents().matches("\\d+")) { // I got 99 problems
                         cv.put(entries[k], Integer.parseInt(c.getContents()));
@@ -74,7 +74,7 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
         String[] cols = new String[s.getColumns()];
 
         for(int i = 0; i < s.getColumns(); i++) {
-            cols[i] = s.getCell(0, i).getContents();
+            cols[i] = s.getCell(i, 0).getContents();
         }
 
         return cols;
