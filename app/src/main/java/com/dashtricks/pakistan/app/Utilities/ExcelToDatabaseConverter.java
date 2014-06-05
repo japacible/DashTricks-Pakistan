@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.io.File;
 import java.io.IOException;
@@ -23,6 +24,9 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
     String[] tablesAndFields;
     Map<String, List<ContentValues>> tableContents;
 
+   /*
+    * Open the spreadsheet, construct table creation strings, read in data and formulate insertions
+    */
     public ExcelToDatabaseConverter(Context context, String name, File wbfile) {
         super(context, name, null, 1); // don't care about the last two fields
         tableContents = new HashMap<String, List<ContentValues>>();
@@ -47,15 +51,20 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
             String entriesAndTypes = parseSheetTypes(s);
             String[] entries = getColumns(s);
             tablesAndFields[i] = entriesAndTypes;
-
             List<ContentValues> rows =  new ArrayList<ContentValues>(20);
 
-            for (int j = 1; j < s.getRows(); i++) {
+            Log.d("Reading excel data", "at sheet " + table);
+
+            for (int j = 1; j < s.getRows(); j++) {
                 ContentValues cv = new ContentValues();
+
+                Log.d("Reading excel data", "on line " + j);
 
                 for(int k = 0; k < s.getColumns(); k++) {
                     CellType ct = s.getCell(j,k).getType();
                     Cell c = s.getCell(k,j);
+
+                    Log.d("Reading excel data", c.getContents());
 
                     if(c.getContents().matches("\\d+")) { // I got 99 problems
                         cv.put(entries[k], Integer.parseInt(c.getContents()));
@@ -83,7 +92,7 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
     @Override
     /*
      * Given the database,
-     * create one table per sheet in the data
+     * insert all that stuff made during the constructor
      * */
     public void onCreate(SQLiteDatabase db) {
         for(String s : tablesAndFields){
