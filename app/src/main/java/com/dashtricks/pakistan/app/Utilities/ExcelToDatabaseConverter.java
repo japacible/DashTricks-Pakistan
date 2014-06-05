@@ -61,7 +61,7 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
                 Log.d("Reading excel data", "on line " + j);
 
                 for(int k = 0; k < s.getColumns(); k++) {
-                    CellType ct = s.getCell(j,k).getType();
+                    CellType ct = s.getCell(k,j).getType();
                     Cell c = s.getCell(k,j);
 
                     Log.d("Reading excel data", c.getContents());
