@@ -7,10 +7,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import jxl.Cell;
 import jxl.CellType;
@@ -20,20 +20,64 @@ import jxl.read.biff.BiffException;
 
 public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
     Workbook w;
-    HashMap<String,List<String>> tableToFields; // maps from a table name to the fields it has
+    String[] tablesAndFields;
+    Map<String, List<ContentValues>> tableContents;
 
     public ExcelToDatabaseConverter(Context context, String name, File wbfile) {
         super(context, name, null, 1); // don't care about the last two fields
-        tableToFields = new HashMap<String, List<String>>();
+        tableContents = new HashMap<String, List<ContentValues>>();
         try {
             w = Workbook.getWorkbook(wbfile);
         } catch (BiffException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
+            return;
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
+            return;
         }
+
+        Sheet[] sheets = w.getSheets();
+        tablesAndFields = new String[sheets.length];
+
+        for(int i = 0; i < sheets.length; i++) {
+            Sheet s = sheets[i];
+            String table = s.getName();
+            String entriesAndTypes = parseSheetTypes(s);
+            String[] entries = getColumns(s);
+            tablesAndFields[i] = entriesAndTypes;
+
+            List<ContentValues> rows =  new ArrayList<ContentValues>(20);
+
+            for (int j = 1; j < s.getRows(); i++) {
+                ContentValues cv = new ContentValues();
+
+                for(int k = 0; k < s.getColumns(); k++) {
+                    CellType ct = s.getCell(j,k).getType();
+                    Cell c = s.getCell(j,k);
+
+                    if(c.getContents().matches("\\d+")) { // I got 99 problems
+                        cv.put(entries[k], Integer.parseInt(c.getContents()));
+                    } else {
+                        cv.put(entries[k], c.getContents());
+                    }
+                }
+                rows.add(cv);
+            }
+
+            tableContents.put(table, rows);
+        }
+    }
+
+    private String[] getColumns(Sheet s) {
+        String[] cols = new String[s.getColumns()];
+
+        for(int i = 0; i < s.getColumns(); i++) {
+            cols[i] = s.getCell(0, i).getContents();
+        }
+
+        return cols;
     }
 
     @Override
@@ -42,53 +86,16 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
      * create one table per sheet in the data
      * */
     public void onCreate(SQLiteDatabase db) {
-        Sheet[] sheets = w.getSheets();
-
-        for(Sheet s : sheets) {
-            String name = s.getName();
-            String entriesAndTypes = parseSheetTypes(s);
-
-            db.execSQL(String.format("CREATE TABLE %s (%s)", name, entriesAndTypes));
-            List<String> eAndT = Arrays.asList(entriesAndTypes.split(" "));
-            int i = 0;
-
-//            Keep the table name and fields, strip out the type information
-            for(Iterator<String> it = eAndT.iterator(); it.hasNext();) {
-                it.next();
-                if(i % 2 != 0) {
-                    it.remove();
-                }
-                i++;
-            }
-            tableToFields.put(name, eAndT);
-            System.err.println(String.format("CREATE TABLE %s (%s);", name, entriesAndTypes));
+        for(String s : tablesAndFields){
+            db.execSQL(s);
         }
-    }
-
-//    Each sheet becomes a table
-//    The topmost row became the list of fields during db creation
-//    Iterate over each cell of each sheet, insert it into the right place
-    public void slurp() {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Sheet[] sheets = w.getSheets();
-
-        for (int k = 0; k < sheets.length; k++) {
-            Sheet s = sheets[k];
-            String table = s.getName();
-
-            for (int i = 1; i < s.getRows(); i++) {
-                ContentValues cv = new ContentValues();
-                Iterator<String> it = tableToFields.get(table).iterator();
-
-                for (int j = 0; j < s.getColumns(); j++) {
-                    //                This is why we kept the field names for this table around
-                    cv.put(it.next(), s.getCell(i,j).getContents());
-                }
-
-                db.insert(table, null, cv);
+        for(String table : tableContents.keySet()) {
+            for(ContentValues c : tableContents.get(table)) {
+                db.insert(table, null, c);
             }
         }
     }
+
     /*
      * Given a sheet,
      * return a string of the format "n1 CLASS1, n2 CLASS2, n3 CLASS3"
