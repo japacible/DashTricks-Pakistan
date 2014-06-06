@@ -24,7 +24,7 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
     Map<String, String[]> tableToTypes;
     Map<String, List<ContentValues>> tableContents;
     private boolean databasePopulated;
-    private static final String databaseName = "icePak_database";
+    private static final String databaseName = "icePak_databaseTESTER1";
     private static final String existanceTestString = "SELECT name FROM sqlite_master WHERE type='table' AND name='RefrigeratorCatalog'";
 
    /*
@@ -80,6 +80,7 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
             for(Sheet s : w.getSheets()){
                 String table = s.getName();
                 String entriesAndTypes = parseSheetTypes(s);
+                db.execSQL("DROP TABLE IF EXISTS " + table); //safety
                 String tableCreator = String.format("CREATE TABLE %s(%s)", table, entriesAndTypes);
                 //tablesAndFields[i] = entriesAndTypes;
                 tableToTypes.put(table, getColumnTypes(s));
