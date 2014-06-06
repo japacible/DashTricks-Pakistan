@@ -9,7 +9,6 @@ import android.util.Log;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import jxl.Cell;
@@ -22,7 +21,9 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
     Workbook w;
     String[] tablesAndFields;
     Map<String, String[]> tableToTypes;
-    Map<String, List<ContentValues>> tableContents;
+    Map<String, String[]> tableToColumnNames;
+    Map<String, String> tableToEntriesAndTypes;
+    //Map<String, List<ContentValues>> tableContents;
     private boolean databasePopulated;
     private static final String databaseName = "icePak_databaseTESTER1";
     private static final String existanceTestString = "SELECT name FROM sqlite_master WHERE type='table' AND name='RefrigeratorCatalog'";
@@ -32,8 +33,11 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
     */
     public ExcelToDatabaseConverter(Context context, File wbfile) {
         super(context, databaseName, null, 1); // don't care about the last two fields
-        tableContents = new HashMap<String, List<ContentValues>>();
+        //tableContents = new HashMap<String, List<ContentValues>>();
         tableToTypes = new HashMap<String, String[]>();
+        tableToColumnNames = new HashMap<String, String[]>();
+        tableToEntriesAndTypes= new HashMap<String, String>();
+
         try {
             w = Workbook.getWorkbook(wbfile);
         } catch (BiffException e) {
@@ -46,8 +50,26 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
             return;
         }
 
-        Sheet[] sheets = w.getSheets();
-        tablesAndFields = new String[sheets.length];
+        //if people actually try to get data from a nonpopulated
+        //database, onCreate gets called, which sets it to a more correct value
+        databasePopulated = true;
+        tablesAndFields = new String[w.getSheets().length];
+
+        for(Sheet s : w.getSheets()){
+            String table = s.getName();
+            tableToTypes.put(table, getColumnTypes(s));
+            tableToEntriesAndTypes.put(table, parseSheetTypes(s));
+            tableToColumnNames.put(table, getColumns(s));
+        }
+    }
+
+
+    public synchronized boolean hasData() {
+        return databasePopulated;
+    }
+
+    private synchronized void setHasData(boolean b){
+        databasePopulated = b;
     }
 
     private String[] getColumns(Sheet s) {
@@ -76,14 +98,15 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
      * insert all that stuff made during the constructor
      * */
     public void onCreate(SQLiteDatabase db) {
+        setHasData(tablesExist(db));
+
         if(!tablesExist(db)) {
             for(Sheet s : w.getSheets()){
                 String table = s.getName();
-                String entriesAndTypes = parseSheetTypes(s);
+                String entriesAndTypes = tableToEntriesAndTypes.get(table);
                 db.execSQL("DROP TABLE IF EXISTS " + table); //safety
                 String tableCreator = String.format("CREATE TABLE %s(%s)", table, entriesAndTypes);
                 //tablesAndFields[i] = entriesAndTypes;
-                tableToTypes.put(table, getColumnTypes(s));
                 db.execSQL(tableCreator);
                 Log.d("Reading excel data", "creating table thusly:\n" + tableCreator);
             }
@@ -139,5 +162,29 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
     // Tests whether the database already exists
     private boolean tablesExist(SQLiteDatabase db){
         return db.rawQuery(existanceTestString, null).getCount() != 0;
+    }
+
+    // Actually read data in from db
+    // May get lifted somewhere else
+    private void slurp() {
+        setHasData(false);
+
+        SQLiteDatabase db = getWritableDatabase();
+        for(Sheet s : w.getSheets()){
+            String table = s.getName();
+            db.delete(table, null, null); // remove any existing data
+            for(int i = 1; i < s.getRows(); i++) {
+                ContentValues cv = new ContentValues();
+                for(int j = 0; j < s.getColumns(); j++){
+                    String type = tableToTypes.get(table)[j];
+                    if (type.equals("INTEGER")){
+                        cv.put(tableToColumnNames.get(table)[j], Integer.parseInt(s.getCell(j,i).getContents()));
+                    } else {
+                        cv.put(tableToColumnNames.get(table)[j], s.getCell(j,i).getContents());
+                    }
+                }
+                db.insert(table, null, cv);
+            }
+        }
     }
 }
