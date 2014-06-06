@@ -25,7 +25,7 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
     Map<String, String> tableToEntriesAndTypes;
     //Map<String, List<ContentValues>> tableContents;
     private boolean databasePopulated;
-    private static final String databaseName = "icePak_databaseTESTER1";
+    private static final String databaseName = "icePak_databaseTESTER4";
     private static final String existanceTestString = "SELECT name FROM sqlite_master WHERE type='table' AND name='RefrigeratorCatalog'";
 
    /*
@@ -138,15 +138,16 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
     /*
      * Given a cell with some data,
      * return a string that describes the best fit SQLite storage class
-     * Currently doesn't support doubles
+     * Currently doesn't support integers, because excel is stupid about
+     * truncating trailing .0, which makes type inference a hassle
      * */
     private String parseCellType(Cell cell) {
         CellType ct = cell.getType();
 
         String s = cell.getContents();
         try{
-            Integer.parseInt(s);
-            return "INTEGER";
+            Double.parseDouble(s);
+            return "REAL";
         } catch (NumberFormatException nfe2){
             return "TEXT";
         }
@@ -166,19 +167,22 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
 
     // Actually read data in from db
     // May get lifted somewhere else
-    private void slurp() {
-        setHasData(false);
+    public void slurp() {
+        setHasData(false); //poor man's cv, basically busy wait
 
         SQLiteDatabase db = getWritableDatabase();
         for(Sheet s : w.getSheets()){
             String table = s.getName();
+            Log.d("EXCEL2DB", "at on table " + table);
             db.delete(table, null, null); // remove any existing data
             for(int i = 1; i < s.getRows(); i++) {
+                Log.d("EXCEL2DB", "on row " + i);
                 ContentValues cv = new ContentValues();
                 for(int j = 0; j < s.getColumns(); j++){
+                    Log.d("EXCEL2DB", "on column " + j +  " which is " + tableToColumnNames.get(table)[j]);
                     String type = tableToTypes.get(table)[j];
-                    if (type.equals("INTEGER")){
-                        cv.put(tableToColumnNames.get(table)[j], Integer.parseInt(s.getCell(j,i).getContents()));
+                    if (type.equals("REAL")){
+                        cv.put(tableToColumnNames.get(table)[j], Double.parseDouble(s.getCell(j,i).getContents()));
                     } else {
                         cv.put(tableToColumnNames.get(table)[j], s.getCell(j,i).getContents());
                     }
@@ -186,5 +190,6 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
                 db.insert(table, null, cv);
             }
         }
+        setHasData(true);
     }
 }
