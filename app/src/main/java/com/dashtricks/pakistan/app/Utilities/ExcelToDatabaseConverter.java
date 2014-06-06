@@ -8,7 +8,6 @@ import android.util.Log;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,14 +21,19 @@ import jxl.read.biff.BiffException;
 public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
     Workbook w;
     String[] tablesAndFields;
+    Map<String, String[]> tableToTypes;
     Map<String, List<ContentValues>> tableContents;
+    private boolean databasePopulated;
+    private static final String databaseName = "icePak_database";
+    private static final String existanceTestString = "SELECT name FROM sqlite_master WHERE type='table' AND name='RefrigeratorCatalog'";
 
    /*
     * Open the spreadsheet, construct table creation strings, read in data and formulate insertions
     */
-    public ExcelToDatabaseConverter(Context context, String name, File wbfile) {
-        super(context, name, null, 1); // don't care about the last two fields
+    public ExcelToDatabaseConverter(Context context, File wbfile) {
+        super(context, databaseName, null, 1); // don't care about the last two fields
         tableContents = new HashMap<String, List<ContentValues>>();
+        tableToTypes = new HashMap<String, String[]>();
         try {
             w = Workbook.getWorkbook(wbfile);
         } catch (BiffException e) {
@@ -44,39 +48,6 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
 
         Sheet[] sheets = w.getSheets();
         tablesAndFields = new String[sheets.length];
-
-        for(int i = 0; i < sheets.length; i++) {
-            Sheet s = sheets[i];
-            String table = s.getName();
-            String entriesAndTypes = parseSheetTypes(s);
-            String[] entries = getColumns(s);
-            tablesAndFields[i] = entriesAndTypes;
-            List<ContentValues> rows =  new ArrayList<ContentValues>(20);
-
-            Log.d("Reading excel data", "at sheet " + table);
-
-            for (int j = 1; j < s.getRows(); j++) {
-                ContentValues cv = new ContentValues();
-
-                Log.d("Reading excel data", "on line " + j);
-
-                for(int k = 0; k < s.getColumns(); k++) {
-                    CellType ct = s.getCell(k,j).getType();
-                    Cell c = s.getCell(k,j);
-
-                    Log.d("Reading excel data", c.getContents());
-
-                    if(c.getContents().matches("\\d+")) { // I got 99 problems
-                        cv.put(entries[k], Integer.parseInt(c.getContents()));
-                    } else {
-                        cv.put(entries[k], c.getContents());
-                    }
-                }
-                rows.add(cv);
-            }
-
-            tableContents.put(table, rows);
-        }
     }
 
     private String[] getColumns(Sheet s) {
@@ -89,18 +60,31 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
         return cols;
     }
 
+    private String[] getColumnTypes(Sheet s) {
+        String[] types = new String[s.getColumns()];
+
+        for(int i = 0;i < s.getColumns(); i++) {
+            types[i] = parseCellType(s.getCell(i,1));
+        }
+
+        return types;
+    }
+
     @Override
     /*
      * Given the database,
      * insert all that stuff made during the constructor
      * */
     public void onCreate(SQLiteDatabase db) {
-        for(String s : tablesAndFields){
-            db.execSQL(s);
-        }
-        for(String table : tableContents.keySet()) {
-            for(ContentValues c : tableContents.get(table)) {
-                db.insert(table, null, c);
+        if(!tablesExist(db)) {
+            for(Sheet s : w.getSheets()){
+                String table = s.getName();
+                String entriesAndTypes = parseSheetTypes(s);
+                String tableCreator = String.format("CREATE TABLE %s(%s)", table, entriesAndTypes);
+                //tablesAndFields[i] = entriesAndTypes;
+                tableToTypes.put(table, getColumnTypes(s));
+                db.execSQL(tableCreator);
+                Log.d("Reading excel data", "creating table thusly:\n" + tableCreator);
             }
         }
     }
@@ -130,24 +114,16 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
     /*
      * Given a cell with some data,
      * return a string that describes the best fit SQLite storage class
+     * Currently doesn't support doubles
      * */
     private String parseCellType(Cell cell) {
         CellType ct = cell.getType();
 
-        if(ct == CellType.NUMBER) {
-            String s = cell.getContents();
-            try{
-                Integer.parseInt(s);
-                return "INTEGER";
-            } catch (NumberFormatException nfe1) {
-                try{
-                    Double.parseDouble(s);
-                    return "REAL";
-                } catch (NumberFormatException nfe2){
-                    return "TEXT";
-                }
-            }
-        } else {
+        String s = cell.getContents();
+        try{
+            Integer.parseInt(s);
+            return "INTEGER";
+        } catch (NumberFormatException nfe2){
             return "TEXT";
         }
     }
@@ -157,5 +133,10 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
     public void onUpgrade(SQLiteDatabase arg0, int arg1, int arg2) {
         // TODO Auto-generated method stub
 
+    }
+
+    // Tests whether the database already exists
+    private boolean tablesExist(SQLiteDatabase db){
+        return db.rawQuery(existanceTestString, null).getCount() != 0;
     }
 }

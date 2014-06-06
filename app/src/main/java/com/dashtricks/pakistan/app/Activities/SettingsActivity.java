@@ -52,7 +52,7 @@ public class SettingsActivity extends ActionBarActivity {
         fileDialog.addFileListener(new FileDialog.FileSelectedListener() {
             public void fileSelected(File file) {
                 Log.d(getClass().getName(), "user selected file " + file.toString());
-                ExcelToDatabaseConverter e2db = new ExcelToDatabaseConverter(sa, "Database", file);
+                ExcelToDatabaseConverter e2db = new ExcelToDatabaseConverter(sa, file);
                 e2db.getWritableDatabase();
             }
         });
@@ -66,7 +66,7 @@ public class SettingsActivity extends ActionBarActivity {
      */
     public void autoImportSpreadsheet(View view) {
         File file = new File("/sdcard/Download/Pakistan_Sample.xls");
-        ExcelToDatabaseConverter e2db = new ExcelToDatabaseConverter(this, "Database", file);
+        ExcelToDatabaseConverter e2db = new ExcelToDatabaseConverter(this, file);
     }
 
 }
