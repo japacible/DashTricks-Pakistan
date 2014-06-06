@@ -54,6 +54,7 @@ public class SettingsActivity extends ActionBarActivity {
                 Log.d(getClass().getName(), "user selected file " + file.toString());
                 ExcelToDatabaseConverter e2db = new ExcelToDatabaseConverter(sa, file);
                 e2db.getWritableDatabase();
+                e2db.slurp();
             }
         });
 
