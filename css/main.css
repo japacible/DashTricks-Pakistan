@@ -77,9 +77,6 @@ body {
 #concept-video {
   text-align: center;
 }
-#connector-prototype {
-  text-align: center;
-}
 #prototype {
   background: #F5F5F5;
   color: #444444;
@@ -93,6 +90,9 @@ body {
   text-transform: uppercase;
   margin-bottom: 10px;
   text-align: center;
+}
+#prototype p {
+  font-size: 1.3em;
 }
 #team h4 {
   text-align: center;
@@ -108,11 +108,17 @@ body {
   background: #CA4E45;
   color: #FFFFFF;
 }
+#timeline p {
+  font-size: 1.3em;
+}
 #timeline span {
   font-weight: bold;
 }
 #releases {
   background: #F5F5F5;
+}
+#releases p {
+  font-size: 1.3em;
 }
 #documentation {
   background: #222222;
