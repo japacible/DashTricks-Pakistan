@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.dashtricks.pakistan.app.General.TheApplication;
 import com.dashtricks.pakistan.app.R;
 import com.dashtricks.pakistan.app.Utilities.ExcelToDatabaseConverter;
 import com.dashtricks.pakistan.app.Utilities.FileDialog;
@@ -53,8 +54,9 @@ public class SettingsActivity extends ActionBarActivity {
             public void fileSelected(File file) {
                 Log.d(getClass().getName(), "user selected file " + file.toString());
                 ExcelToDatabaseConverter e2db = new ExcelToDatabaseConverter(sa, file);
-                e2db.getWritableDatabase();
-                e2db.slurp();
+                TheApplication theApp = (TheApplication)getApplication();
+                theApp.setExcelFile(file);
+                theApp.possiblySlurp();
             }
         });
 

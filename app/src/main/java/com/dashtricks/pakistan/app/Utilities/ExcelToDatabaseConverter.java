@@ -1,6 +1,5 @@
 package com.dashtricks.pakistan.app.Utilities;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -18,15 +17,21 @@ import jxl.Workbook;
 import jxl.read.biff.BiffException;
 
 public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
-    Workbook w;
+    private Workbook w;
     String[] tablesAndFields;
     Map<String, String[]> tableToTypes;
-    Map<String, String[]> tableToColumnNames;
+    private Map<String, String[]> tableToColumnNames;
     Map<String, String> tableToEntriesAndTypes;
     //Map<String, List<ContentValues>> tableContents;
     private boolean databasePopulated;
     private static final String databaseName = "icePak_databaseTESTER4";
     private static final String existanceTestString = "SELECT name FROM sqlite_master WHERE type='table' AND name='RefrigeratorCatalog'";
+
+    public long getSpreadsheetSize() {
+        return spreadsheetSize;
+    }
+
+    private long spreadsheetSize;
 
    /*
     * Open the spreadsheet, construct table creation strings, read in data and formulate insertions
@@ -35,11 +40,11 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
         super(context, databaseName, null, 1); // don't care about the last two fields
         //tableContents = new HashMap<String, List<ContentValues>>();
         tableToTypes = new HashMap<String, String[]>();
-        tableToColumnNames = new HashMap<String, String[]>();
+        setTableToColumnNames(new HashMap<String, String[]>());
         tableToEntriesAndTypes= new HashMap<String, String>();
 
         try {
-            w = Workbook.getWorkbook(wbfile);
+            setW(Workbook.getWorkbook(wbfile));
         } catch (BiffException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -53,22 +58,63 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
         //if people actually try to get data from a nonpopulated
         //database, onCreate gets called, which sets it to a more correct value
         databasePopulated = true;
-        tablesAndFields = new String[w.getSheets().length];
+        tablesAndFields = new String[getW().getSheets().length];
+        spreadsheetSize = 0;
 
-        for(Sheet s : w.getSheets()){
+        for(Sheet s : getW().getSheets()){
+            spreadsheetSize += s.getRows();
             String table = s.getName();
             tableToTypes.put(table, getColumnTypes(s));
             tableToEntriesAndTypes.put(table, parseSheetTypes(s));
-            tableToColumnNames.put(table, getColumns(s));
+            getTableToColumnNames().put(table, getColumns(s));
         }
     }
 
+    public String[] getTablesAndFields() {
+        return tablesAndFields;
+    }
+
+    public void setTablesAndFields(String[] tablesAndFields) {
+        this.tablesAndFields = tablesAndFields;
+    }
+
+    public Map<String, String[]> getTableToTypes() {
+        return tableToTypes;
+    }
+
+    public void setTableToTypes(Map<String, String[]> tableToTypes) {
+        this.tableToTypes = tableToTypes;
+    }
+
+    public Map<String, String> getTableToEntriesAndTypes() {
+        return tableToEntriesAndTypes;
+    }
+
+    public void setTableToEntriesAndTypes(Map<String, String> tableToEntriesAndTypes) {
+        this.tableToEntriesAndTypes = tableToEntriesAndTypes;
+    }
+
+    public boolean isDatabasePopulated() {
+        return databasePopulated;
+    }
+
+    public void setDatabasePopulated(boolean databasePopulated) {
+        this.databasePopulated = databasePopulated;
+    }
+
+    public String getDatabaseName() {
+        return databaseName;
+    }
+
+    public static String getExistanceTestString() {
+        return existanceTestString;
+    }
 
     public synchronized boolean hasData() {
         return databasePopulated;
     }
 
-    private synchronized void setHasData(boolean b){
+    public synchronized void setHasData(boolean b){
         databasePopulated = b;
     }
 
@@ -101,7 +147,7 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
         setHasData(tablesExist(db));
 
         if(!tablesExist(db)) {
-            for(Sheet s : w.getSheets()){
+            for(Sheet s : getW().getSheets()){
                 String table = s.getName();
                 String entriesAndTypes = tableToEntriesAndTypes.get(table);
                 db.execSQL("DROP TABLE IF EXISTS " + table); //safety
@@ -165,31 +211,19 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
         return db.rawQuery(existanceTestString, null).getCount() != 0;
     }
 
-    // Actually read data in from db
-    // May get lifted somewhere else
-    public void slurp() {
-        setHasData(false); //poor man's cv, basically busy wait
+    public Workbook getW() {
+        return w;
+    }
 
-        SQLiteDatabase db = getWritableDatabase();
-        for(Sheet s : w.getSheets()){
-            String table = s.getName();
-            Log.d("EXCEL2DB", "at on table " + table);
-            db.delete(table, null, null); // remove any existing data
-            for(int i = 1; i < s.getRows(); i++) {
-                Log.d("EXCEL2DB", "on row " + i);
-                ContentValues cv = new ContentValues();
-                for(int j = 0; j < s.getColumns(); j++){
-                    Log.d("EXCEL2DB", "on column " + j +  " which is " + tableToColumnNames.get(table)[j]);
-                    String type = tableToTypes.get(table)[j];
-                    if (type.equals("REAL")){
-                        cv.put(tableToColumnNames.get(table)[j], Double.parseDouble(s.getCell(j,i).getContents()));
-                    } else {
-                        cv.put(tableToColumnNames.get(table)[j], s.getCell(j,i).getContents());
-                    }
-                }
-                db.insert(table, null, cv);
-            }
-        }
-        setHasData(true);
+    public void setW(Workbook w) {
+        this.w = w;
+    }
+
+    public Map<String, String[]> getTableToColumnNames() {
+        return tableToColumnNames;
+    }
+
+    public void setTableToColumnNames(Map<String, String[]> tableToColumnNames) {
+        this.tableToColumnNames = tableToColumnNames;
     }
 }
