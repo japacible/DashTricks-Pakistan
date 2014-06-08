@@ -5,7 +5,7 @@ package com.dashtricks.pakistan.app.Utilities;
  */
 public class JsonObjects {
     public final static String URGENT_NEED =
-      "{\"Okay\":1523,\"Needs Attention\":605}";
+      "'{\"Okay\":1523,\"NeedsAttention\":605}'";
 
     public final static String FRIDGE_AGE =
       "";

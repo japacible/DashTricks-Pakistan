@@ -101,6 +101,10 @@ public class UrgentNeedBarGraphActivity extends Activity
             ft.commit();
 
         }
+
+        public String getString(){
+            return "\"hi\"";
+        }
     }
 
     @Override
