@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.WebView;
 
@@ -29,6 +30,12 @@ public class VisualizationBeforeAfterActivity extends Activity {
         leftWebView.getSettings().setJavaScriptEnabled(true);
         leftWebView.getSettings().setAllowUniversalAccessFromFileURLs(true);
         leftWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        leftWebView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return true;
+            }
+        });
         leftWebView.addJavascriptInterface(new WebAppInterface(this), "Android");
         leftWebView.loadUrl("file:///android_asset/www/exploremap.html");
 
@@ -37,6 +44,12 @@ public class VisualizationBeforeAfterActivity extends Activity {
         rightWebView.getSettings().setJavaScriptEnabled(true);
         rightWebView.getSettings().setAllowUniversalAccessFromFileURLs(true);
         rightWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        rightWebView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return true;
+            }
+        });
         rightWebView.addJavascriptInterface(new WebAppInterface(this), "Android");
         rightWebView.loadUrl("file:///android_asset/www/simulatemap.html");
     }
