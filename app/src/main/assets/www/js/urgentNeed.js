@@ -1,6 +1,13 @@
-//Android.showToast("Howdy!");
+Android.showToast("Howdy!");
 
-var dataArray = [1523, 605];
+//Android.getUrgentNeedBarGraphJson();
+var test = Fragment.getString();
+var data = "test";
+var jsonData = '{"Okay":1523,"NeedsAttention":605}';
+var obj = JSON.parse(jsonData);
+
+
+var dataArray = [obj.Okay, obj.NeedsAttention];
 var need = ["Okay", "Needs Attention"];
 
 // Array of random numbers while we sync with backend
@@ -83,3 +90,8 @@ canvas.append("text")
     .attr("y", yPos(dataArray[1]) - 2)
     .attr("x", xPos(need[1]) + 30)
     .text(dataArray[1]);
+
+canvas.append("text")
+    .attr("y", 2)
+    .attr("x", 2)
+    .text(data);
