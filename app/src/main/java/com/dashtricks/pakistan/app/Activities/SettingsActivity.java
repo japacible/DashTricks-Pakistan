@@ -53,7 +53,6 @@ public class SettingsActivity extends ActionBarActivity {
         fileDialog.addFileListener(new FileDialog.FileSelectedListener() {
             public void fileSelected(File file) {
                 Log.d(getClass().getName(), "user selected file " + file.toString());
-                ExcelToDatabaseConverter e2db = new ExcelToDatabaseConverter(sa, file);
                 TheApplication theApp = (TheApplication)getApplication();
                 theApp.setExcelFile(file);
                 theApp.possiblySlurp();
