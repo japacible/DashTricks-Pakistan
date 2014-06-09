@@ -80,6 +80,7 @@ public class ListTypeFacility {
     // Temporary method to get random facility names while backend
     // syncs up with front end
     private String getRandomFacilityName(int i) {
+        int num = i % 52;
         String[] facilityNames = {"MILITARY HOSPITAL RAWALPINDI", "BHU HALLOKI", "NISHTE EPI CENTER",
                 "MUZANG HOSPITAL", "CD SANDA", "CB DISPENSARY WALTON", "BHU CHAPA", "BHU GHAWIND",
                 "BHU LEADR", "SAMANABAD HOSPITAL", "RHC Mianwali Qureshian", "District Vaccine Store",
@@ -94,7 +95,7 @@ public class ListTypeFacility {
                 "BHU Arif Baloch","BHU Goth Mahi","Chak 186 P","RHC Sehja","BHU Bahishti","RHC Feroza",
                 "CHAK 186 7R","BHU Roti Sharif"};
 
-        return facilityNames[i];
+        return facilityNames[num];
     }
 
     public static String getRandomFacilityNameOther(int i) {

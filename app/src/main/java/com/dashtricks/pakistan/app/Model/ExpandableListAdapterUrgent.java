@@ -1,4 +1,4 @@
-package com.dashtricks.pakistan.app.Activities;
+package com.dashtricks.pakistan.app.Model;
 
 import android.content.Context;
 import android.graphics.Color;
