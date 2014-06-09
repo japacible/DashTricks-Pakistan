@@ -37,7 +37,7 @@ public class VisualizationBeforeAfterActivity extends Activity {
             }
         });
         leftWebView.addJavascriptInterface(new WebAppInterface(this), "Android");
-        leftWebView.loadUrl("file:///android_asset/www/exploremap.html");
+        leftWebView.loadUrl("file:///android_asset/www/beforeSimulate.html");
 
         // This does not pass anything into the webview
         WebView rightWebView = (WebView) findViewById(R.id.webviewAfter);
@@ -51,7 +51,7 @@ public class VisualizationBeforeAfterActivity extends Activity {
             }
         });
         rightWebView.addJavascriptInterface(new WebAppInterface(this), "Android");
-        rightWebView.loadUrl("file:///android_asset/www/simulatemap.html");
+        rightWebView.loadUrl("file:///android_asset/www/afterSimulate.html");
     }
 
     @Override
