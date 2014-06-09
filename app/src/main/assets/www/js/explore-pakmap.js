@@ -51,9 +51,9 @@ var container = svg.append("g");
 d3.select("body").selectAll(".legend")
     .data([0,1,2,3,4,5])
   .enter().append("div")
-    .style("left", function(d) { return width/6 * d + "px"; })
-    .style("width", function(d) { return width/6 + "px"; })
-    .style("top", height-30 + "px")
+    .style("left", function(d) { return width/7 * d + "px"; })
+    .style("width", function(d) { return width/7 + "px"; })
+    .style("top", height-110 + "px")
     .attr("class", function(d) { return "legend heat-" + d; })
     .text(function(d) { return legendText[d]; });
 
