@@ -107,7 +107,7 @@
         </activity>
 
         <activity
-            android:name="com.dashtricks.pakistan.app.Activities.ExpandableListAdapterUrgent"
+            android:name=".Model.ExpandableListAdapterUrgent"
             android:label="@string/title_activity_expandable_list_adapter_urgent" >
         </activity>
         <activity
