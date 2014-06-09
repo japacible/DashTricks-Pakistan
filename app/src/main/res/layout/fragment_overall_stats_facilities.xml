@@ -24,6 +24,7 @@
         android:padding="3dip"
         android:textSize="23sp"
 
+
         android:layout_marginRight="5dip"/>
     <TextView
         android:text="Facilities In Need of Attention"

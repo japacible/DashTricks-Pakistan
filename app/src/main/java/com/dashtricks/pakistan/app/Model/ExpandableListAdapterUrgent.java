@@ -14,6 +14,7 @@ import com.dashtricks.pakistan.app.R;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -27,12 +28,15 @@ public class ExpandableListAdapterUrgent extends BaseExpandableListAdapter {
     private List<String> _listDataHeader; // header titles
     // child data in format of header title, child title
     private HashMap<String, List<String>> _listDataChild;
+    private List<String> percentages;
 
     public ExpandableListAdapterUrgent(Context context, List<String> listDataHeader,
-                                       HashMap<String, List<String>> listChildData) {
+                                       HashMap<String, List<String>> listChildData,
+                                       List<String> percentages) {
         this._context = context;
         this._listDataHeader = listDataHeader;
         this._listDataChild = listChildData;
+        this.percentages = percentages;
     }
 
     @Override
@@ -91,6 +95,7 @@ public class ExpandableListAdapterUrgent extends BaseExpandableListAdapter {
     public View getGroupView(int groupPosition, boolean isExpanded,
                              View convertView, ViewGroup parent) {
         String headerTitle = (String) getGroup(groupPosition);
+
         if (convertView == null) {
             LayoutInflater infalInflater = (LayoutInflater) this._context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -108,7 +113,7 @@ public class ExpandableListAdapterUrgent extends BaseExpandableListAdapter {
 
         // Set the percentage
         TextView percentage = (TextView) convertView.findViewById(R.id.punjab_facility_row_percentage);
-        percentage.setText((groupPosition+1) + "%");
+        percentage.setText(percentages.get(groupPosition));
 
         TextView lblListHeader = (TextView) convertView
                 .findViewById(R.id.punjab_facility_row_name);

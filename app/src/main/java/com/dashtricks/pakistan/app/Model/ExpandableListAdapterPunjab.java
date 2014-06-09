@@ -29,12 +29,15 @@ public class ExpandableListAdapterPunjab extends BaseExpandableListAdapter {
     private List<String> _listDataHeader; // header titles
     // child data in format of header title, child title
     private HashMap<String, List<String>> _listDataChild;
+    private List<String> percentages;
 
     public ExpandableListAdapterPunjab(Context context, List<String> listDataHeader,
-                                 HashMap<String, List<String>> listChildData) {
+                                 HashMap<String, List<String>> listChildData,
+                                 List<String> percentages) {
         this._context = context;
         this._listDataHeader = listDataHeader;
         this._listDataChild = listChildData;
+        this.percentages = percentages;
 
     }
 
@@ -111,7 +114,7 @@ public class ExpandableListAdapterPunjab extends BaseExpandableListAdapter {
 
         // Set the percentage
         TextView percentage = (TextView) convertView.findViewById(R.id.punjab_facility_row_percentage);
-        percentage.setText((groupPosition+1) + "%");
+        percentage.setText(percentages.get(groupPosition));
 
         TextView lblListHeader = (TextView) convertView
                 .findViewById(R.id.punjab_facility_row_name);

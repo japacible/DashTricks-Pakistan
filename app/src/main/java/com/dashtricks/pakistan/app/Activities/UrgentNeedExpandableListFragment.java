@@ -6,6 +6,7 @@ import android.util.Log;
 import android.widget.ExpandableListView;
 
 import com.dashtricks.pakistan.app.Model.ExpandableListAdapterPunjab;
+import com.dashtricks.pakistan.app.Model.ExpandableListAdapterUrgent;
 import com.dashtricks.pakistan.app.Model.ListTypeFacility;
 import com.dashtricks.pakistan.app.Model.PunjabFacilityListLab;
 import com.dashtricks.pakistan.app.Model.UrgentNeedListLab;
@@ -24,10 +25,11 @@ public class UrgentNeedExpandableListFragment extends Fragment {
     //private static final String TAG = "FacilityListFragment";
     private String barState = "Okay";
 
-    ExpandableListAdapterPunjab listAdapter;
+    ExpandableListAdapterUrgent listAdapter;
     ExpandableListView expListView;
     List<String> listDataHeader;
     HashMap<String, List<String>> listDataChild;
+    List<String> percentages;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,13 +44,14 @@ public class UrgentNeedExpandableListFragment extends Fragment {
         // get the listview
         expListView = (ExpandableListView) getActivity().findViewById(R.id.punjab_expandable_list);
         expListView.setGroupIndicator(null);
-        listAdapter = new ExpandableListAdapterPunjab(getActivity(), listDataHeader, listDataChild);
+        listAdapter = new ExpandableListAdapterUrgent(getActivity(), listDataHeader, listDataChild, percentages);
         expListView.setAdapter(listAdapter);
     }
 
     private void prepareListData() {
         listDataHeader = new ArrayList<String>();
         listDataChild = new HashMap<String, List<String>>();
+        percentages = new ArrayList<String>();
 
         int i = 0;
         for (ListTypeFacility ltf: getListOfFacilities()) {
@@ -62,6 +65,7 @@ public class UrgentNeedExpandableListFragment extends Fragment {
             facilityDetails.add("Population: " + ltf.getPopulation());
 
             listDataChild.put(ltf.getFacilityName(), facilityDetails);
+            percentages.add(ltf.getPercentageCapacity() + "%");
             i++;
         }
     }
