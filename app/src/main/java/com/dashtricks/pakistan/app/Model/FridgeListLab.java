@@ -40,4 +40,12 @@ public class FridgeListLab {
         return mfac;
     }
 
+    public static List<FridgeAgeData> getFridgeData(String yi) {
+        List<FridgeAgeData> fd = new ArrayList<FridgeAgeData>();
+
+        return fd;
+    }
+
+
+
 }

@@ -69,6 +69,8 @@ public class FridgeExpandableFacilityListFragment extends Fragment {
     }
 
     public void setYearInterval(String yi) {
+
         this.yearIntervalClicked = yi;
+        fridgeData = ExpandableListAdapterFridge.getFridgeData(yearIntervalClicked);
     }
 }
