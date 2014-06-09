@@ -5,6 +5,7 @@ import android.content.Context;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by japacible on 6/8/14.
@@ -50,8 +51,11 @@ public class UrgentNeedListLab {
 
     public List<ListTypeFacility> getUrgentFacilitiesList() {
         List<ListTypeFacility> ltfl = new ArrayList<ListTypeFacility>();
-        for(int i = 0; i < 100; i++) {
-            ListTypeFacility ltf = new ListTypeFacility((int)(Math.random()*100));
+        for(int i = 0; i < 605; i++) {
+            Random r = new Random();
+            double percent = (double) r.nextInt(80);
+
+            ListTypeFacility ltf = new ListTypeFacility((int)(Math.random()*100), (double) percent);
             ltfl.add(ltf);
         }
 
@@ -60,8 +64,11 @@ public class UrgentNeedListLab {
 
     public List<ListTypeFacility> getOkayFacilitiesList() {
         List<ListTypeFacility> ltfl = new ArrayList<ListTypeFacility>();
-        for(int i = 0; i < 100; i++) {
-            ListTypeFacility ltf = new ListTypeFacility((int)(Math.random()*100));
+        for(int i = 0; i < 1523; i++) {
+            Random r = new Random();
+            double percent = (double) r.nextInt(20) + 80;
+
+            ListTypeFacility ltf = new ListTypeFacility((int)(Math.random()*100), (double) percent);
             ltfl.add(ltf);
         }
 

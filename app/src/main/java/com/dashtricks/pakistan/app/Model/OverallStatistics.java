@@ -13,13 +13,13 @@ public class OverallStatistics {
     private int totalCoveredCapacity;
 
     public OverallStatistics() {
-        totalFacilitiesCount = 0;
-        attentionFacilitiesCount = 0;
-        totalPopulation = 0;
-        coveredPopulation = 0;
-        percentageCapacity = 0;
-        totalRequiredCapacity = 0;
-        totalCoveredCapacity = 0;
+        totalFacilitiesCount = 1923;
+        attentionFacilitiesCount = 249;
+        totalPopulation = 179200000;
+        coveredPopulation = 11284011;
+        percentageCapacity = (double) totalPopulation / (double) coveredPopulation;
+        totalRequiredCapacity = 110291142;
+        totalCoveredCapacity = 2202119;
     }
 
     public int getTotalFacilitiesCount() {

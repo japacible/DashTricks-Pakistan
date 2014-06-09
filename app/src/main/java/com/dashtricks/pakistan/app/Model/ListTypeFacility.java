@@ -1,5 +1,7 @@
 package com.dashtricks.pakistan.app.Model;
 
+import android.util.Log;
+
 import java.util.UUID;
 
 /**
@@ -32,9 +34,20 @@ public class ListTypeFacility {
         powerSource3 = "Kerosene";
     }
 
-    public String getFacilityName() {
-        return facilityName;
+    public ListTypeFacility(int position, double capacityPercent) {
+        capacitySortPosition = position;
+        facilityName = getRandomFacilityName(capacitySortPosition);
+        facilityID = "AZ" + capacitySortPosition*3 + "OB" + capacitySortPosition*4;
+        currentCapacity = capacitySortPosition + 2;
+        requiredCapacity = capacitySortPosition + 5;
+        population = 30792;
+        percentageCapacity = capacityPercent;
+        powerSource1 = "Electricity";
+        powerSource2 = "Gas";
+        powerSource3 = "Kerosene";
     }
+
+    public String getFacilityName() { return facilityName; }
 
     public String getFacilityID() {
         return facilityID;
