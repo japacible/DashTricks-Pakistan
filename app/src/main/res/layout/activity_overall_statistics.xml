@@ -4,9 +4,7 @@
     android:layout_height="fill_parent"
     android:stretchColumns="1">
 
-
         <TextView
-
             android:text="NUMBER OF REFRIGERATORS"
             android:padding="3dip"
             android:textSize="30sp"

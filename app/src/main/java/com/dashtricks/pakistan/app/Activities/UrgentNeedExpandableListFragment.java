@@ -8,6 +8,7 @@ import android.widget.ExpandableListView;
 import com.dashtricks.pakistan.app.Model.ExpandableListAdapterPunjab;
 import com.dashtricks.pakistan.app.Model.ListTypeFacility;
 import com.dashtricks.pakistan.app.Model.PunjabFacilityListLab;
+import com.dashtricks.pakistan.app.Model.UrgentNeedListLab;
 import com.dashtricks.pakistan.app.R;
 
 import java.util.ArrayList;
@@ -33,8 +34,8 @@ public class UrgentNeedExpandableListFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         //TODO replace these calls with Dov's database calls
-        OkayToFacilities = PunjabFacilityListLab.get(getActivity()).getUrgentFacilitiesList();
-        UrgentNeedToFacilities = PunjabFacilityListLab.get(getActivity()).getUrgentFacilitiesList();
+        OkayToFacilities = UrgentNeedListLab.get(getActivity()).getOkayFacilitiesList();
+        UrgentNeedToFacilities = UrgentNeedListLab.get(getActivity()).getUrgentFacilitiesList();
 
         prepareListData();
 
