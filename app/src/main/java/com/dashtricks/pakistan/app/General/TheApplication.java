@@ -2,6 +2,7 @@ package com.dashtricks.pakistan.app.General;
 
 import android.app.Application;
 
+import com.dashtricks.pakistan.app.Utilities.DatabaseSlurper;
 import com.dashtricks.pakistan.app.Utilities.ExcelToDatabaseConverter;
 
 import java.io.File;
@@ -30,6 +31,6 @@ public class TheApplication extends Application {
     }
 
     public void possiblySlurp() {
-
+        new DatabaseSlurper().execute(ecc);
     }
 }
