@@ -48,7 +48,7 @@ public class VisualizationActivity extends Activity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.visualization, menu);
-        return true;
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override

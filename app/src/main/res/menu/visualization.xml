@@ -4,6 +4,6 @@
     tools:context="com.dashtricks.pakistan.app.Activities.VisualizationActivity" >
     <item android:id="@+id/action_next"
         android:icon="@drawable/ic_action_forward"
-        android:title="@string/action_next"
-        app:showAsAction="ifRoom" />
+        android:title="@string/action_view_before_after"
+        app:showAsAction="always|withText" />
 </menu>

@@ -56,11 +56,8 @@ public class VisualizationBeforeAfterActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.visualization_before_after, menu);
-
-        //getMenuInflater().inflate(R.menu.visualization_before_after, menu);
-        return true;
+        getMenuInflater().inflate(R.menu.visualization_before_after, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
