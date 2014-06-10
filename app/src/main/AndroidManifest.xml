@@ -10,7 +10,7 @@
         <activity
             android:name="com.dashtricks.pakistan.app.Activities.StartActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="landscape" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,7 +20,7 @@
         <activity
             android:name="com.dashtricks.pakistan.app.Activities.SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="landscape" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.dashtricks.pakistan.app.Activities.StartActivity" />
@@ -36,7 +36,7 @@
         <activity
             android:name="com.dashtricks.pakistan.app.Activities.ScenarioCreationActivity"
             android:label="@string/title_activity_scenario_creation"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="landscape" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.dashtricks.pakistan.app.Activities.StartActivity" />
@@ -44,7 +44,7 @@
         <activity
             android:name="com.dashtricks.pakistan.app.Activities.FacilityListActivity"
             android:label="@string/title_activity_facility_list"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="landscape" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.dashtricks.pakistan.app.Activities.ExplorationActivity" />
@@ -52,7 +52,7 @@
         <activity
             android:name="com.dashtricks.pakistan.app.Activities.FacilityActivity"
             android:label="@string/title_activity_facility"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="landscape" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.dashtricks.pakistan.app.Activities.FacilityListActivity" />
@@ -60,7 +60,7 @@
         <activity
             android:name="com.dashtricks.pakistan.app.Activities.ExplorationActivity"
             android:label="@string/title_activity_exploration"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="landscape" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.dashtricks.pakistan.app.Activities.StartActivity" />
@@ -68,7 +68,7 @@
         <activity
             android:name="com.dashtricks.pakistan.app.Activities.FacilitiesListActivity"
             android:label="@string/title_activity_facilities_list"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="landscape" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.dashtricks.pakistan.app.Activities.ExplorationActivity" />
@@ -92,7 +92,7 @@
         <activity
             android:name="com.dashtricks.pakistan.app.Activities.OverallStatisticsActivity"
             android:label="@string/title_activity_overall_statistics"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="landscape" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.dashtricks.pakistan.app.Activities.ExplorationActivity" />
