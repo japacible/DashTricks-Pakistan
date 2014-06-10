@@ -15,19 +15,19 @@ public class FacilityActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fragment);
+        setContentView(R.layout.facility_fragment);
         setTitle("Facility");
 
         ActionBar actionBar = getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         FragmentManager fm = getFragmentManager();
-        Fragment fragment = fm.findFragmentById(R.id.fragmentContainer);
+        Fragment fragment = fm.findFragmentById(R.id.facilityContainer);
 
         if(fragment == null) {
             fragment = new FacilityFragment();
             fm.beginTransaction()
-                    .add(R.id.fragmentContainer, fragment)
+                    .add(R.id.facilityContainer, fragment)
                     .commit();
         }
     }

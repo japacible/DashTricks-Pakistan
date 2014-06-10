@@ -5,17 +5,54 @@
     android:orientation="horizontal"
     tools:context="com.dashtricks.pakistan.app.VisualizationActivity" >
 
-    <WebView  xmlns:android="http://schemas.android.com/apk/res/android"
+    <WebView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/webview"
         android:layout_width="@dimen/webview_width"
         android:layout_height="@dimen/webview_height"
         android:longClickable="false" />
 
-    <ListView
-        android:layout_width="@dimen/list_width"
-        android:layout_height="@dimen/list_height"
-        android:id="@+id/listView"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/visualizationFragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/facility_row"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:clickable="false"
+            android:background="#91CAED">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/facility_row_name"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="3dip"
+                android:paddingLeft="10dip"
+                android:textSize="25dp"
+                android:text="Facility"
+                android:textColor="#FFFFFF"
+                >
+            </TextView>
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/facility_row_percentage"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="3dip"
+                android:paddingRight="10dip"
+                android:textSize="25dp"
+                android:text="Coverage %"
+                android:gravity="right"
+                android:textColor="#FFFFFF"
+                >
+            </TextView>
+        </RelativeLayout>
+
+        <ExpandableListView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/punjab_expandable_list"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_marginTop="40dp"/>
+    </FrameLayout>
 </LinearLayout>

@@ -9,4 +9,11 @@
     <dimen name="webview_height">640dp</dimen>
     <dimen name="list_width">552dp</dimen>
     <dimen name="list_height">321dp</dimen>
+
+    <!-- WebView Dimensions for Before/After Visualizations -->
+    <dimen name="screen_half_height">552dp</dimen>
+    <dimen name="screen_half_width">480dp</dimen>
+
+    <!-- Settings -->
+    <dimen name="about_top_padding">50dp</dimen>
 </resources>

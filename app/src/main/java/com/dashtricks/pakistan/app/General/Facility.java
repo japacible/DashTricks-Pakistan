@@ -53,6 +53,8 @@ public class Facility implements Iterable<Refrigerator>{
                 currentCapacity += r.getVolume();
             }
         }
+        this.weeksBetweenDelivery = weeksBetweenDelivery;
+        this.weeksOfReserve = keepsReserve ? 4 : 0;
     }
 
 // Read from the database
@@ -86,15 +88,15 @@ public class Facility implements Iterable<Refrigerator>{
     }
 
     public String getName() {
-	return name;
+    return name;
     }
     
     public int getFacId() {
-	return facId;
+    return facId;
     }
 
     public boolean canUseSource(PowerSource p) {
-	return powerSources.contains(p);
+    return powerSources.contains(p);
     }
 
     public void setPopulation(int population) {
@@ -114,7 +116,7 @@ public class Facility implements Iterable<Refrigerator>{
 
     // No setter method because this is calculated based on refrigerators
     public double getCurrentCapacity() {
-	    return currentCapacity;
+        return currentCapacity;
     }
 
     // Done because Calculator imports Facility, and circular dependencies are ugly
@@ -125,15 +127,29 @@ public class Facility implements Iterable<Refrigerator>{
     }
 
     public double getRequiredCapacity() {
-	return requiredCapacity;
+    return requiredCapacity;
     }
 
     public String getSubdis() {
         return subdis;
     }
 
+<<<<<<< HEAD
     @Override
     public Iterator<Refrigerator> iterator() {
         return refrigerators.iterator();
+=======
+    public int getWeeksBetweenDelivery() {
+        return weeksBetweenDelivery;
+    }
+
+    public int getWeeksOfReserve() {
+        return weeksOfReserve;
+    }
+
+
+    public double getPercentDeficient() {
+        return percentDeficient;
+>>>>>>> dov-experiment
     }
 }

@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.NumberPicker;
 
 import com.dashtricks.pakistan.app.R;
 
@@ -29,10 +28,12 @@ public class ScenarioCreationActivity extends ActionBarActivity {
     }
 
     /**
-     * Open WebView
+     * Open webview to Visualization simulation
      */
     public void visualize(View view) {
         Intent i = new Intent(this, VisualizationActivity.class);
+        // TODO: add more info for intent to pass data to visualization
+        // i.putExtra("EXTRA_SESSION_ID", sessionId);
         startActivity(i);
     }
 
@@ -40,5 +41,4 @@ public class ScenarioCreationActivity extends ActionBarActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         return super.onOptionsItemSelected(item);
     }
-
 }

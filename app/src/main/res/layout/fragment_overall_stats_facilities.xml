@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:stretchColumns="1">
+
+
+    <TextView
+        android:text="Overall Statistics"
+        android:padding="3dip"
+        android:textSize="29sp"
+        android:background="#91CAED"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="0dp"
+        android:gravity="center"/>
+    <TextView
+        android:text="Number of Facilities"
+        android:padding="3dip"
+        android:textSize="23sp"
+        android:background="#D3EAF8" />
+    <TextView
+        android:id="@+id/number_of_facilities"
+        android:gravity="right"
+        android:padding="3dip"
+        android:textSize="23sp"
+
+
+        android:layout_marginRight="5dip"/>
+    <TextView
+        android:text="Facilities In Need of Attention"
+        android:padding="3dip"
+        android:textSize="23sp"
+        android:background="#D3EAF8"/>
+    <TextView
+        android:id="@+id/facilities_need_attention"
+        android:gravity="right"
+        android:padding="3dip"
+        android:textSize="23sp"
+
+        android:layout_marginRight="5dip"/>
+    <TextView
+        android:text="Population"
+        android:padding="3dip"
+        android:textSize="23sp"
+        android:background="#D3EAF8"/>
+    <TextView
+        android:id="@+id/population_facility_stats"
+        android:gravity="right"
+        android:padding="3dip"
+        android:textSize="23sp"
+
+        android:layout_marginRight="5dip"/>
+    <TextView
+        android:text="Population Covered"
+        android:padding="3dip"
+        android:textSize="23sp"
+        android:background="#D3EAF8"/>
+    <TextView
+        android:id="@+id/population_covered_facility_stats"
+        android:gravity="right"
+        android:padding="3dip"
+        android:textSize="23sp"
+
+        android:layout_marginRight="5dip"/>
+    <TextView
+        android:id="@+id/population_covered_percentage"
+        android:gravity="right"
+        android:padding="3dip"
+        android:textSize="23sp"
+        android:layout_marginRight="5dip"/>
+
+</TableLayout>

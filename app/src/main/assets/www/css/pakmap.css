@@ -1,80 +1,84 @@
-/* --- */
-
 body {
-	margin: 0;
-	background: #87AEBF;
-	font-family: 'Verdana';
-	font-size: 20pt;
-	overflow: hidden;
+    margin: 0;
+    background: #87AEBF;
+    font-family: 'Verdana';
+    font-size: 20pt;
+    overflow: hidden;
 }
 
 svg {
-	display: block;
-	background: white;
+    display: block;
+    background: white;
 }
 
-#display {
-	background: #dee;
-	float: right;
-	width: 45%;
-	overflow-x: hidden;
-	overflow-y: scroll;
+.overlay {
+    fill: none;
+    pointer-events: all;
 }
 
-#display table {
-	margin: 0;
+.legend {
+    height: 30px;
+    position: fixed;
+    color: white;
+    text-align: center;
+    font-size: 20px;
 }
 
-.subdistrict {
-	stroke-width: 0px;
+.reset {
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    top: 5px;
+    left: 5px;
+    background: #442;
+    color: white;
+    opacity: 0.5;
 }
 
-.province-boundary, .district-boundary, .subdistrict-boundary {
-	fill: none;
+.province-boundary, .district-boundary {
+    fill: none;
 }
 
 .province-boundary {
-	stroke: #224;
-	stroke-width: 4;
+    stroke: #442;
+    stroke-width: 2;
 }
 
 .district-boundary {
-	stroke: #cce;
-	stroke-width: 2;
+    stroke: #eec;
+    stroke-width: 1;
 }
 
-.subdistrict-boundary {
-	stroke: #000;
-	stroke-width: 0;
+.heat-0 {
+    fill: #bbb;
+    background: #bbb;
 }
 
-.province-label {
-	fill: #777;
-	font-weight: 300;
-	text-anchor: middle;
+.heat-1 {
+    fill: #c00;
+    background: #c00;
 }
 
-text {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 20px;
-	pointer-events: none;
-} 
-/*
-.facility {
-	stroke: #e22;
-	fill: #e22;
-	fill-opacity: 0;
+.heat-2 {
+    fill: #c60;
+    background: #c60;
 }
 
-.fac-label {
-	fill: #777;
-	font-weight: 300;
-	text-anchor: middle;
+.heat-3 {
+    fill: #cb0;
+    background: #cb0;
 }
-*/
-.display {
-	font-size: 30px;
+
+.heat-4 {
+    fill: #ac0;
+    background: #ac0;
+}
+
+.heat-5 {
+    fill: #0c0;
+    background: #0c0;
 }
 
 .selected {
+    fill: #4cc;
 }

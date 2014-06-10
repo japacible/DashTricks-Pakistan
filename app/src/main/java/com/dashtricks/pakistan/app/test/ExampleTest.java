@@ -11,7 +11,6 @@ import com.dashtricks.pakistan.app.General.PowerSource;
 import com.dashtricks.pakistan.app.General.Refrigerator;
 import com.dashtricks.pakistan.app.General.Refrigerators;
 import com.dashtricks.pakistan.app.Model.ModelDriver;
-import com.dashtricks.pakistan.app.Model.VolumeRequirement;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -67,6 +66,9 @@ public class ExampleTest extends AndroidTestCase {
 
         Facility f1 = new Facility("Fac1", 20, pss1, 9, null);
         Facility f2 = new Facility("Fac2", 30, pss2, 9, null);
+        /*
+        Facility f1 = new Facility("Fac1", 20, pss1);
+        Facility f2 = new Facility("Fac2", 30, pss2);
 
         f1.setPopulation(10);
         f2.setPopulation(100);
@@ -76,14 +78,14 @@ public class ExampleTest extends AndroidTestCase {
 
         f.add(f1);
         f.add(f2);
-
+        */
         /*
         There will be some additional layer of filtering before we pass the immunization plans to
         the ModelDriver. I'm not sure at what point and in what way this is best coorenated with
         the visualizer view
         */
 
-        Set<VolumeRequirement> beforeAllocation = ModelDriver.getRequirements(f, ip);
+        //Set<VolumeRequirement> beforeAllocation = ModelDriver.getRequirements(f, ip);
 
         /*
         Again, not sure if just doing this with a set is the right way, or if we should have
@@ -91,8 +93,8 @@ public class ExampleTest extends AndroidTestCase {
         an object, because we might want to have an object we can make complex queries to when
         allocating refrigerators. But I'm not exactly sure how that would look
          */
-        Set<Refrigerator> rtac = new HashSet<Refrigerator>();
-        Set<VolumeRequirement> afterAllocation = AllocationDriver.allocate(beforeAllocation, rtac);
+        //Set<Refrigerator> rtac = new HashSet<Refrigerator>();
+        //Set<VolumeRequirement> afterAllocation = AllocationDriver.allocate(beforeAllocation, rtac);
 
         // also unsure if the Set<VolumeRequirements> should be it's own class. My gut instinct is
         // yes, but I'm not convinced

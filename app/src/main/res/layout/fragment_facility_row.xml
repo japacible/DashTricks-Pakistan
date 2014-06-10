@@ -12,7 +12,7 @@
         android:paddingTop="20dip"
         android:paddingBottom="20dip"
         android:paddingLeft="20dip"
-        android:textSize="29dp"
+        android:textSize="25dp"
         >
     </TextView>
 
@@ -24,7 +24,7 @@
         android:paddingBottom="20dip"
         android:paddingRight="20dip"
         android:textStyle="bold"
-        android:textSize="32dp"
+        android:textSize="27dp"
         android:text="59%"
         android:textColor="#91CAED"
         android:gravity="right"

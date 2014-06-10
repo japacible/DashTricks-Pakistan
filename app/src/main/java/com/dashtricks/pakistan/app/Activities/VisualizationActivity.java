@@ -1,17 +1,23 @@
 package com.dashtricks.pakistan.app.Activities;
 
 import android.app.ActionBar;
+import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.content.Intent;
 import android.support.v4.app.NavUtils;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
 
 import com.dashtricks.pakistan.app.R;
+import com.dashtricks.pakistan.app.Utilities.WebAppInterface;
 
-public class VisualizationActivity extends ActionBarActivity {
+public class VisualizationActivity extends Activity
+        implements VisualizationMapFacilityFragment.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,13 +31,24 @@ public class VisualizationActivity extends ActionBarActivity {
         myWebView.getSettings().setJavaScriptEnabled(true);
         myWebView.getSettings().setAllowUniversalAccessFromFileURLs(true);
         myWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
-        myWebView.loadUrl("file:///android_asset/www/pakmap.html");
+        myWebView.addJavascriptInterface(new WebAppInterface(this), "Android");
+        myWebView.loadUrl("file:///android_asset/www/simulatemap.html");
+
+        FragmentManager fm = getFragmentManager();
+        Fragment fragment = fm.findFragmentById(R.id.visualizationFragmentContainer);
+
+        if(fragment == null) {
+            fragment = new OverallStatsFacilitiesFragment();
+            fm.beginTransaction()
+                    .add(R.id.visualizationFragmentContainer, fragment)
+                    .commit();
+        }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.visualization, menu);
-        return true;
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -42,8 +59,17 @@ public class VisualizationActivity extends ActionBarActivity {
                     NavUtils.navigateUpFromSameTask(this);
                 }
                 return true;
+            case R.id.action_next:
+                Intent i = new Intent(this, VisualizationBeforeAfterActivity.class);
+                startActivity(i);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    public void onFragmentInteraction(String id) {
+
     }
 }

@@ -22,7 +22,7 @@ public class StartActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
-        setTitle("IcePAK");
+        setTitle("icePAK");
 
         Button importButton = (Button) findViewById(R.id.importBtn);
         Button vizButton = (Button) findViewById(R.id.vizBtn);
@@ -105,14 +105,6 @@ public class StartActivity extends ActionBarActivity {
      */
     public void viewSettings(View view) {
         Intent i = new Intent(this, SettingsActivity.class);
-        startActivity(i);
-    }
-
-    /**
-     * Open facilities list view
-     */
-    public void viewFacilitiesList(View view) {
-        Intent i = new Intent(this, FacilityListActivity.class);
         startActivity(i);
     }
 }

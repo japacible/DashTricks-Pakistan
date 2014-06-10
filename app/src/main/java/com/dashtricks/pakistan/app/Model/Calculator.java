@@ -7,16 +7,31 @@ import com.dashtricks.pakistan.app.General.ImmunizationPlan;
  * Created by Donohue on 5/7/14.
  */
 public class Calculator {
+    private static final int WEEKS_PER_YEAR = 52;
+    private static final int WEEKS_OF_COLD_DILUANT = 4;
+
     public static double computeVolume(Facility f, ImmunizationPlan ip) {
-        return baseVaccineVolume(f, ip) + diluantVolume(f, ip);
+        return baseVaccineVolume(f, ip) + baseDiluantVolume(f, ip);
     }
 
     private static double baseVaccineVolume(Facility f, ImmunizationPlan ip) {
-        return f.getPopulation() * ip.getDosePerPopulation() * ip.getVolumePerDose()
-                * (1 / (1-ip.getWasteFactor())); // * 1/deliveries per year; still unsure on that data's exact form
+        double yearsVolume = yearsVaccineVolume(f, ip);
+        return (yearsVolume * (f.getWeeksBetweenDelivery() / WEEKS_PER_YEAR )) +
+               (yearsVolume * (f.getWeeksOfReserve() / WEEKS_PER_YEAR ));
     }
 
-    private static int diluantVolume(Facility f, ImmunizationPlan ip) {
-        return 0; // We still aren't sure yet exactly how we're getting diluent info...
+    private static double yearsVaccineVolume(Facility f, ImmunizationPlan ip) {
+        return f.getPopulation() * ip.getDosePerPopulation() *
+               ip.getVolumePerDose() * (1.0 / (1.0 - ip.getWasteFactor()));
+    }
+
+    private static double baseDiluantVolume(Facility f, ImmunizationPlan ip) {
+        return yearsDiluantVolume(f, ip) * (WEEKS_OF_COLD_DILUANT / WEEKS_PER_YEAR );
+    }
+
+    private static double yearsDiluantVolume(Facility f, ImmunizationPlan ip) {
+        return f.getPopulation() * ip.getDosePerPopulation() * ip.getDiluantVolumePerDose()
+                * (1.0 / (1.0 - ip.getDiluantWasteFactor()));
+
     }
 }
