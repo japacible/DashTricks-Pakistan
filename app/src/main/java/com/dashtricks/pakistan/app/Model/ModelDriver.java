@@ -3,12 +3,9 @@ package com.dashtricks.pakistan.app.Model;
 import com.dashtricks.pakistan.app.General.Facilities;
 import com.dashtricks.pakistan.app.General.Facility;
 import com.dashtricks.pakistan.app.General.ImmunizationPlan;
-import com.dashtricks.pakistan.app.General.ImmunizationPlans;
-import com.dashtricks.pakistan.app.Utilities.FacilityToJson;
+import com.dashtricks.pakistan.app.Utilities.DataAccessor;
 
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 /**
@@ -17,6 +14,7 @@ import java.util.Set;
 public class ModelDriver {
     private static Iterable<ImmunizationPlan> lastUsedIps = null;
     private static String lastJSON = "";
+    private static DataAccessor da;
 
     private static void setAllVolumeRequirements(Iterable<Facility> fs, Iterable<ImmunizationPlan> ips) {
         for (Facility f : fs) {
@@ -47,7 +45,8 @@ public class ModelDriver {
         }
 
         setAllVolumeRequirements(fs, ips);
-        return FacilityToJson.facilitiesToJson(fs);
+        da = new DataAccessor(fs);
+        return da.facilitiesToJson();
     }
 
     public static Set<ImmunizationPlan> getDefaultIps() {

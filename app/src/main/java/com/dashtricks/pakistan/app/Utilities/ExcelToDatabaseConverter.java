@@ -55,33 +55,6 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
             return;
         }
 
-    @Override
-    /*
-     * Given the database,
-     * create one table per sheet in the data
-     * */
-    public void onCreate(SQLiteDatabase db) {
-        System.err.println("In e->db onCreate");
-        Sheet[] sheets = w.getSheets();
-
-        for(Sheet s : sheets) {
-            String name = s.getName();
-            String entriesAndTypes = parseSheetTypes(s);
-
-            db.execSQL(String.format("CREATE TABLE %s (%s);", name, entriesAndTypes));
-            List<String> eAndT = Arrays.asList(entriesAndTypes.split(" "));
-            int i = 0;
-
-//            Keep the table name and fields, strip out the type information
-            for(Iterator<String> it = eAndT.iterator(); it.hasNext();) {
-                it.next();
-                if(i % 2 != 0) {
-                    it.remove();
-                }
-                i++;
-            }
-            tableToFields.put(name, eAndT);
-            System.err.println(String.format("CREATE TABLE %s (%s);", name, entriesAndTypes));
         //if people actually try to get data from a nonpopulated
         //database, onCreate gets called, which sets it to a more correct value
         databasePopulated = true;

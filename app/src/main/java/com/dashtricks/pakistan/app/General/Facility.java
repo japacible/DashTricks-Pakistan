@@ -12,6 +12,7 @@ import java.util.Set;
  */
 public class Facility implements Iterable<Refrigerator>{
     public static final int ADMIN_DEPTH = 1;
+    private int weeksOfReserve;
 
     private String name;
     private int facId;
@@ -24,6 +25,7 @@ public class Facility implements Iterable<Refrigerator>{
     private Set<PowerSource> powerSources;
     private Set<Refrigerator> refrigerators;
     private int adminRegion;
+    private int weeksBetweenDelivery;
 
     // All these things
     public Facility(String name, int facId, Set<PowerSource> ps, int adminRegion, SQLiteDatabase db) {
@@ -53,8 +55,8 @@ public class Facility implements Iterable<Refrigerator>{
                 currentCapacity += r.getVolume();
             }
         }
-        this.weeksBetweenDelivery = weeksBetweenDelivery;
-        this.weeksOfReserve = keepsReserve ? 4 : 0;
+    //    this.weeksBetweenDelivery = weeksBetweenDelivery;
+    //    this.weeksOfReserve = keepsReserve ? 4 : 0;
     }
 
 // Read from the database
@@ -134,22 +136,16 @@ public class Facility implements Iterable<Refrigerator>{
         return subdis;
     }
 
-<<<<<<< HEAD
     @Override
     public Iterator<Refrigerator> iterator() {
         return refrigerators.iterator();
-=======
+    }
+
     public int getWeeksBetweenDelivery() {
         return weeksBetweenDelivery;
     }
 
     public int getWeeksOfReserve() {
         return weeksOfReserve;
-    }
-
-
-    public double getPercentDeficient() {
-        return percentDeficient;
->>>>>>> dov-experiment
     }
 }
