@@ -18,7 +18,9 @@
         android:onClick="importColdChainData"
         android:layout_gravity="center"
         android:background="@drawable/abc_list_selector_background_transition_holo_light"
-        android:padding="8dip" />
+        android:padding="8dip"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -27,11 +29,11 @@
         android:text="@string/simulation"
         android:id="@+id/vizBtn"
         android:onClick="generateVisualization"
-        android:layout_marginBottom="202dp"
-        android:layout_above="@+id/settingsBtn"
-        android:layout_toLeftOf="@+id/settingsBtn"
         android:background="@drawable/abc_list_selector_background_transition_holo_light"
-        android:padding="8dip" />
+        android:padding="8dip"
+        android:layout_marginBottom="100dp"
+        android:layout_alignTop="@+id/exploreBtn"
+        android:layout_toLeftOf="@+id/settingsBtn" />
 
     <Button
         android:layout_width="wrap_content"
@@ -39,12 +41,12 @@
         android:text="@string/exploration"
         android:id="@+id/exploreBtn"
         android:onClick="exploreData"
-        android:layout_alignTop="@+id/vizBtn"
-        android:layout_toRightOf="@+id/settingsBtn"
-        android:layout_marginLeft="40dp"
         android:background="@drawable/abc_list_selector_background_transition_holo_light"
         android:padding="8dip"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="100dp"
+        android:layout_toRightOf="@+id/settingsBtn"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -53,8 +55,10 @@
         android:id="@+id/settingsBtn"
         android:onClick="viewSettings"
         android:layout_gravity="center"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
         android:background="@drawable/abc_list_selector_background_transition_holo_light"
-        android:padding="8dip"/>
+        android:padding="8dip"
+        android:layout_marginBottom="73dp"
+        android:layout_centerInParent="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

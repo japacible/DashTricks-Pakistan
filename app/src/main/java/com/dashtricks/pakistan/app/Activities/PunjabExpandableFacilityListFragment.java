@@ -21,8 +21,10 @@ public class PunjabExpandableFacilityListFragment extends Fragment {
     // Expandable list view data
     ExpandableListAdapterPunjab listAdapter;
     ExpandableListView expListView;
+    private List<ListTypeFacility> temp;
     List<String> listDataHeader;
     HashMap<String, List<String>> listDataChild;
+    private List<String> percentages;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,18 +37,22 @@ public class PunjabExpandableFacilityListFragment extends Fragment {
         // get the listview
         expListView = (ExpandableListView) getActivity().findViewById(R.id.punjab_expandable_list);
         expListView.setGroupIndicator(null);
-        listAdapter = new ExpandableListAdapterPunjab(getActivity(), listDataHeader, listDataChild);
+        listAdapter = new ExpandableListAdapterPunjab(getActivity(), listDataHeader, listDataChild, percentages);
         expListView.setAdapter(listAdapter);
     }
 
     private void prepareListData() {
         listDataHeader = new ArrayList<String>();
         listDataChild = new HashMap<String, List<String>>();
+        percentages = new ArrayList<String>();
 
-        for (ListTypeFacility ltf: DistrictToFacilities.get(districtClicked)) {
+        for (ListTypeFacility ltf: temp) {
 
             // Set the facility name
             listDataHeader.add(ltf.getFacilityName());
+
+            // Set te capacity percentage
+            percentages.add(ltf.getPercentageCapacity() + "%");
 
             // List of strings for the facility details
             List<String> facilityDetails = new ArrayList<String>();
@@ -61,6 +67,8 @@ public class PunjabExpandableFacilityListFragment extends Fragment {
     }
 
     public void setDistrict(String districtName) {
+
         this.districtClicked = districtName;
+        temp = PunjabFacilityListLab.getPunjabFacilitiesList();
     }
 }

@@ -38,7 +38,7 @@ public class FridgeExpandableFacilityListFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         // TODO replace this with a call to Dov's data
-        fridgeData = FridgeListLab.get(getActivity()).FridgeListSetup();
+        //fridgeData = FridgeListLab.get(getActivity()).FridgeListSetup();
         prepareListData();
 
         // get the listview
@@ -69,6 +69,8 @@ public class FridgeExpandableFacilityListFragment extends Fragment {
     }
 
     public void setYearInterval(String yi) {
+
         this.yearIntervalClicked = yi;
+        fridgeData = FridgeListLab.getFridgeData(yearIntervalClicked);
     }
 }

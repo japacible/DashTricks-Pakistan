@@ -5,6 +5,7 @@ import android.content.Context;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by Dan on 5/19/2014.
@@ -40,18 +41,39 @@ public class PunjabFacilityListLab {
 
         for(String d: districts) {
             List<ListTypeFacility> temp = new ArrayList<ListTypeFacility>();
-            for(int i = 0; i < 100; i++) {
-                ListTypeFacility ltf = new ListTypeFacility((int)(Math.random()*i));
+            for(int i = 0; i < 400; i++) {
+
+
+                Random r = new Random();
+                double percent = (double) r.nextInt(100);
+
+                ListTypeFacility ltf = new ListTypeFacility((int)(Math.random()*100), (double) percent);
                 temp.add(ltf);
+
+
             }
             mFacilities.put(d, temp);
         }
     }
 
+
+    public static List<ListTypeFacility> getPunjabFacilitiesList() {
+        List<ListTypeFacility> ltfl = new ArrayList<ListTypeFacility>();
+        for(int i = 0; i < 400; i++) {
+            Random r = new Random();
+            double percent = (double) r.nextInt(100);
+
+            ListTypeFacility ltf = new ListTypeFacility((int)(Math.random()*100), (double) percent);
+            ltfl.add(ltf);
+        }
+
+        return ltfl;
+    }
+
     public List<ListTypeFacility> getUrgentFacilitiesList() {
         List<ListTypeFacility> ltfl = new ArrayList<ListTypeFacility>();
-        for(int i = 0; i < 100; i++) {
-            ListTypeFacility ltf = new ListTypeFacility((int)(Math.random()*100));
+        for(int i = 0; i < 400; i++) {
+            ListTypeFacility ltf = new ListTypeFacility(i);
             ltfl.add(ltf);
         }
 

@@ -18,6 +18,10 @@ public class Facilities implements Iterable<Facility> {
         facilities.add(facility);
     }
 
+    public int size() {
+        return facilities.size();
+    }
+
     @Override
     public Iterator<Facility> iterator() {
         return facilities.iterator();

@@ -18,11 +18,12 @@ public class ListTypeFacilityLab {
         mAppContext = appContext;
 
         mFacilities = new ArrayList<ListTypeFacility>();
-        for(int i = 0; i < 100; i++) {
+        for(int i = 0; i < 600; i++) {
             ListTypeFacility ltf = new ListTypeFacility(i);
             mFacilities.add(ltf);
         }
     }
+
 
     public static ListTypeFacilityLab get(Context c) {
         if(fLab == null) {

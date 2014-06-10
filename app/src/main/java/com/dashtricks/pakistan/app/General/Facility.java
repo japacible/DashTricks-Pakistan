@@ -99,4 +99,7 @@ public class Facility {
     }
 
 
+    public double getPercentDeficient() {
+        return percentDeficient;
+    }
 }

@@ -27,7 +27,6 @@ public class SettingsActivity extends ActionBarActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.settings, menu);

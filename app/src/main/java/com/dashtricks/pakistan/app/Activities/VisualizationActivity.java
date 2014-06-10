@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.support.v4.app.NavUtils;
 import android.os.Bundle;
 import android.util.Log;
@@ -37,7 +38,7 @@ public class VisualizationActivity extends Activity
         Fragment fragment = fm.findFragmentById(R.id.visualizationFragmentContainer);
 
         if(fragment == null) {
-            fragment = new PunjabExpandableFacilityListFragment();
+            fragment = new OverallStatsFacilitiesFragment();
             fm.beginTransaction()
                     .add(R.id.visualizationFragmentContainer, fragment)
                     .commit();
@@ -47,7 +48,7 @@ public class VisualizationActivity extends Activity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.visualization, menu);
-        return true;
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -57,6 +58,10 @@ public class VisualizationActivity extends Activity
                 if (NavUtils.getParentActivityName(this) != null) {
                     NavUtils.navigateUpFromSameTask(this);
                 }
+                return true;
+            case R.id.action_next:
+                Intent i = new Intent(this, VisualizationBeforeAfterActivity.class);
+                startActivity(i);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

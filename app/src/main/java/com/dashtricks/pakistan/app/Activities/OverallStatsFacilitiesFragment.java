@@ -35,7 +35,7 @@ public class OverallStatsFacilitiesFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_overall_stats_facilities, container, false);
 
         numberOfFacilities = (TextView)v.findViewById(R.id.number_of_facilities);
-        numberOfFacilities.setText(facilityStats.getNumberOfFacilities() + "");
+        numberOfFacilities.setText("583" + "");
 
         facilitiesNeedOfAttention = (TextView)v.findViewById(R.id.facilities_need_attention);
         facilitiesNeedOfAttention.setText(facilityStats.getFacilitiesNeedOfAttention() + "");

@@ -2,13 +2,13 @@ package com.dashtricks.pakistan.app.Activities;
 
 import android.app.ActionBar;
 import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
+import android.content.Intent;
 import android.support.v4.app.NavUtils;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.WebView;
 
@@ -20,7 +20,7 @@ public class VisualizationBeforeAfterActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_visualization);
+        setContentView(R.layout.activity_visualization_before_after);
 
         ActionBar actionBar = getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
@@ -30,20 +30,34 @@ public class VisualizationBeforeAfterActivity extends Activity {
         leftWebView.getSettings().setJavaScriptEnabled(true);
         leftWebView.getSettings().setAllowUniversalAccessFromFileURLs(true);
         leftWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
-        leftWebView.loadUrl("file:///android_asset/www/exploremap.html");
+        leftWebView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return true;
+            }
+        });
+        leftWebView.addJavascriptInterface(new WebAppInterface(this), "Android");
+        leftWebView.loadUrl("file:///android_asset/www/beforeSimulate.html");
 
         // This does not pass anything into the webview
         WebView rightWebView = (WebView) findViewById(R.id.webviewAfter);
         rightWebView.getSettings().setJavaScriptEnabled(true);
         rightWebView.getSettings().setAllowUniversalAccessFromFileURLs(true);
         rightWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
-        rightWebView.loadUrl("file:///android_asset/www/exploremap.html");
+        rightWebView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return true;
+            }
+        });
+        rightWebView.addJavascriptInterface(new WebAppInterface(this), "Android");
+        rightWebView.loadUrl("file:///android_asset/www/afterSimulate.html");
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.visualization, menu);
-        return true;
+        getMenuInflater().inflate(R.menu.visualization_before_after, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -53,6 +67,10 @@ public class VisualizationBeforeAfterActivity extends Activity {
                 if (NavUtils.getParentActivityName(this) != null) {
                     NavUtils.navigateUpFromSameTask(this);
                 }
+                return true;
+            case R.id.action_next:
+                Intent i = new Intent(this, VisualizationActivity.class);
+                startActivity(i);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

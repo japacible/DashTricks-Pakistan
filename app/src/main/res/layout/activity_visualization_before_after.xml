@@ -5,13 +5,13 @@
     android:orientation="horizontal"
     tools:context="com.dashtricks.pakistan.app.VisualizationBeforeAfterActivity" >
 
-    <WebView  xmlns:android="http://schemas.android.com/apk/res/android"
+    <WebView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/webviewBefore"
         android:layout_width="@dimen/screen_half_width"
         android:layout_height="@dimen/screen_half_height"
         android:longClickable="false" />
 
-    <WebView  xmlns:android="http://schemas.android.com/apk/res/android"
+    <WebView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/webviewAfter"
         android:layout_width="@dimen/screen_half_width"
         android:layout_height="@dimen/screen_half_height"
