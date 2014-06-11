@@ -1,16 +1,21 @@
 package com.dashtricks.pakistan.app.Utilities;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import com.dashtricks.pakistan.app.General.Facilities;
+import com.dashtricks.pakistan.app.General.Facility;
+import com.dashtricks.pakistan.app.General.PowerSource;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import jxl.Cell;
 import jxl.CellType;
@@ -230,6 +235,24 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
     }
 
     public Facilities getAllFacilities() {
-        return null;
+        SQLiteDatabase thedb = getWritableDatabase();
+        Facilities fs = new Facilities();
+        Cursor c = thedb.rawQuery("SELECT * FROM Facility", null, null);
+        if(c.moveToFirst()) {
+            do{
+            Set<PowerSource> ps = new HashSet<PowerSource>();
+            int adminCode = getProperAdminRegion(3, c.getInt(26));
+
+            // name, facid, power source set, admin region, db
+            Facility f = new Facility(c.getString(3), c.getInt(0), ps, adminCode, thedb);
+            fs.add(f);
+            }while(c.moveToNext());
+        }
+
+        return fs;
+    }
+
+    private int getProperAdminRegion(int level, int excelAdminCode) {
+        return 0;
     }
 }
