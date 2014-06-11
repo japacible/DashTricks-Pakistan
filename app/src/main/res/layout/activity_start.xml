@@ -19,8 +19,9 @@
         android:layout_gravity="center"
         android:background="@drawable/abc_list_selector_background_transition_holo_light"
         android:padding="8dip"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignTop="@+id/vizBtn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -31,7 +32,6 @@
         android:onClick="generateVisualization"
         android:background="@drawable/abc_list_selector_background_transition_holo_light"
         android:padding="8dip"
-        android:layout_marginBottom="100dp"
         android:layout_alignTop="@+id/exploreBtn"
         android:layout_toLeftOf="@+id/settingsBtn" />
 
@@ -57,8 +57,6 @@
         android:layout_gravity="center"
         android:background="@drawable/abc_list_selector_background_transition_holo_light"
         android:padding="8dip"
-        android:layout_marginBottom="73dp"
-        android:layout_centerInParent="true"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/exploreBtn"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>

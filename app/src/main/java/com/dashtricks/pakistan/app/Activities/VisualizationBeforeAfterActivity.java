@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.support.v4.app.NavUtils;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -15,7 +16,7 @@ import com.dashtricks.pakistan.app.General.TheApplication;
 import com.dashtricks.pakistan.app.R;
 import com.dashtricks.pakistan.app.Utilities.WebAppInterface;
 
-public class VisualizationBeforeAfterActivity extends Activity {
+public class VisualizationBeforeAfterActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
