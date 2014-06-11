@@ -22,6 +22,7 @@ public class DataAccessor {
     private Gson g;
     private Facilities fs;
     private Map<String, List<Facility>> subdisToFacs;
+    ExcelToDatabaseConverter ecc;
 
     // Must be called before anything else gets called
     public DataAccessor(Facilities fs){
@@ -190,5 +191,24 @@ public class DataAccessor {
         }
 
         return ret;
+    }
+
+    public String getDistrictHeatNumberAsJson(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+
+        for(Facility f : fs) {
+            sb.append("{");
+            sb.append("\"Region\":\"");
+            sb.append(f.getAdminRegion());
+            sb.append("\",");
+            sb.append("\"heatNumber\":");
+            sb.append((int)f.getPercentDeficient());
+            sb.append("},");
+        }
+
+        sb.deleteCharAt(sb.length() - 1); // get rid of trailing comma
+        sb.append("]");
+        return sb.toString();
     }
 }

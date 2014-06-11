@@ -148,4 +148,8 @@ public class Facility implements Iterable<Refrigerator>{
     public int getWeeksOfReserve() {
         return weeksOfReserve;
     }
+
+    public int getAdminRegion() {
+        return adminRegion;
+    }
 }

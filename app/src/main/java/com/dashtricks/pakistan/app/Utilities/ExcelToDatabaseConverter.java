@@ -5,6 +5,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.dashtricks.pakistan.app.General.Facilities;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
@@ -225,5 +227,9 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
 
     public void setTableToColumnNames(Map<String, String[]> tableToColumnNames) {
         this.tableToColumnNames = tableToColumnNames;
+    }
+
+    public Facilities getAllFacilities() {
+        return null;
     }
 }
