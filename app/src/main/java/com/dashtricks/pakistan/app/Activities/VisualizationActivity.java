@@ -7,6 +7,7 @@ import android.app.FragmentManager;
 import android.content.Intent;
 import android.support.v4.app.NavUtils;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,8 +17,7 @@ import android.webkit.WebView;
 import com.dashtricks.pakistan.app.R;
 import com.dashtricks.pakistan.app.Utilities.WebAppInterface;
 
-public class VisualizationActivity extends Activity
-        implements VisualizationMapFacilityFragment.OnFragmentInteractionListener {
+public class VisualizationActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,8 +68,5 @@ public class VisualizationActivity extends Activity
         }
     }
 
-    @Override
-    public void onFragmentInteraction(String id) {
 
-    }
 }
