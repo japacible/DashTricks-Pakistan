@@ -36,5 +36,5 @@ public class JsonObjects {
         "[ \"Okay\", \"Needs Attention\" ]";
 
     public final static String URGENT_NEED_DATA =
-        "[ \"1523\", \"605\" ]";
+        "[ 1523, 605 ]";
 }

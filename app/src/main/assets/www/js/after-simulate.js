@@ -46,6 +46,35 @@ var rect = svg.append("rect")
 
 var container = svg.append("g");
 
+
+svg.append("text")
+    .attr("class", "xAxisLabels")
+    .attr("y", 40)
+    .attr("x", 40)
+    .text("After");
+
+/*
+d3.select("body").selectAll(".legend")
+    .data([0,1,2,3,4,5])
+  .enter().append("div")
+    .style("left", function(d) { return width/6 * d + "px"; })
+    .style("width", function(d) { return width/6 + "px"; })
+    .style("top", height-30 + "px")
+    .attr("class", function(d) { return "legend heat-" + d; })
+    .text(function(d) { return legendText[d]; });
+*/
+/*
+d3.select("body").append("button")
+  .attr("type", "button")
+  .attr("class", "reset btn btn-default btn-lg")
+  .on("click", function() {
+    zoom.translate([0,0]).scale(1);
+    container.attr("transform", "translate(" + zoom.translate() + ")scale(" + zoom.scale() + ")");
+  })
+  .append("span")
+    .attr("class", "glyphicon glyphicon-refresh");
+*/
+
 d3.json("pakistan.json", function(error, pak) {
   var provinces = topojson.feature(pak, pak.objects.provinces),
   districts = topojson.feature(pak, pak.objects.districts);
