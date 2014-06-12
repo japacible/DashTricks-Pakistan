@@ -30,7 +30,8 @@ public class ExplorationMapActivity extends Activity
         myWebView.getSettings().setJavaScriptEnabled(true);
         myWebView.getSettings().setAllowUniversalAccessFromFileURLs(true);
         myWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
-        myWebView.addJavascriptInterface(new WebAppInterface(this, (TheApplication) getApplication()), "Android");
+        myWebView.addJavascriptInterface(
+                new WebAppInterface(this, (TheApplication) getApplication()), "Android");
         myWebView.loadUrl("file:///android_asset/www/exploremap.html");
 
         FragmentManager fm = getFragmentManager();

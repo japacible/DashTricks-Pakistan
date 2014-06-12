@@ -31,14 +31,15 @@ public class OverallStatsRefrigeratorsFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_overall_stats_refrigerators, container, false);
 
+        // TODO: Use numbers from database
         fridgeCount = (TextView)v.findViewById(R.id.numberOfRefrigerators);
-        fridgeCount.setText("291");
+        fridgeCount.setText("291"); // getFridgeCount();
 
         fridgeWorking = (TextView) v.findViewById(R.id.number_working_refrigerators);
-        fridgeWorking.setText("248");
+        fridgeWorking.setText("248"); // getFridgeWorkingCount();
 
         fridgeOutOfCommission = (TextView) v.findViewById(R.id.number_refrigerators_out_commission);
-        fridgeOutOfCommission.setText("43");
+        fridgeOutOfCommission.setText("43"); // getFridgeOutOfCommissionCount();
 
         return v;
     }

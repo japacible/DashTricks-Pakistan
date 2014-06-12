@@ -1,3 +1,6 @@
+// var data = JSON.parse(Android.getExploreMapDataString());
+// Android.showToast(data.toString());
+
 function randHeat() {
   return "heat-" + ( 5 - Math.round(Math.pow(Math.random(), 3) * 5));
 }
@@ -42,6 +45,12 @@ var rect = svg.append("rect")
   .style("pointer-events", "all");
 
 var container = svg.append("g");
+
+svg.append("text")
+    .attr("class", "xAxisLabels")
+    .attr("y", 40)
+    .attr("x", 40)
+    .text("Before");
 
 /*
 d3.select("body").selectAll(".legend")

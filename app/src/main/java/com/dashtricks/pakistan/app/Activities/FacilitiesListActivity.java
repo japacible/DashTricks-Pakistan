@@ -18,7 +18,6 @@ public class FacilitiesListActivity extends Activity {
         actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.facilities_list, menu);

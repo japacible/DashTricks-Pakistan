@@ -4,7 +4,6 @@ package com.dashtricks.pakistan.app.Model;
  * Created by Dan on 6/2/2014.
  */
 public class OverallFacilitiesStatistics {
-
     private int numberOfFacilities;
     private int facilitiesNeedOfAttention;
     private String population;

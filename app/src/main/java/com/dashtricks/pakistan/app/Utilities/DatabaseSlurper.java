@@ -53,5 +53,6 @@ public class DatabaseSlurper extends AsyncTask<ExcelToDatabaseConverter, Long, V
             }
         }
         e.setHasData(true);
+
     }
 }

@@ -34,7 +34,8 @@ public class UrgentNeedBarGraphActivity extends Activity
         myWebView.getSettings().setJavaScriptEnabled(true);
         myWebView.getSettings().setAllowUniversalAccessFromFileURLs(true);
         myWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
-        myWebView.addJavascriptInterface(new WebAppInterface(this, (TheApplication)getApplication()), "Android");
+        myWebView.addJavascriptInterface(
+                new WebAppInterface(this, (TheApplication)getApplication()), "Android");
         myWebView.addJavascriptInterface(new JSInterface(this), "Fragment");
         myWebView.loadUrl("file:///android_asset/www/urgentNeed.html");
 
@@ -48,7 +49,6 @@ public class UrgentNeedBarGraphActivity extends Activity
                     .add(R.id.urgentNeedFragmentContainer, fragment)
                     .commit();
         }
-
     }
 
     @Override
@@ -99,7 +99,6 @@ public class UrgentNeedBarGraphActivity extends Activity
 
             ft.replace(R.id.urgentNeedFragmentContainer, fragment);
             ft.commit();
-
         }
     }
 

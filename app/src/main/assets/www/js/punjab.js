@@ -1,10 +1,5 @@
-var dataArray = [];
-var districtArray = ["Attock", "Bahawalnagar", "Bahawalpur", "Bhakkar", "Chakwal", "Chiniot",
-    "Dera Ghazi Khan", "Faisalabad", "Gujranwala", "Gujrat", "Hafizabad", "Jhang", "Jhelum",
-    "Kasur", "Khanewal", "Khushab", "Lahore", "Layyah", "Lodhran", "Mandi Bahauddin", "Mianwali",
-    "Multan", "Muzaffargarh", "Narowal", "Nankana Sahib", "Okara", "Pakpattan", "Rahim Yar Khan",
-    "Rajanpur", "Rawalpindi", "Sahiwal", "Sargodha", "Sheikhupura", "Sialkot", "Toba Tek Singh",
-    "Vehari"];
+var dataArray = JSON.parse(Android.getPunjabBarChartDataString());
+var districtArray = JSON.parse(Android.getUrgentPunjabBarChartDistrictsString());
 
 // Truncate values to fit into the view
 var truncatedDistricts = districtArray.map(function(d) {
@@ -15,13 +10,6 @@ var truncatedDistricts = districtArray.map(function(d) {
         }
         return d;
     });
-
-// Array of random numbers while we sync with backend
-var min = 0, max = 100, upTo = 36, i;
-
-for (i = min; i < upTo; i++) {
-    dataArray.push(Math.random());
-}
 
 var margin = {top: 20, bottom: 120, left: 60, right: 10},
     width = 510,

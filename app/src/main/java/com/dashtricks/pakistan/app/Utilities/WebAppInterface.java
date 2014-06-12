@@ -9,6 +9,10 @@ import com.dashtricks.pakistan.app.General.ImmunizationPlan;
 import com.dashtricks.pakistan.app.General.TheApplication;
 import com.dashtricks.pakistan.app.Model.ModelDriver;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * Created by japacible on 5/29/14.
  */
@@ -22,15 +26,20 @@ public class WebAppInterface {
         app = application;
     }
 
+    /** Show a toast from the web page */
+    @JavascriptInterface
+    public void showToast(String toast) {
+        Toast.makeText(mContext, toast, Toast.LENGTH_SHORT).show();
+    }
+
     /**
-     * Return the json String so the webview can use it
+     * Return the json String for maps based on default
      *
-     * @param json String
      * @return String json object
      */
     @JavascriptInterface
-    public String getJson(String json) {
-        return "";
+    public String getSimulateMapDataString() {
+        return ModelDriver.requirementsAsJSON(null, null); // default
     }
 
     @JavascriptInterface
@@ -43,19 +52,14 @@ public class WebAppInterface {
         return app.getDa().getDistrictHeatNumberAsJson();
     }
 
-    /** Show a toast from the web page */
-    @JavascriptInterface
-    public void showToast(String toast) {
-        Toast.makeText(mContext, toast, Toast.LENGTH_SHORT).show();
-    }
-
     /**
      * Return the json String for maps based on default
      *
      * @return String json object
      */
-    public String getDefaultMapsJson() {
-        return ModelDriver.requirementsAsJSON(null, null);
+    @JavascriptInterface
+    public String getExploreMapDataString() {
+        return JsonObjects.EXPLORE_MAP_DATA;
     }
 
     /**
@@ -65,29 +69,69 @@ public class WebAppInterface {
      * @param ips Iterable<ImmunizationPlan>
      * @return String json object
      */
+    @JavascriptInterface
     public String getCustomMapsJson(Facilities fs, Iterable<ImmunizationPlan> ips) {
-        return ModelDriver.requirementsAsJSON(fs, ips);
+        return ModelDriver.requirementsAsJSON(fs, ips); // pass in data
     }
 
     /**
      * Gets json for punjab bar graph
+     *
+     * @return String json object
      */
-    public String getPunjabBarGraphJson() {
-      return JsonObjects.PUNJAB; 
+    @JavascriptInterface
+    public String getPunjabBarChartDataString() {
+
+        return JsonObjects.PUNJAB_DATA;
     }
 
     /**
-     * Gets json for urgent need bar graph
+     * Gets json for punjab bar graph
+     *
+     * @return String json object
      */
-    public String getUrgentNeedBarGraphJson() {
-      return JsonObjects.URGENT_NEED;
+    @JavascriptInterface
+    public String getUrgentPunjabBarChartDistrictsString() {
+        return JsonObjects.PUNJAB_DISTRICTS;
+    }
+
+    /**
+     * Gets json for urgent need bar graph x axis
+     *
+     * @return String json object
+     */
+    @JavascriptInterface
+    public String getUrgentBarChartCategoriesString() {
+        return JsonObjects.URGENT_NEED_CATEGORIES;
+    }
+
+    /**
+     * Gets json for urgent need bar graph y axis
+     *
+     * @return String json object
+     */
+    @JavascriptInterface
+    public String getUrgentBarChartDataString() {
+        return JsonObjects.URGENT_NEED_DATA;
     }
 
     /**
      * Gets json for fridge age bar graph
+     *
+     * @return String json object
      */
-    public String getFridgeAgeBarGraphJson() {
-      return JsonObjects.FRIDGE_AGE;
+    @JavascriptInterface
+    public String getFridgeAgeBarChartDataString() {
+      return JsonObjects.FRIDGE_AGE_DATA;
     }
 
+    /**
+     * Gets json for fridge age bar graph
+     *
+     * @return String json object
+     */
+    @JavascriptInterface
+    public String getFridgeAgeBarChartCategoriesString() {
+        return JsonObjects.FRIDGE_AGE_CATEGORIES;
+    }
 }

@@ -1,14 +1,8 @@
-var dataArray = [24, 45, 50, 23, 15, 33, 29, 14, 37, 21];
-var yearIntervals = ["0-4", "4-8", "8-12", "12-16", "16-20", "20-24",
-                    "24-28", "28-32", "32-36", "36-40"];
+var dataArray = JSON.parse(Android.getFridgeAgeBarChartDataString());
+var yearIntervals = JSON.parse(Android.getFridgeAgeBarChartCategoriesString());
 
 // Array of random numbers while we sync with backend
 var min = 0, max = 10, upTo = 10, i;
-
-
-/*for (i = min; i < upTo; i++) {
-    dataArray.push(Math.random()*500);
-}*/
 
 var margin = {top: 20, bottom: 120, left: 60, right: 10},
     width = 545,

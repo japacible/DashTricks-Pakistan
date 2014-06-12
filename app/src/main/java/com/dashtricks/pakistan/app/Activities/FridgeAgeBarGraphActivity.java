@@ -34,7 +34,8 @@ public class FridgeAgeBarGraphActivity extends Activity
         myWebView.getSettings().setJavaScriptEnabled(true);
         myWebView.getSettings().setAllowUniversalAccessFromFileURLs(true);
         myWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
-        myWebView.addJavascriptInterface(new WebAppInterface(this, (TheApplication) getApplication()), "Android");
+        myWebView.addJavascriptInterface(
+                new WebAppInterface(this, (TheApplication) getApplication()), "Android");
         myWebView.addJavascriptInterface(new JSInterface(this), "Fragment");
         myWebView.loadUrl("file:///android_asset/www/fridgeAges.html");
 
@@ -78,7 +79,6 @@ public class FridgeAgeBarGraphActivity extends Activity
 
             ft.replace(R.id.fridgeAgeFragmentContainer, fragment);
             ft.commit();
-
         }
     }
 

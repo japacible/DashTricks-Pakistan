@@ -9,7 +9,6 @@ import com.dashtricks.pakistan.app.Utilities.ExcelToDatabaseConverter;
 import java.io.File;
 
 public class TheApplication extends Application {
-
     private ExcelToDatabaseConverter ecc;
     private File excelFile;
     private DataAccessor da;
@@ -28,14 +27,21 @@ public class TheApplication extends Application {
     }
 
     public DataAccessor getDa() {
+        if(ecc.isDatabasePopulated()){
+            // concurrency hack
+            da = new DataAccessor(ecc.getAllFacilities());
+            ecc.setDatabasePopulated(false);
+        }
         return da;
     }
 
     public void setExcelFile(File excelFile) {
         this.excelFile = excelFile;
         ecc = new ExcelToDatabaseConverter(this, excelFile);
-        da = new DataAccessor(ecc.getAllFacilities());
+    }
 
+    public void setDa(DataAccessor da) {
+        this.da = da;
     }
 
     public void possiblySlurp() {

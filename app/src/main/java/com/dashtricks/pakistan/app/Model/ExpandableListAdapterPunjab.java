@@ -21,8 +21,6 @@ import java.util.List;
  * Created by Dan on 5/28/2014.
  */
 public class ExpandableListAdapterPunjab extends BaseExpandableListAdapter {
-
-
     private HashMap<String, Double> headerData = new HashMap<String, Double>();
 
     private Context _context;
@@ -38,7 +36,6 @@ public class ExpandableListAdapterPunjab extends BaseExpandableListAdapter {
         this._listDataHeader = listDataHeader;
         this._listDataChild = listChildData;
         this.percentages = percentages;
-
     }
 
     @Override

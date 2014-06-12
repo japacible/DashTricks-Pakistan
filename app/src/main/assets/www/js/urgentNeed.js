@@ -1,5 +1,5 @@
-var dataArray = [1523, 605];
-var need = ["Okay", "Needs Attention"];
+var dataArray = JSON.parse(Android.getUrgentBarChartDataString());
+var need = JSON.parse(Android.getUrgentBarChartCategoriesString());
 
 // Array of random numbers while we sync with backend
 var min = 0, max = 100, upTo = 36, i;

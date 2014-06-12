@@ -104,7 +104,6 @@ public class FridgeAgeBarGraphFragment extends Fragment implements AbsListView.O
         mListener = null;
     }
 
-
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         if (null != mListener) {
@@ -141,5 +140,4 @@ public class FridgeAgeBarGraphFragment extends Fragment implements AbsListView.O
         // TODO: Update argument type and name
         public void onFragmentInteraction(String id);
     }
-
 }

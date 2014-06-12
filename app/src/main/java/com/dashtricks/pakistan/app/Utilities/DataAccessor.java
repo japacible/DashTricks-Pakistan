@@ -77,7 +77,7 @@ public class DataAccessor {
         return (1 - (actualCapacity / requiredCapacity)) * 100;
     }
 
-    public double getAmountDeficinent(Facility f){
+    public double getAmountDeficient(Facility f){
         return f.getAmountShortBy();
     }
 
