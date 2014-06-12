@@ -34,8 +34,10 @@ public class TheApplication extends Application {
     public void setExcelFile(File excelFile) {
         this.excelFile = excelFile;
         ecc = new ExcelToDatabaseConverter(this, excelFile);
-        da = new DataAccessor(ecc.getAllFacilities());
+    }
 
+    public void setDa(DataAccessor da) {
+        this.da = da;
     }
 
     public void possiblySlurp() {

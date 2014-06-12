@@ -31,7 +31,7 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
     Map<String, String> tableToEntriesAndTypes;
     //Map<String, List<ContentValues>> tableContents;
     private boolean databasePopulated;
-    private static final String databaseName = "icePak_databaseTESTER4";
+    private static final String databaseName = "icePak_databaseTESTER5";
     private static final String existanceTestString = "SELECT name FROM sqlite_master WHERE type='table' AND name='RefrigeratorCatalog'";
 
     public long getSpreadsheetSize() {
@@ -237,7 +237,7 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
     public Facilities getAllFacilities() {
         SQLiteDatabase thedb = getWritableDatabase();
         Facilities fs = new Facilities();
-        Cursor c = thedb.rawQuery("SELECT * FROM Facility", null, null);
+        Cursor c = thedb.rawQuery("SELECT * FROM Facility", null);
         if(c.moveToFirst()) {
             do{
             Set<PowerSource> ps = new HashSet<PowerSource>();
@@ -253,13 +253,13 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
     }
 
     private int getProperAdminRegion(int level, int excelAdminCode) {
-        Cursor c = getWritableDatabase().rawQuery("SELECT * FROM AdminHierarchy WHERE Code=" + excelAdminCode, null, null);
+        Cursor c = getWritableDatabase().rawQuery("SELECT * FROM AdminHierarchy WHERE Code=" + excelAdminCode, null);
         c.moveToFirst();
         int parentID = (int) c.getDouble(0);
-        Cursor c2 = getWritableDatabase().rawQuery("SELECT * FROM AdminHierarchy WHERE NodeID=" + parentID, null, null);
+        Cursor c2 = getWritableDatabase().rawQuery("SELECT * FROM AdminHierarchy WHERE NodeID=" + parentID, null);
 
         for (int i = 0; i < level; i++) {
-            c2 = getWritableDatabase().rawQuery("SELECT * FROM AdminHierarchy WHERE NodeID=" + parentID, null, null);
+            c2 = getWritableDatabase().rawQuery("SELECT * FROM AdminHierarchy WHERE NodeID=" + parentID, null);
             c2.moveToFirst();
             parentID = (int) c2.getDouble(4);
         }
