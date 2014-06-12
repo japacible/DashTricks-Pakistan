@@ -11,7 +11,8 @@ var legendText = [
   "80-100%"
 ];
 
-// var window.Android.
+var heatData = window.WebAppInterface.getDistrictHeatNumberAsJson();
+console.log(heatData);
 
 var width = 640,
   height = 552;
@@ -71,7 +72,17 @@ d3.json("pakistan.json", function(error, pak) {
   container.selectAll(".district")
       .data(districts.features)
     .enter().append("path")
-      .attr("class", function(d) { return "district " + d.properties.district.replace(/[ .]/g, "") + " " + randHeat(); })
+      .attr("class", function(d) {
+        var dname = d.properties.district;
+        var heat;
+        if (dname in heatData) {
+          heat = "heat-" + Math.min(Math.floor(heatData[dname]/20 + 1), 5);
+        } else {
+          heat = "heat-0";
+        }
+
+        return "district " + d.properties.district.replace(/[ .]/g, "") + " " + heat; 
+      })
       .attr("d", path);
 
   container.append("path")
@@ -84,13 +95,15 @@ d3.json("pakistan.json", function(error, pak) {
     .attr("d", path)
     .attr("class", "province-boundary");
 
-  svg.selectAll(".district").on("click", function() {
+  svg.selectAll(".district").on("click", function(d) {
     if (d3.event != null && d3.event.defaultPrevented) return;
     svg.selectAll(".selected")
       .classed("selected", false);
 
     d3.select(this)
       .classed("selected", true);
+
+    Fragment.callFragment(d.properties.district);
   });
 });
 
