@@ -27,8 +27,6 @@ public class StartActivity extends ActionBarActivity {
         setContentView(R.layout.activity_start);
         setTitle("icePAK");
 
-        ExcelToDatabaseConverter ec = new ExcelToDatabaseConverter();
-
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             WebView.setWebContentsDebuggingEnabled(true);
         }

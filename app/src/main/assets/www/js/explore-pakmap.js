@@ -14,8 +14,6 @@ var legendText = [
   "80-100%"
 ];
 
-// var window.Android.
-
 var width = 640,
   height = 552;
 

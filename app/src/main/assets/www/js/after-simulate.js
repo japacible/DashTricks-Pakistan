@@ -46,6 +46,7 @@ var rect = svg.append("rect")
 
 var container = svg.append("g");
 
+
 svg.append("text")
     .attr("class", "xAxisLabels")
     .attr("y", 40)
