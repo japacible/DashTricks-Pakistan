@@ -69,6 +69,4 @@ public class VisualizationActivity extends ActionBarActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-
-
 }

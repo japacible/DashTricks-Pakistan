@@ -53,7 +53,6 @@ public class FridgeExpandableFacilityListFragment extends Fragment {
         listDataChild = new HashMap<String, List<String>>();
 
         // Adding header and child data
-
         for (FridgeAgeData fad: fridgeData) {
             listDataHeader.add(fad.getRefrigeratorModel() + " / " + fad.getFacilityName());
 
@@ -64,12 +63,10 @@ public class FridgeExpandableFacilityListFragment extends Fragment {
             fridgeDetails.add("Province: " + fad.getProvince());
 
             listDataChild.put(fad.getRefrigeratorModel() + " / " + fad.getFacilityName(), fridgeDetails);
-
         }
     }
 
     public void setYearInterval(String yi) {
-
         this.yearIntervalClicked = yi;
         fridgeData = FridgeListLab.getFridgeData(yearIntervalClicked);
     }

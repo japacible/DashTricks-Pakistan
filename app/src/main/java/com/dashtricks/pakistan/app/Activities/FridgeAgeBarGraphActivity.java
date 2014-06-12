@@ -79,7 +79,6 @@ public class FridgeAgeBarGraphActivity extends Activity
 
             ft.replace(R.id.fridgeAgeFragmentContainer, fragment);
             ft.commit();
-
         }
     }
 

@@ -26,7 +26,6 @@ public class VisualizationBeforeAfterActivity extends ActionBarActivity {
         ActionBar actionBar = getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        // This does not pass anything into the webview
         WebView leftWebView = (WebView) findViewById(R.id.webviewBefore);
         leftWebView.getSettings().setJavaScriptEnabled(true);
         leftWebView.getSettings().setAllowUniversalAccessFromFileURLs(true);
@@ -41,7 +40,6 @@ public class VisualizationBeforeAfterActivity extends ActionBarActivity {
                 new WebAppInterface(this, (TheApplication) getApplication()), "Android");
         leftWebView.loadUrl("file:///android_asset/www/beforeSimulate.html");
 
-        // This does not pass anything into the webview
         WebView rightWebView = (WebView) findViewById(R.id.webviewAfter);
         rightWebView.getSettings().setJavaScriptEnabled(true);
         rightWebView.getSettings().setAllowUniversalAccessFromFileURLs(true);
