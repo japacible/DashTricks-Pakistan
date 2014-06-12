@@ -15,6 +15,7 @@ import android.webkit.WebView;
 import android.widget.Button;
 
 import com.dashtricks.pakistan.app.R;
+import com.dashtricks.pakistan.app.Utilities.ExcelToDatabaseConverter;
 import com.dashtricks.pakistan.app.Utilities.FileDialog;
 
 import java.io.File;
@@ -25,6 +26,8 @@ public class StartActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
         setTitle("icePAK");
+
+        ExcelToDatabaseConverter ec = new ExcelToDatabaseConverter();
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             WebView.setWebContentsDebuggingEnabled(true);
