@@ -1,5 +1,13 @@
-var dataArray = [1523, 605];
-var need = ["Okay", "Needs Attention"];
+Android.showToast("Howdy!");
+
+var dataArray = Android.getUrgentBarChartDataString();
+var need = Android.getUrgentBarChartCategoriesString();
+
+Android.showToast(dataArray);
+Android.showToast(need);
+
+// var dataArray = [1523, 605];
+// var need = ["Okay", "Needs Attention"];
 
 // Array of random numbers while we sync with backend
 var min = 0, max = 100, upTo = 36, i;

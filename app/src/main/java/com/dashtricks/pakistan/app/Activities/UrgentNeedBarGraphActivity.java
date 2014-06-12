@@ -48,7 +48,6 @@ public class UrgentNeedBarGraphActivity extends Activity
                     .add(R.id.urgentNeedFragmentContainer, fragment)
                     .commit();
         }
-
     }
 
     @Override
@@ -99,7 +98,6 @@ public class UrgentNeedBarGraphActivity extends Activity
 
             ft.replace(R.id.urgentNeedFragmentContainer, fragment);
             ft.commit();
-
         }
     }
 
