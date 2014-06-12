@@ -63,6 +63,9 @@ public class ExampleTest extends AndroidTestCase {
         Set<PowerSource> pss2 = new HashSet<PowerSource>();
         pss2.add(PowerSource.KEROSENE);
         pss2.add(PowerSource.ELECTRICITY);
+
+        Facility f1 = new Facility("Fac1", 20, pss1, 9, null);
+        Facility f2 = new Facility("Fac2", 30, pss2, 9, null);
         /*
         Facility f1 = new Facility("Fac1", 20, pss1);
         Facility f2 = new Facility("Fac2", 30, pss2);

@@ -6,6 +6,7 @@ import android.widget.Toast;
 
 import com.dashtricks.pakistan.app.General.Facilities;
 import com.dashtricks.pakistan.app.General.ImmunizationPlan;
+import com.dashtricks.pakistan.app.General.TheApplication;
 import com.dashtricks.pakistan.app.Model.ModelDriver;
 
 import org.json.JSONArray;
@@ -17,10 +18,12 @@ import org.json.JSONObject;
  */
 public class WebAppInterface {
     private Context mContext;
+    private TheApplication app;
 
     /** Instantiate the interface and set the context */
-    public WebAppInterface(Context c) {
+    public WebAppInterface(Context c, TheApplication application) {
         mContext = c;
+        app = application;
     }
 
     /** Show a toast from the web page */
@@ -37,6 +40,16 @@ public class WebAppInterface {
     @JavascriptInterface
     public String getSimulateMapDataString() {
         return ModelDriver.requirementsAsJSON(null, null); // default
+    }
+
+    @JavascriptInterface
+    public String facilitiesToJson(){
+        return app.getDa().facilitiesToJson();
+    }
+
+    @JavascriptInterface
+    public String getDistrictHeatNumberAsJson(){
+        return app.getDa().getDistrictHeatNumberAsJson();
     }
 
     /**

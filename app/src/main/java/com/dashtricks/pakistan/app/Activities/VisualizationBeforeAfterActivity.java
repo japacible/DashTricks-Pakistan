@@ -7,12 +7,12 @@ import android.support.v4.app.NavUtils;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.WebView;
 
+import com.dashtricks.pakistan.app.General.TheApplication;
 import com.dashtricks.pakistan.app.R;
 import com.dashtricks.pakistan.app.Utilities.WebAppInterface;
 
@@ -37,7 +37,8 @@ public class VisualizationBeforeAfterActivity extends ActionBarActivity {
                 return true;
             }
         });
-        leftWebView.addJavascriptInterface(new WebAppInterface(this), "Android");
+        leftWebView.addJavascriptInterface(
+                new WebAppInterface(this, (TheApplication) getApplication()), "Android");
         leftWebView.loadUrl("file:///android_asset/www/beforeSimulate.html");
 
         // This does not pass anything into the webview
@@ -51,7 +52,8 @@ public class VisualizationBeforeAfterActivity extends ActionBarActivity {
                 return true;
             }
         });
-        rightWebView.addJavascriptInterface(new WebAppInterface(this), "Android");
+        rightWebView.addJavascriptInterface(
+                new WebAppInterface(this, (TheApplication) getApplication()), "Android");
         rightWebView.loadUrl("file:///android_asset/www/afterSimulate.html");
     }
 
