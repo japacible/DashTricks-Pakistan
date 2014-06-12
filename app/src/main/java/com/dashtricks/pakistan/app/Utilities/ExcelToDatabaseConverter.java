@@ -64,7 +64,6 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
 
         //if people actually try to get data from a nonpopulated
         //database, onCreate gets called, which sets it to a more correct value
-        databasePopulated = true;
         tablesAndFields = new String[getW().getSheets().length];
         spreadsheetSize = 0;
 

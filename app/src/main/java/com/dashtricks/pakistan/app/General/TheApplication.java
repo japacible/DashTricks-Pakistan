@@ -27,6 +27,11 @@ public class TheApplication extends Application {
     }
 
     public DataAccessor getDa() {
+        if(ecc.isDatabasePopulated()){
+            // concurrency hack
+            da = new DataAccessor(ecc.getAllFacilities());
+            ecc.setDatabasePopulated(false);
+        }
         return da;
     }
 
