@@ -1,13 +1,8 @@
-Android.showToast("Howdy!");
+var dataArray = JSON.parse(Android.getUrgentBarChartDataString());
+var need = JSON.parse(Android.getUrgentBarChartCategoriesString());
 
-var dataArray = Android.getUrgentBarChartDataString();
-var need = Android.getUrgentBarChartCategoriesString();
-
-Android.showToast(dataArray);
-Android.showToast(need);
-
-// var dataArray = [1523, 605];
-// var need = ["Okay", "Needs Attention"];
+Android.showToast(dataArray.toString());
+Android.showToast(need.toString());
 
 // Array of random numbers while we sync with backend
 var min = 0, max = 100, upTo = 36, i;

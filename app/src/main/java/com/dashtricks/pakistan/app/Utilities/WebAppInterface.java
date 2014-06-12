@@ -74,45 +74,8 @@ public class WebAppInterface {
      * Gets json for urgent need bar graph
      */
     @JavascriptInterface
-    public JSONObject getUrgentBarChartCategories() {
-        //String text = "[ {'Okay':1523, 'Needs Attention':605} ]";
-        String text = "[ {'Okay', 'Needs Attention'} ]";
-
-        JSONObject jsonar = null;
-
-        try {
-            jsonar = new JSONObject(text);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        return jsonar;
-    }
-
-    /**
-     * Gets json
-     */
-    @JavascriptInterface
-    public JSONObject getUrgentBarChartData() {
-        String text = "[ {1523, 605} ]";
-
-        JSONObject jsonar = null;
-
-        try {
-            jsonar = new JSONObject(text);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        return jsonar;
-    }
-
-    /**
-     * Gets json for urgent need bar graph
-     */
-    @JavascriptInterface
     public String getUrgentBarChartCategoriesString() {
-        return "[ {'Okay', 'Needs Attention'} ]";
+        return "[ \"Okay\", \"Needs Attention\" ]";
     }
 
     /**
@@ -120,7 +83,7 @@ public class WebAppInterface {
      */
     @JavascriptInterface
     public String getUrgentBarChartDataString() {
-        return "[ {1523, 605} ]";
+        return "[ \"1523\", \"605\" ]";
     }
 
     /**
