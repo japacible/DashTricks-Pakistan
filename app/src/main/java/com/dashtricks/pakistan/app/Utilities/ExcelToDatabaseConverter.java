@@ -241,10 +241,10 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
         if(c.moveToFirst()) {
             do{
             Set<PowerSource> ps = new HashSet<PowerSource>();
-            int adminCode = getProperAdminRegion(3, c.getInt(26));
+            int adminCode = getProperAdminRegion(3, (int)c.getDouble(26));
 
             // name, facid, power source set, admin region, db
-            Facility f = new Facility(c.getString(3), c.getInt(0), ps, adminCode, thedb);
+            Facility f = new Facility(c.getString(3), (int)c.getDouble(0), ps, adminCode, thedb);
             fs.add(f);
             }while(c.moveToNext());
         }
@@ -253,6 +253,17 @@ public class ExcelToDatabaseConverter extends SQLiteOpenHelper{
     }
 
     private int getProperAdminRegion(int level, int excelAdminCode) {
-        return 0;
+        Cursor c = getWritableDatabase().rawQuery("SELECT * FROM AdminHierarchy WHERE Code=" + excelAdminCode, null, null);
+        c.moveToFirst();
+        int parentID = (int) c.getDouble(0);
+        Cursor c2 = getWritableDatabase().rawQuery("SELECT * FROM AdminHierarchy WHERE NodeID=" + parentID, null, null);
+
+        for (int i = 0; i < level; i++) {
+            c2 = getWritableDatabase().rawQuery("SELECT * FROM AdminHierarchy WHERE NodeID=" + parentID, null, null);
+            c2.moveToFirst();
+            parentID = (int) c2.getDouble(4);
+        }
+
+        return (int)c2.getDouble(0);
     }
 }
