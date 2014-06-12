@@ -29,9 +29,9 @@ public class Facility implements Iterable<Refrigerator>{
 
     // All these things
     public Facility(String name, int facId, Set<PowerSource> ps, int adminRegion, SQLiteDatabase db) {
-	    this.name = name;
-	    this.facId = facId;
-	    this.powerSources = ps;
+        this.name = name;
+        this.facId = facId;
+        this.powerSources = ps;
         this.adminRegion = adminRegion;
 
         int lookup = adminRegion;

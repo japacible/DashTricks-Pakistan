@@ -4,7 +4,6 @@ package com.dashtricks.pakistan.app.Model;
  * Created by Dan on 6/2/2014.
  */
 public class OverallRefrigeratorStatistics {
-
     private int numberOfRefrigerators;
     private int workingRefrigerators;
     private int refrigeratorsOutOfCommission;

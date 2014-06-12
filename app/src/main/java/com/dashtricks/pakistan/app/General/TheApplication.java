@@ -9,7 +9,6 @@ import com.dashtricks.pakistan.app.Utilities.ExcelToDatabaseConverter;
 import java.io.File;
 
 public class TheApplication extends Application {
-
     private ExcelToDatabaseConverter ecc;
     private File excelFile;
     private DataAccessor da;

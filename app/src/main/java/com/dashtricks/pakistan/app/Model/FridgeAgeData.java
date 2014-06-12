@@ -4,7 +4,6 @@ package com.dashtricks.pakistan.app.Model;
  * Created by Dan on 5/28/2014.
  */
 public class FridgeAgeData {
-
     private String facilityName;
     private String refrigeratorModel;
     private String province;

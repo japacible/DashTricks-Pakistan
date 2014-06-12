@@ -43,10 +43,7 @@ public class FridgeListLab {
     public static List<FridgeAgeData> getFridgeData(String yi) {
         List<FridgeAgeData> fd = new ArrayList<FridgeAgeData>();
 
-
-
         if(yi.equals("0-4")) {
-
             for(int i = 1; i <= 24; i++) {
                 FridgeAgeData fad = new FridgeAgeData(i, 4);
                 fd.add(fad);

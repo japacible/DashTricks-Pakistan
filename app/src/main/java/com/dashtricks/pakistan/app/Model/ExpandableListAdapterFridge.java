@@ -21,8 +21,6 @@ import java.util.List;
  * Created by Dan on 5/28/2014.
  */
 public class ExpandableListAdapterFridge extends BaseExpandableListAdapter {
-
-
     private HashMap<String, Double> headerData = new HashMap<String, Double>();
 
     private Context _context;
@@ -35,7 +33,6 @@ public class ExpandableListAdapterFridge extends BaseExpandableListAdapter {
         this._context = context;
         this._listDataHeader = listDataHeader;
         this._listDataChild = listChildData;
-
     }
 
     @Override
@@ -125,7 +122,5 @@ public class ExpandableListAdapterFridge extends BaseExpandableListAdapter {
     public boolean isChildSelectable(int groupPosition, int childPosition) {
         return true;
     }
-
-
 
 }

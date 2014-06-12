@@ -1,6 +1,8 @@
 package com.dashtricks.pakistan.app.Utilities;
 
 /**
+ * Placeholder data while the database is still under construction
+ *
  * Created by japacible on 5/29/14.
  */
 public class JsonObjects {

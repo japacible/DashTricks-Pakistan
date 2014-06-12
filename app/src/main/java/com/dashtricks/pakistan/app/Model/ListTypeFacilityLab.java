@@ -24,7 +24,6 @@ public class ListTypeFacilityLab {
         }
     }
 
-
     public static ListTypeFacilityLab get(Context c) {
         if(fLab == null) {
             fLab = new ListTypeFacilityLab(c.getApplicationContext());
