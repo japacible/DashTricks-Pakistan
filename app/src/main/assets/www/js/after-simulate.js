@@ -1,3 +1,6 @@
+// var data = JSON.parse(Android.getSimulateMapDataString());
+// Android.showToast(data.toString());
+
 function randHeat() {
   return "heat-" + ( 5 - Math.round(Math.pow(Math.random(), 3) * 5));
 }
